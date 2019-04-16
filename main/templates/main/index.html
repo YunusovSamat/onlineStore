@@ -1,8 +1,18 @@
 {% extends 'base_template.html' %}
 
 {% block context %}
-    {% for name in catalog %}
-        <h3>{{ name }}</h3>
-    {% endfor %}
+    {% for catalog in catalog_list %}
+        <h3>{{ catalog }}</h3>
+        {% for subcatalog in catalog.subcatalog_set.all %}
+            <h4>{{ subcatalog }}</h4>
+            {% for product in subcatalog.product_set.all %}
+                <h5>{{ product }}</h5>
+                {% for image_product in product.imageproduct_set.all %}
+                    <img src="../../{{ image_product.image_product_image }}" alt="">
+                {% endfor %}
 
+            {% endfor %}
+
+        {% endfor %}
+    {% endfor %}
 {% endblock %}
