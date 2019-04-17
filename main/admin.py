@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Catalog, Subcatalog, Product, ImageProduct
+from .models import Catalog, Subcatalog, Product, ImageProduct, ImagePage
 
 
 class CatalogAdmin(admin.ModelAdmin):
@@ -30,9 +30,17 @@ class ProductAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 
 
-class ImageAdmin(admin.ModelAdmin):
+class ImageProductAdmin(admin.ModelAdmin):
     list_display = ['image_product_name', 'image_product_product']
     search_fields = ['image_product_name', 'image_product_product']
 
 
-admin.site.register(ImageProduct, ImageAdmin)
+admin.site.register(ImageProduct, ImageProductAdmin)
+
+
+class ImagePageAdmin(admin.ModelAdmin):
+    list_display = ['image_page_slug', 'image_page_image']
+    search_fields = ['image_page_slug', 'image_page_image']
+
+
+admin.site.register(ImagePage, ImagePageAdmin)
