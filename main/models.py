@@ -9,7 +9,7 @@ class Catalog(models.Model):
 
 
 class Subcatalog(models.Model):
-    catalog = models.ForeignKey(
+    fk_catalog = models.ForeignKey(
         Catalog, on_delete=models.CASCADE, related_name='catalog')
     name = models.CharField(max_length=100)
 
@@ -18,7 +18,7 @@ class Subcatalog(models.Model):
 
 
 class Product(models.Model):
-    subcatalog = models.ForeignKey(
+    fk_subcatalog = models.ForeignKey(
         Subcatalog, on_delete=models.CASCADE, related_name='subcatalog')
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
@@ -28,20 +28,38 @@ class Product(models.Model):
         return self.name
 
 
+class SizeProduct(models.Model):
+    size = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.size
+
+
+class CountProduct(models.Model):
+    fk_product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name='fk_product')
+    fk_size = models.ForeignKey(
+        SizeProduct, on_delete=models.CASCADE, related_name='fk_size')
+    count = models.PositiveIntegerField(default=100)
+
+    def __str__(self):
+        return self.count
+
+
 class ImageProduct(models.Model):
-    product = models.ForeignKey(
+    fk_product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='product')
-    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True)
     image = models.ImageField(
         blank=True, upload_to='static/main/imagesProduct')
 
     def __str__(self):
-        return self.name
+        return self.slug
 
 
 class ImagePage(models.Model):
     slug = models.SlugField(unique=True)
-    image = models.ImageField(upload_to='static/main/imagesPage')
+    image = models.ImageField(blank=True, upload_to='static/main/imagesPage')
 
     def __str__(self):
         return self.slug

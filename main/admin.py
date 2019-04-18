@@ -1,46 +1,48 @@
 from django.contrib import admin
 
-from .models import Catalog, Subcatalog, Product, ImageProduct, ImagePage
+from .models import Catalog, Subcatalog, Product, SizeProduct, CountProduct, \
+    ImageProduct, ImagePage
 
 
 class CatalogAdmin(admin.ModelAdmin):
-    list_display = ['catalog_name']
-    search_fields = ['catalog_name']
-
-
-admin.site.register(Catalog, CatalogAdmin)
+    list_display = ['name']
+    search_fields = ['name']
 
 
 class SubcatalogAdmin(admin.ModelAdmin):
-    list_display = ['subcatalog_name', 'subcatalog_catalog']
-    search_fields = ['subcatalog_name']
-
-
-admin.site.register(Subcatalog, SubcatalogAdmin)
+    list_display = ['fk_catalog', 'name']
+    search_fields = ['fk_catalog', 'name']
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = [
-        'product_subcatalog', 'product_name', 'product_price',
-        'product_count', 'product_description'
-    ]
-    search_fields = ['product_name', 'product_price']
+    list_display = ['fk_subcatalog', 'name', 'description', 'price']
+    search_fields = ['fk_subcatalog', 'name', 'description', 'price']
 
 
-admin.site.register(Product, ProductAdmin)
+class SizeProductAdmin(admin.ModelAdmin):
+    list_display = ['size']
+    search_fields = ['size']
+
+
+class CountProductAdmin(admin.ModelAdmin):
+    list_display = ['fk_product', 'fk_size', 'count']
+    search_fields = ['fk_product', 'fk_size', 'count']
 
 
 class ImageProductAdmin(admin.ModelAdmin):
-    list_display = ['image_product_name', 'image_product_product']
-    search_fields = ['image_product_name', 'image_product_product']
-
-
-admin.site.register(ImageProduct, ImageProductAdmin)
+    list_display = ['fk_product', 'slug', 'image']
+    search_fields = ['fk_product', 'slug', 'image']
 
 
 class ImagePageAdmin(admin.ModelAdmin):
-    list_display = ['image_page_slug', 'image_page_image']
-    search_fields = ['image_page_slug', 'image_page_image']
+    list_display = ['slug', 'image']
+    search_fields = ['slug', 'image']
 
 
+admin.site.register(Catalog, CatalogAdmin)
+admin.site.register(Subcatalog, SubcatalogAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(SizeProduct, SizeProductAdmin)
+admin.site.register(CountProduct, CountProductAdmin)
+admin.site.register(ImageProduct, ImageProductAdmin)
 admin.site.register(ImagePage, ImagePageAdmin)
