@@ -8,3 +8,8 @@ class IndexView(generic.ListView):
     template_name = 'main/index.html'
     model = Catalog
 
+
+class CatalogView(generic.ListView):
+    template_name = 'main/catalog.html'
+    model = Catalog
+

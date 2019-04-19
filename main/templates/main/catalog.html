@@ -1,0 +1,65 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block style %}
+    {% static 'main/styles/catalog_style.css' %}
+{% endblock %}
+
+{% block context %}
+    <section class="sorted">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><h4>Упорядочить</h4></li>
+                    <li><span>по цене min</span></li>
+                    <li><span>по цене max</span></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="vertical_menu_catalog">
+        <div class="container">
+            <nav>
+                 <ul>
+                    <li class="red_text">
+                        <a href="#">Межсезонная распродажа</a>
+                    </li>
+                    <li>
+                        <a href="#">Новинки</a>
+                    </li>
+                    <li>
+                        <a href="#">Одежда</a>
+                        <ul>
+                            <li><a href="#">Пальто и парки</a></li>
+                            <li><a href="#">Пиджаки</a></li>
+                            <li><a href="#">Брюки</a></li>
+                            <li><a href="#">Рубашки</a></li>
+                            <li><a href="#">Поло</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Обувь</a>
+                        <ul>
+                            <li><a href="#">Туфли</a></li>
+                            <li><a href="#">Ботинки</a></li>
+                            <li><a href="#">Кроссовки и кеды</a></li>
+                            <li><a href="#">Мокасины</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Аксессуары</a>
+                        <ul>
+                            <li><a href="#">Шарфы</a></li>
+                            <li><a href="#">Головные уборы</a></li>
+                            <li><a href="#">Галстуки и бабочки</a></li>
+                            <li><a href="#">Ремни</a></li>
+                            <li><a href="">Запонки</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+{% endblock %}

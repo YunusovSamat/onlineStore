@@ -1,0 +1,51 @@
+/* Sorted catalog */
+.sorted {
+    border-top: 2px solid #a09b94;
+    overflow: hidden;
+}
+
+.sorted nav {
+    margin: 5px 40px;
+    float: right;
+    font-size: 10px;
+}
+
+.sorted li {
+    margin-bottom: 5px;
+}
+
+.sorted h4 {
+    text-transform: uppercase;
+}
+
+.sorted span:hover {
+    color: #807c76;
+    cursor: pointer;
+}
+
+
+/* Vertical menu catalog */
+.vertical_menu_catalog  {
+    font-size: 13px;
+}
+
+.vertical_menu_catalog a {
+    display: block;
+    margin-bottom: 9px;
+    color: #3a2900;
+    text-decoration: none;
+}
+
+.red_text a {
+    color: #fc2c22;
+}
+
+.vertical_menu_catalog nav > ul > li > a {
+    text-transform: uppercase;
+
+}
+
+.vertical_menu_catalog ul li ul {
+    margin-left: 10px;
+}
+

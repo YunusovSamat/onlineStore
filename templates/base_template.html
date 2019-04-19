@@ -1,13 +1,193 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang='ru'>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+	<meta charset='UTF-8'>
+	<title>Dandy Shop</title>
+	<link rel="stylesheet" href={% static 'main/styles/reset.css' %}>
+    <link rel="stylesheet" href="{% static 'main/styles/base_style.css' %}">
+	<link rel='stylesheet' href='{% block style %}{% endblock %}'>
 </head>
+
 <body>
-    <h3>indexBegin</h3>
-    {% block context %}
-    {% endblock %}
-    <h3>indexEnd</h3>
+	<header class="header">
+		<div class="container">
+			<div class="main">
+				<nav class="menu catalog">
+					<ul>
+						<li>
+							<a href="{% url 'main:catalog' %}">Одежда</a>
+							<ul>
+								<li>
+									<div class="col_catalog-1">
+										<h3>Межсезонная распродажа</h3>
+										<div class="text_col-1">
+											<a href="#">Пальто и парки</a>
+											<a href="#">Пиджаки</a>
+											<a href="#">Рубашки</a>
+											<a href="#">Брюки</a>
+											<a href="#">Свитеры и джемперы</a>
+											<a href="#">Джинсы</a>
+											<a href="#">Показать все</a>
+										</div>
+									</div>
+									<div class="col_catalog-2">
+										<h3>Новинки</h3>
+										<div class="text_col-2">
+											<a href="#">Новые поступления</a>
+											<a href="#">Пиджаки</a>
+											<a href="#">Верхняя одежда</a>
+											<a href="#">Свитеры и джемперы</a>
+											<a href="#">Джинсы</a>
+										</div>
+									</div>
+									<div class="col_catalog-2">
+										<h3>Категории</h3>
+										<div class="text_col-2">
+											<a href="#">Верхняя одежда</a>
+											<a href="#">Пальто и парки</a>
+											<a href="#">Пиджаки</a>
+											<a href="#">Брюки</a>
+											<a href="#">Рубашки</a>
+											<a href="#">Поло</a>
+											<a href="#">Джинсы</a>
+											<a href="#">Футболки</a>
+											<a href="#">Толстовки</a>
+											<a href="#">Свитеры и джемперы</a>
+											<a href="#">Показать все</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Обувь</a>
+							<ul>
+								<li>
+									<div class="col_catalog-1">
+										<h3>Межсезонная распродажа</h3>
+										<div class="text_col-1">
+											<a href="#">Ботинки</a>
+											<a href="#">Туфли</a>
+											<a href="#">Кроссовки</a>
+											<a href="#">Показать все</a>
+										</div>
+									</div>
+									<div class="col_catalog-2">
+										<h3>Новинки</h3>
+										<div class="text_col-2">
+											<a href="#">Новые поступления</a>
+										</div>
+									</div>
+									<div class="col_catalog-2">
+										<h3>Категории</h3>
+										<div class="text_col-2">
+											<a href="#">Туфли</a>
+											<a href="#">Ботинки</a>
+											<a href="#">Кроссовки и кеды</a>
+											<a href="#">Мокасины</a>
+											<a href="#">Показать все</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Аксессуары</a>
+							<ul>
+								<li>
+									<div class="col_catalog-1">
+										<h3>Межсезонная распродажа</h3>
+										<div class="text_col-1">
+											<a href="#">Шарфы</a>
+											<a href="#">Головные уборы</a>
+											<a href="#">Галстуки и бабочки</a>
+											<a href="#">Показать все</a>
+										</div>
+									</div>
+									<div class="col_catalog-2">
+										<h3>Новинки</h3>
+										<div class="text_col-2">
+											<a href="#">Новые поступления</a>
+										</div>
+									</div>
+									<div class="col_catalog-2">
+										<h3>Категории</h3>
+										<div class="text_col-2">
+											<a href="#">Шарфы</a>
+											<a href="#">Головные уборы</a>
+											<a href="#">Галстуки и бабочки</a>
+											<a href="#">Ремни</a>
+											<a href="#">Запонки</a>
+											<a href="#">Сумки</a>
+											<a href="#">Ароматы</a>
+											<a href="#">Солнце-защитные очки</a>
+											<a href="#">Носки</a>
+											<a href="#">Белье</a>
+											<a href="#">Показать все</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<a href="{% url 'main:index' %}" class="logo"><img src={% static 'main/imagesPage/logo.png' %} alt="logo"></a>
+				<nav class="menu navigation">
+					<ul>
+						<li><a href="#">Корзина</a></li>
+						<li><a href="#">Доставка и оплата</a></li>
+						<li><a href="#">Вход</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+    <section class="void_for_header"></section>
+
+	{% block context %}{% endblock %}
+
+	<footer>
+		<div class="container">
+			<div class="block_footer">
+				<div>
+					<h3>Справка</h3>
+					<div class="box_link_footer">
+						<a href="#">Часто задаваемые вопросы</a>
+						<a href="#">Доставка и получение</a>
+						<a href="#">Оплата</a>
+						<a href="#">Обмен и возврат</a>
+						<a href="#">Контакты</a>
+					</div>
+				</div>
+				<div>
+					<h3>Компания</h3>
+					<div class="box_link_footer">
+						<a href="#">История бренда</a>
+						<a href="#">Работа с нами</a>
+					</div>
+				</div>
+				<div>
+					<h3>Будьте в курсе новостей</h3>
+					<div class="box_link_footer">
+						<a href="#">Instagram</a>
+						<a href="#">Twitter</a>
+						<a href="#">Facebook</a>
+						<a href="#">Youtube</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<section class="protection">
+		<div class="container">
+			<h3>Все права защищены</h3>
+		</div>
+	</section>
 </body>
+
 </html>
