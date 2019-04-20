@@ -16,6 +16,8 @@ body {
 	position: fixed;
 	z-index: 100;
 	background: #f0e8de;
+	border-bottom: 2px solid #a09b94;
+
 }
 .main {
 	padding: 15px 0 18px;

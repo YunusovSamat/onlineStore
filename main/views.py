@@ -9,7 +9,7 @@ class IndexView(generic.ListView):
     model = Catalog
 
 
-class CatalogView(generic.ListView):
+class CatalogView(generic.DetailView):
     template_name = 'main/catalog.html'
     model = Catalog
-
+    context_object_name = 'subcatalog'

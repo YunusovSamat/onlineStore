@@ -1,6 +1,5 @@
 /* Sorted catalog */
 .sorted {
-    border-top: 2px solid #a09b94;
     overflow: hidden;
 }
 
@@ -23,10 +22,16 @@
     cursor: pointer;
 }
 
-
 /* Vertical menu catalog */
 .vertical_menu_catalog  {
     font-size: 13px;
+    border: 1px solid red;
+    position: fixed;
+}
+
+.vertical_menu_catalog nav {
+    float: left;
+    margin-left: 190px;
 }
 
 .vertical_menu_catalog a {
@@ -42,10 +47,8 @@
 
 .vertical_menu_catalog nav > ul > li > a {
     text-transform: uppercase;
-
 }
 
 .vertical_menu_catalog ul li ul {
     margin-left: 10px;
 }
-
