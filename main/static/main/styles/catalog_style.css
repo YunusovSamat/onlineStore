@@ -25,30 +25,70 @@
 /* Vertical menu catalog */
 .vertical_menu_catalog  {
     font-size: 13px;
-    border: 1px solid red;
 }
 
-.vertical_menu_catalog nav {
-    float: left;
+.view_catalog {
+    display: flex;
+    align-items: flex-start;
+    /*border: 1px solid red;*/
+}
+
+.view_menu_catalog {
+    flex: 1;
+    border: 1px solid blue;
+    margin-top: 10px;
     margin-left: 30px;
-    position: fixed;
+    position: sticky;
+    top: 75px;
 }
 
-.vertical_menu_catalog a {
-    display: block;
+.view_menu_catalog a {
+    display: inline-block;
     margin-bottom: 9px;
     color: #3a2900;
     text-decoration: none;
+    font-weight: normal;
+}
+
+.view_menu_catalog a:hover {
+    color: #8f8e8d;
 }
 
 .red_text a {
     color: #fc2c22;
 }
 
-.vertical_menu_catalog nav > ul > li > a {
+.red_text a:hover {
+    color: #bd8383;
+}
+
+.view_menu_catalog nav > ul > li > a {
     text-transform: uppercase;
 }
 
-.vertical_menu_catalog ul li ul {
+.view_menu_catalog ul li ul {
     margin-left: 10px;
+}
+
+.view_tile_catalog {
+    border: 1px solid green;
+    flex: 5;
+    display: grid;
+    justify-items: center;
+    align-self: start;
+}
+
+.tile_box_1 {
+    grid-column: 1 / 2;
+    border: 1px solid red;
+}
+
+.tile_box_2 {
+    grid-column: 1;
+    border: 1px solid green;
+}
+
+
+.view_tile_catalog a {
+    border: 2px solid black;
 }

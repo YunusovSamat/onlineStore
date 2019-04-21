@@ -20,54 +20,64 @@
 
     <section class="vertical_menu_catalog">
         <div class="container">
-            <nav>
-                 <ul>
-                    <li class="red_text">
-                        <a href="#">Межсезонная распродажа</a>
-                    </li>
-                    <li>
-                        <a href="#">Новинки</a>
-                    </li>
-                    <li>
-                        <a href="#">Одежда</a>
-                        <ul>
-                            <li><a href="#">Пальто и парки</a></li>
-                            <li><a href="#">Пиджаки</a></li>
-                            <li><a href="#">Брюки</a></li>
-                            <li><a href="#">Рубашки</a></li>
-                            <li><a href="#">Поло</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Обувь</a>
-                        <ul>
-                            <li><a href="#">Туфли</a></li>
-                            <li><a href="#">Ботинки</a></li>
-                            <li><a href="#">Кроссовки и кеды</a></li>
-                            <li><a href="#">Мокасины</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Аксессуары</a>
-                        <ul>
-                            <li><a href="#">Шарфы</a></li>
-                            <li><a href="#">Головные уборы</a></li>
-                            <li><a href="#">Галстуки и бабочки</a></li>
-                            <li><a href="#">Ремни</a></li>
-                            <li><a href="">Запонки</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <img src="{% static 'main/imagesPage/mod1.jpg' %}" alt="">
+            <div class="view_catalog">
+                <nav class="view_menu_catalog">
+                     <ul>
+                        <li class="red_text">
+                            <a href="#" alt="">Межсезонная распродажа</a>
+                        </li>
+                        <li>
+                            <a href="#">Новинки</a>
+                        </li>
+                        <li>
+                            <a href="#">Одежда</a>
+                            <ul>
+                                <li><a href="#">Пальто и парки</a></li>
+                                <li><a href="#">Пиджаки</a></li>
+                                <li><a href="#">Брюки</a></li>
+                                <li><a href="#">Рубашки</a></li>
+                                <li><a href="#">Поло</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Обувь</a>
+                            <ul>
+                                <li><a href="#">Туфли</a></li>
+                                <li><a href="#">Ботинки</a></li>
+                                <li><a href="#">Кроссовки и кеды</a></li>
+                                <li><a href="#">Мокасины</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Аксессуары</a>
+                            <ul>
+                                <li><a href="#">Шарфы</a></li>
+                                <li><a href="#">Головные уборы</a></li>
+                                <li><a href="#">Галстуки и бабочки</a></li>
+                                <li><a href="#">Ремни</a></li>
+                                <li><a href="">Запонки</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="view_tile_catalog">
+{#                    {% for product in subcatalog.product.all %}#}
+{#                        <h1>{{ product }}</h1>#}
+{#                    {% endfor %}#}
+                    {% for product in subcatalog.products.all %}
+                        <div class="{% cycle 'tile_box_1' 'tile_box_1' 'tile_box_2' %}">
+                            {{ product }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="tile_box_1">
+                        <a href="#"><img src="{% static 'main/imagesPage/mod1.jpg' %}" alt=""></a>
+                    <a href="#"><img src="{% static 'main/imagesPage/mod2.jpg' %}" alt=""></a>
+                    </div>
+
+                    <a href="#"><img src="{% static 'main/imagesPage/mod3.jpg' %}" alt=""></a>
+                </div>
+            </div>
         </div>
-    </section>
-    
-    <section class="tables">
-{#        <div class="container">#}
-{#            <img src="{% static 'main/imagesPage/mod1.jpg' %}" alt="">#}
-{#        </div>#}
-
-
     </section>
 {% endblock %}

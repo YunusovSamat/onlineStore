@@ -12,7 +12,8 @@ class IndexView(generic.ListView):
 
 class CatalogView(generic.DetailView):
     template_name = 'main/catalog.html'
-    queryset = Catalog.objects.all()
+    # queryset = Catalog.objects.all()
     # queryset = Subcatalog.objects.all()
+    model = Subcatalog
     context_object_name = 'subcatalog'
 

@@ -11,7 +11,7 @@ class Catalog(models.Model):
 
 class Subcatalog(models.Model):
     fk_catalog = models.ForeignKey(
-        Catalog, on_delete=models.CASCADE, related_name='catalog')
+        Catalog, on_delete=models.CASCADE, related_name='subcatalogs')
     slug = models.SlugField(max_length=100)
     name = models.CharField(max_length=100)
 
@@ -21,7 +21,7 @@ class Subcatalog(models.Model):
 
 class Product(models.Model):
     fk_subcatalog = models.ForeignKey(
-        Subcatalog, on_delete=models.CASCADE, related_name='subcatalog')
+        Subcatalog, on_delete=models.CASCADE, related_name='products')
     slug = models.SlugField(max_length=100)
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
@@ -40,9 +40,9 @@ class SizeProduct(models.Model):
 
 class CountProduct(models.Model):
     fk_product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name='fk_product')
+        Product, on_delete=models.CASCADE, related_name='fk_products')
     fk_size = models.ForeignKey(
-        SizeProduct, on_delete=models.CASCADE, related_name='fk_size')
+        SizeProduct, on_delete=models.CASCADE, related_name='fk_sizes')
     count = models.PositiveIntegerField(default=100)
 
     def __str__(self):
@@ -51,7 +51,7 @@ class CountProduct(models.Model):
 
 class ImageProduct(models.Model):
     fk_product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name='product')
+        Product, on_delete=models.CASCADE, related_name='image_products')
     slug = models.SlugField(unique=True)
     image = models.ImageField(
         blank=True, upload_to='static/main/imagesProduct')

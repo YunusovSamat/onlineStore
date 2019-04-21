@@ -44,6 +44,7 @@
 .block_slider a:hover {
 	background: #f0e8de;
 	color: #3a2900;
+	transition-duration: .3s;
 }
 
 /* Advantages */
@@ -100,6 +101,7 @@
 	border-color: #3a2900;
 	background: #3a2900;
 	color: #cac2b6;
+	transition-duration: .3s;
 }
 
 /* Tile catalog */
@@ -130,6 +132,7 @@
 	font-size: 36px;
 	font-weight: bold;
 	background-color: rgba(0, 0, 0, 0.4);
+	transition-duration: .3s;
 }
 
 .box-1_grid, .box-2_grid, .box-3_grid, .box-4_grid{
