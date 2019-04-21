@@ -5,18 +5,18 @@ from .models import Catalog, Subcatalog, Product, SizeProduct, CountProduct, \
 
 
 class CatalogAdmin(admin.ModelAdmin):
-    list_display = ['name']
-    search_fields = ['name']
+    list_display = ['slug', 'name']
+    search_fields = ['slug', 'name']
 
 
 class SubcatalogAdmin(admin.ModelAdmin):
-    list_display = ['fk_catalog', 'name']
-    search_fields = ['fk_catalog', 'name']
+    list_display = ['fk_catalog', 'slug', 'name']
+    search_fields = ['fk_catalog', 'slug', 'name']
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_subcatalog', 'name', 'description', 'price']
-    search_fields = ['fk_subcatalog', 'name', 'description', 'price']
+    list_display = ['fk_subcatalog', 'slug', 'name', 'description', 'price']
+    search_fields = ['fk_subcatalog', 'slug', 'name', 'description', 'price']
 
 
 class SizeProductAdmin(admin.ModelAdmin):

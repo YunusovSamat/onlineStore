@@ -26,12 +26,12 @@
 .vertical_menu_catalog  {
     font-size: 13px;
     border: 1px solid red;
-    position: fixed;
 }
 
 .vertical_menu_catalog nav {
     float: left;
-    margin-left: 190px;
+    margin-left: 30px;
+    position: fixed;
 }
 
 .vertical_menu_catalog a {

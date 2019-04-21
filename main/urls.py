@@ -6,5 +6,5 @@ app_name = 'main'
 urlpatterns = [
     re_path('^$', views.IndexView.as_view(), name='index'),
     re_path(
-        r'^catalog/(?P<pk>\w+)/$', views.CatalogView.as_view(), name='catalog'),
+        r'^catalog/(?P<slug>\w+)/$', views.CatalogView.as_view(), name='catalog'),
 ]

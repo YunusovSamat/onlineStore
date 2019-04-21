@@ -471,244 +471,271 @@ model</ColNames>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="110" parent="16">
+    <column id="110" parent="16" name="slug">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="111" parent="16" name="main_catalog_slug_8da2af07">
+      <ColNames>slug</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="112" parent="16">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="111" parent="17" name="id">
+    <column id="113" parent="17" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="112" parent="17" name="count">
+    <column id="114" parent="17" name="count">
       <Position>2</Position>
       <DataType>integer unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="113" parent="17" name="fk_product_id">
+    <column id="115" parent="17" name="fk_product_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="114" parent="17" name="fk_size_id">
+    <column id="116" parent="17" name="fk_size_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="115" parent="17" name="main_countproduct_fk_product_id_edb8398e">
+    <index id="117" parent="17" name="main_countproduct_fk_product_id_edb8398e">
       <ColNames>fk_product_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="116" parent="17" name="main_countproduct_fk_size_id_086f41c1">
+    <index id="118" parent="17" name="main_countproduct_fk_size_id_086f41c1">
       <ColNames>fk_size_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="117" parent="17">
+    <key id="119" parent="17">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="118" parent="17">
+    <foreign-key id="120" parent="17">
       <ColNames>fk_product_id</ColNames>
       <RefTableName>main_product</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <foreign-key id="119" parent="17">
+    <foreign-key id="121" parent="17">
       <ColNames>fk_size_id</ColNames>
       <RefTableName>main_sizeproduct</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="120" parent="18" name="id">
+    <column id="122" parent="18" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="121" parent="18" name="slug">
+    <column id="123" parent="18" name="slug">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="122" parent="18" name="image">
+    <column id="124" parent="18" name="image">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="123" parent="18" name="sqlite_autoindex_main_imagepage_1">
+    <index id="125" parent="18" name="sqlite_autoindex_main_imagepage_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>slug</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="124" parent="18">
+    <key id="126" parent="18">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="125" parent="18">
+    <key id="127" parent="18">
       <ColNames>slug</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_main_imagepage_1</UnderlyingIndexName>
     </key>
-    <column id="126" parent="19" name="id">
+    <column id="128" parent="19" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="127" parent="19" name="slug">
+    <column id="129" parent="19" name="slug">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="128" parent="19" name="image">
+    <column id="130" parent="19" name="image">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="129" parent="19" name="fk_product_id">
+    <column id="131" parent="19" name="fk_product_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="130" parent="19" name="sqlite_autoindex_main_imageproduct_1">
+    <index id="132" parent="19" name="sqlite_autoindex_main_imageproduct_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>slug</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="131" parent="19" name="main_imageproduct_fk_product_id_44901e50">
+    <index id="133" parent="19" name="main_imageproduct_fk_product_id_44901e50">
       <ColNames>fk_product_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="132" parent="19">
+    <key id="134" parent="19">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="133" parent="19">
+    <key id="135" parent="19">
       <ColNames>slug</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_main_imageproduct_1</UnderlyingIndexName>
     </key>
-    <foreign-key id="134" parent="19">
+    <foreign-key id="136" parent="19">
       <ColNames>fk_product_id</ColNames>
       <RefTableName>main_product</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="135" parent="20" name="id">
+    <column id="137" parent="20" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="136" parent="20" name="name">
+    <column id="138" parent="20" name="slug">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="137" parent="20" name="description">
+    <column id="139" parent="20" name="name">
       <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="140" parent="20" name="description">
+      <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="138" parent="20" name="price">
-      <Position>4</Position>
+    <column id="141" parent="20" name="price">
+      <Position>5</Position>
       <DataType>integer unsigned|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="139" parent="20" name="fk_subcatalog_id">
-      <Position>5</Position>
+    <column id="142" parent="20" name="fk_subcatalog_id">
+      <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="140" parent="20" name="main_product_fk_subcatalog_id_3cb26a17">
+    <index id="143" parent="20" name="main_product_slug_85058272">
+      <ColNames>slug</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="144" parent="20" name="main_product_fk_subcatalog_id_3cb26a17">
       <ColNames>fk_subcatalog_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="141" parent="20">
+    <key id="145" parent="20">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="142" parent="20">
+    <foreign-key id="146" parent="20">
       <ColNames>fk_subcatalog_id</ColNames>
       <RefTableName>main_subcatalog</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="143" parent="21" name="id">
+    <column id="147" parent="21" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="144" parent="21" name="size">
+    <column id="148" parent="21" name="size">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="145" parent="21">
+    <key id="149" parent="21">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="146" parent="22" name="id">
+    <column id="150" parent="22" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="147" parent="22" name="name">
+    <column id="151" parent="22" name="slug">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="148" parent="22" name="fk_catalog_id">
+    <column id="152" parent="22" name="name">
       <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="153" parent="22" name="fk_catalog_id">
+      <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="149" parent="22" name="main_subcatalog_fk_catalog_id_b056205c">
+    <index id="154" parent="22" name="main_subcatalog_slug_1a567979">
+      <ColNames>slug</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="155" parent="22" name="main_subcatalog_fk_catalog_id_b056205c">
       <ColNames>fk_catalog_id</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="150" parent="22">
+    <key id="156" parent="22">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="151" parent="22">
+    <foreign-key id="157" parent="22">
       <ColNames>fk_catalog_id</ColNames>
       <RefTableName>main_catalog</RefTableName>
       <RefColNames>id</RefColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
     </foreign-key>
-    <column id="152" parent="23" name="type">
+    <column id="158" parent="23" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="153" parent="23" name="name">
+    <column id="159" parent="23" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="154" parent="23" name="tbl_name">
+    <column id="160" parent="23" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="155" parent="23" name="rootpage">
+    <column id="161" parent="23" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="156" parent="23" name="sql">
+    <column id="162" parent="23" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="157" parent="24" name="name">
+    <column id="163" parent="24" name="name">
       <Position>1</Position>
     </column>
-    <column id="158" parent="24" name="seq">
+    <column id="164" parent="24" name="seq">
       <Position>2</Position>
     </column>
   </database-model>
