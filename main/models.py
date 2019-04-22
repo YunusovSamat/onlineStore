@@ -54,7 +54,7 @@ class ImageProduct(models.Model):
         Product, on_delete=models.CASCADE, related_name='image_products')
     slug = models.SlugField(unique=True)
     image = models.ImageField(
-        blank=True, upload_to='static/main/imagesProduct')
+        blank=True, upload_to='imagesProduct')
 
     def __str__(self):
         return self.slug
@@ -62,7 +62,7 @@ class ImageProduct(models.Model):
 
 class ImagePage(models.Model):
     slug = models.SlugField(unique=True)
-    image = models.ImageField(blank=True, upload_to='static/main/imagesPage')
+    image = models.ImageField(blank=True, upload_to='imagesPage')
 
     def __str__(self):
         return self.slug

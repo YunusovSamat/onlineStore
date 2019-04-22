@@ -61,21 +61,19 @@
                     </ul>
                 </nav>
                 <div class="view_tile_catalog">
-{#                    {% for product in subcatalog.product.all %}#}
-{#                        <h1>{{ product }}</h1>#}
-{#                    {% endfor %}#}
                     {% for product in subcatalog.products.all %}
-                        <div class="{% cycle 'tile_box_1' 'tile_box_1' 'tile_box_2' %}">
-                            {{ product }}
+                        <div class="{% cycle 'tile_box_1' 'tile_box_2' 'tile_box_3' %}"
+                            style="background-image:
+                                    url({{ product.image_products.first.image.url }});">
+                            <a href="#" class="link_image"></a>
+                            <a href="2#" class="link_button">Добавить в корзину</a>
+                            <a href="#" class="link_text">
+                                <h3>{{ product.name }}</h3>
+                                <h3>{{ product.price }} руб.</h3>
+                            </a>
                         </div>
                     {% endfor %}
-
-                    <div class="tile_box_1">
-                        <a href="#"><img src="{% static 'main/imagesPage/mod1.jpg' %}" alt=""></a>
-                    <a href="#"><img src="{% static 'main/imagesPage/mod2.jpg' %}" alt=""></a>
                     </div>
-
-                    <a href="#"><img src="{% static 'main/imagesPage/mod3.jpg' %}" alt=""></a>
                 </div>
             </div>
         </div>
