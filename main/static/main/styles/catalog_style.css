@@ -23,10 +23,6 @@
 }
 
 /* Vertical menu catalog */
-.vertical_menu_catalog  {
-    font-size: 13px;
-}
-
 .view_catalog {
     display: flex;
     align-items: flex-start;
@@ -36,35 +32,46 @@
 /* View menu catalog */
 .view_menu_catalog {
     flex: 1;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
+    font-size: 12px;
     margin-top: 10px;
     margin-left: 30px;
     position: sticky;
     top: 75px;
 }
 
+.view_menu_catalog h2 {
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
 .view_menu_catalog a {
-    display: inline-block;
-    margin-bottom: 9px;
+    display: block;
+    margin-bottom: 10px;
     color: #3a2900;
     text-decoration: none;
     font-weight: normal;
+}
+
+.view_menu_catalog h2:hover {
+    color: #8f8e8d;
+    cursor: pointer;
+}
+
+.view_menu_catalog h2:active {
+
 }
 
 .view_menu_catalog a:hover {
     color: #8f8e8d;
 }
 
-.red_text a {
+.red_text h2 {
     color: #fc2c22;
 }
 
-.red_text a:hover {
+.red_text h2:hover {
     color: #bd8383;
-}
-
-.view_menu_catalog nav > ul > li > a {
-    text-transform: uppercase;
 }
 
 .view_menu_catalog ul li ul {
@@ -73,7 +80,7 @@
 
 /* View tile catalog */
 .view_tile_catalog {
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     flex: 5;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,16 +97,16 @@
 }
 
 .tile_box_1 {
-    border: 1px solid red;
+    /*border: 1px solid green;*/
     width: 908px;
-    height: 1273px;
+    /*height: 1273px;*/
     grid-column: 1/3;
 }
 
 .tile_box_2, .tile_box_3 {
-    border: 1px solid green;
+    /*border: 1px solid green;*/
     width: 422px;
-    height: 630px;
+    /*height: 630px;*/
 }
 
 .tile_box_1 a, .tile_box_2 a, .tile_box_3 a {
@@ -107,37 +114,60 @@
     width: 100%;
     font-size: 11px;
     font-weight: bold;
-    color: #3a2900;
     text-decoration: none;
     text-transform: uppercase;
 }
 
 .tile_box_1 .link_image {
-    height: 1210px;
-    border: 1px solid red;
+    height: 1213px;
+    /*border: 1px solid red;*/
 }
 
 .tile_box_2 .link_image, .tile_box_3 .link_image{
     height: 564px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
+
+.block_view {
+    display: none;
+    opacity: 0;
+    transition-duration: .3s;
+    /*border: 3px solid green;*/
+    margin-top: -100px;
+}
+
+.block_size {
+    padding: 26px 0;
+    background: rgba(232, 232, 232, 0.7);
+}
+
+.block_size span{
+    font-weight: normal;
+    font-size: 11px;
+    color: #000;
+    margin: 0 6px;
+}
+
 
 .link_button {
-    opacity: 0;
     display: block;
-    border: 1px solid blue;
-    margin-top: -30px;
+    /*border: 1px solid blue;*/
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background: #bb8e62;
+    padding: 12px 0;
+
 }
 
-.link_button:hover, .link_image:hover + .link_button {
+.link_image:hover + .block_view, .block_view:hover {
+    display: block;
     opacity: 1;
+    transition-duration: .7s;
 }
-
-/*.link_image:hover + .link_button {*/
-    /*opacity: 1;*/
-/*}*/
 
 .link_text {
-    padding-top: 44px;
+    padding-top: 25px;
+    color: #3a2900;
     /*border: 1px solid red;*/
 }

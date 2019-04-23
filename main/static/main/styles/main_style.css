@@ -39,6 +39,7 @@
 	font-size: 22px;
 	color: #f0e8de;
 	text-decoration: none;
+	transition-duration: .3s;
 }
 
 .block_slider a:hover {
@@ -97,6 +98,10 @@
 	padding: 6px 37px;
 }
 
+.btn_brown {
+	transition-duration: .3s;
+}
+
 .btn_brown:hover {
 	border-color: #3a2900;
 	background: #3a2900;
@@ -126,6 +131,7 @@
 	text-decoration: none;
 	padding-top: 82%;
 	width: 100%;
+	transition-duration: .3s;
 }
 
 .grid_tile a:hover {
@@ -182,9 +188,6 @@
 	align-items: center;
 	justify-content: space-around;
 	margin: 45px 0;
-}
-
-.block_popular a {
 }
 
 .btn_popular {

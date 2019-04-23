@@ -24,13 +24,13 @@
                 <nav class="view_menu_catalog">
                      <ul>
                         <li class="red_text">
-                            <a href="#" alt="">Межсезонная распродажа</a>
+                            <h2>Межсезонная распродажа</h2>
                         </li>
                         <li>
-                            <a href="#">Новинки</a>
+                            <h2>Новинки</h2>
                         </li>
                         <li>
-                            <a href="#">Одежда</a>
+                            <h2>Одежда</h2>
                             <ul>
                                 <li><a href="#">Пальто и парки</a></li>
                                 <li><a href="#">Пиджаки</a></li>
@@ -40,7 +40,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Обувь</a>
+                            <h2>Обувь</h2>
                             <ul>
                                 <li><a href="#">Туфли</a></li>
                                 <li><a href="#">Ботинки</a></li>
@@ -49,7 +49,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Аксессуары</a>
+                            <h2>Аксессуары</h2>
                             <ul>
                                 <li><a href="#">Шарфы</a></li>
                                 <li><a href="#">Головные уборы</a></li>
@@ -66,7 +66,19 @@
                             style="background-image:
                                     url({{ product.image_products.first.image.url }});">
                             <a href="#" class="link_image"></a>
-                            <a href="2#" class="link_button">Добавить в корзину</a>
+                            <div class="block_view">
+                                <div class="block_size">
+                                    <span>46</span>
+                                    <span>48</span>
+                                    <span>50</span>
+                                    <span>52</span>
+                                    <span>54</span>
+                                    <span>56</span>
+                                    <span>58</span>
+                                </div>
+                                <a href="2#" class="link_button">Добавить в корзину</a>
+                            </div>
+
                             <a href="#" class="link_text">
                                 <h3>{{ product.name }}</h3>
                                 <h3>{{ product.price }} руб.</h3>
