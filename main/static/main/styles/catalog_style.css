@@ -144,12 +144,30 @@
     color: #000;
 }
 
+.block_size input[type='radio'] {
+    display: none;
+}
+
+.block_size input[type='radio'] + span {
+    cursor: pointer;
+}
+
+/*.block_size input[type="radio"] + span::before {*/
+    /*display: inline-block;*/
+    /*content: "";*/
+/*}*/
+
+.block_size input[type='radio']:checked + span {
+    border-bottom: 2px solid #000;
+}
+
 .block_size span {
     margin: 0 6px;
 }
 
 .block_disabled {
     color: #807c76;
+    cursor: default;
 }
 
 .link_button {

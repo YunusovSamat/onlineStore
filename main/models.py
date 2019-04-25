@@ -55,7 +55,7 @@ class CountProduct(models.Model):
 class ImageProduct(models.Model):
     fk_product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='image_products')
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True)    # is it need?
     image = models.ImageField(
         blank=True, upload_to='imagesProduct')
 
@@ -64,7 +64,7 @@ class ImageProduct(models.Model):
 
 
 class ImagePage(models.Model):
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True)    # is it need?
     image = models.ImageField(blank=True, upload_to='imagesPage')
 
     def __str__(self):

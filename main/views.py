@@ -17,3 +17,4 @@ class CatalogView(generic.DetailView):
     model = Subcatalog
     context_object_name = 'subcatalog'
 
+

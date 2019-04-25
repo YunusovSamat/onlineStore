@@ -62,11 +62,15 @@
                                     url({{ product.image_products.first.image.url }});">
                             <a href="#" class="link_image"></a>
                             <div class="block_view">
-                                <form action="1">
+                                <form action="">
                                     <div class="block_size">
                                         {% for count in product.counts.all %}
                                             {% ifnotequal count.count 0 %}
-                                                <span><input name="radioSize" type="radio" value={{ count.fk_size }} hidden>{{ count.fk_size }}</span>
+                                                <label>
+                                                    <input type="radio" name="size"
+                                                           value="{{ count.fk_size }}" required>
+                                                    <span>{{ count.fk_size }}</span>
+                                                </label>
                                             {% else %}
                                                 <span class="block_disabled">{{ count.fk_size }}</span>
                                             {% endifnotequal %}
@@ -88,37 +92,10 @@
             </div>
         </div>
     </section>
+{#    <form action="1">#}
+{#        <label><input type="radio" name="D" value="1" hidden>asfaffa</label>#}
+{#        <label><input type="radio" name="D" value="10" hidden>asfaffafdsdf</label>#}
+{#        <input type="submit">#}
+{#    </form>#}
 
-    <ul>
-    <li>
-        <input id="cfirst" type="checkbox" name="first" checked hidden/>
-        <label for="cfirst">Checked checkbox</label>
-    </li>
-    <li>
-        <input id="csecond" type="checkbox" name="second" hidden />
-        <label for="csecond">Unchecked checkbox</label>
-    </li>
-    <li>
-        <input id="cthird" type="checkbox" name="third" hidden disabled />
-        <label for="cthird">Disabled checkbox</label>
-    </li>
-    <li>
-        <input id="clast" type="checkbox" name="last" checked hidden disabled />
-        <label for="clast">Disabled checked checkbox</label>
-    </li>
-</ul>
-<ul>
-    <li>
-        <input id="rfirst" type="radio" name="radio" checked hidden />
-        <label for="rfirst">Checked radio</label>
-    </li>
-    <li>
-        <input id="rsecond" type="radio" name="radio" hidden />
-        <label for="rsecond">Unchecked radio</label>
-    </li>
-    <li>
-        <input id="rthird" type="radio" name="radio" hidden disabled />
-        <label for="rthird">Disabled radio</label>
-    </li>
-</ul>
 {% endblock %}
