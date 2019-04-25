@@ -32,21 +32,24 @@ class Product(models.Model):
 
 
 class SizeProduct(models.Model):
-    size = models.CharField(max_length=100)
+    size = models.IntegerField()
 
     def __str__(self):
-        return self.size
+        return str(self.size)
 
 
 class CountProduct(models.Model):
     fk_product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name='fk_products')
+        Product, on_delete=models.CASCADE, related_name='counts')
     fk_size = models.ForeignKey(
-        SizeProduct, on_delete=models.CASCADE, related_name='fk_sizes')
+        SizeProduct, on_delete=models.CASCADE, related_name='counts')
     count = models.PositiveIntegerField(default=100)
 
     def __str__(self):
         return str(self.count)
+
+    class Meta:
+        ordering = ['fk_size']
 
 
 class ImageProduct(models.Model):

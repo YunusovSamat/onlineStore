@@ -57,7 +57,7 @@ body {
 
 .catalog li ul {
 	position: absolute;
-	height: 483px;
+	height: 350px;
 	margin-top: 10px;
     padding: 0;
     left: 0;
@@ -89,7 +89,7 @@ body {
 
 .text_col-1, .text_col-2 {
 	margin-top: 45px;
-	font-size: 11px;
+	font-size: 12px;
 	font-weight: normal;
 	text-align: left;
 	text-transform: none;
@@ -101,7 +101,8 @@ body {
 }
 
 .text_col-2 {
-	margin-left: 67px;
+	margin-left: 63px;
+	/*margin-left: 67px;*/
 }
 
 .menu div a {
@@ -120,7 +121,7 @@ body {
 }
 
 .col_catalog-1 a, .col_catalog-2 a {
-	padding: 6px 0;
+	padding: 12px 0;
 }
 
 .catalog ul > li:first-child {

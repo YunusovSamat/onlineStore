@@ -24,13 +24,11 @@
 									<div class="col_catalog-1">
 										<h3>Межсезонная распродажа</h3>
 										<div class="text_col-1">
-											<a href="#">Пальто и парки</a>
+											<a href="">Пальто</a>
 											<a href="#">Пиджаки</a>
-											<a href="#">Рубашки</a>
-											<a href="#">Брюки</a>
+                                            <a href="#">Брюки</a>
+                                            <a href="#">Рубашки</a>
 											<a href="#">Свитеры и джемперы</a>
-											<a href="#">Джинсы</a>
-											<a href="#">Показать все</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
@@ -38,25 +36,17 @@
 										<div class="text_col-2">
 											<a href="#">Новые поступления</a>
 											<a href="#">Пиджаки</a>
-											<a href="#">Верхняя одежда</a>
 											<a href="#">Свитеры и джемперы</a>
-											<a href="#">Джинсы</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
 										<h3>Категории</h3>
 										<div class="text_col-2">
-											<a href="#">Верхняя одежда</a>
-											<a href="#">Пальто и парки</a>
-											<a href="#">Пиджаки</a>
-											<a href="#">Брюки</a>
-											<a href="#">Рубашки</a>
-											<a href="#">Поло</a>
-											<a href="#">Джинсы</a>
-											<a href="#">Футболки</a>
-											<a href="#">Толстовки</a>
-											<a href="#">Свитеры и джемперы</a>
-											<a href="#">Показать все</a>
+											<a href="{% url 'main:catalog' 'coat' %}">Пальто</a>
+											<a href="{% url 'main:catalog' 'jackets' %}">Пиджаки</a>
+											<a href="{% url 'main:catalog' 'trousers' %}">Брюки</a>
+											<a href="{% url 'main:catalog' 'shirts' %}">Рубашки</a>
+											<a href="{% url 'main:catalog' 'sweaters' %}">Свитеры и джемперы</a>
 										</div>
 									</div>
 								</li>
@@ -71,8 +61,6 @@
 										<div class="text_col-1">
 											<a href="#">Ботинки</a>
 											<a href="#">Туфли</a>
-											<a href="#">Кроссовки</a>
-											<a href="#">Показать все</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
@@ -84,11 +72,8 @@
 									<div class="col_catalog-2">
 										<h3>Категории</h3>
 										<div class="text_col-2">
-											<a href="#">Туфли</a>
-											<a href="#">Ботинки</a>
-											<a href="#">Кроссовки и кеды</a>
-											<a href="#">Мокасины</a>
-											<a href="#">Показать все</a>
+											<a href="{% url 'main:catalog' 'shoes' %}">Туфли</a>
+											<a href="{% url 'main:catalog' 'boots' %}">Ботинки</a>
 										</div>
 									</div>
 								</li>
@@ -101,10 +86,7 @@
 									<div class="col_catalog-1">
 										<h3>Межсезонная распродажа</h3>
 										<div class="text_col-1">
-											<a href="#">Шарфы</a>
-											<a href="#">Головные уборы</a>
 											<a href="#">Галстуки и бабочки</a>
-											<a href="#">Показать все</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
@@ -116,17 +98,8 @@
 									<div class="col_catalog-2">
 										<h3>Категории</h3>
 										<div class="text_col-2">
-											<a href="#">Шарфы</a>
-											<a href="#">Головные уборы</a>
-											<a href="#">Галстуки и бабочки</a>
-											<a href="#">Ремни</a>
-											<a href="#">Запонки</a>
-											<a href="#">Сумки</a>
-											<a href="#">Ароматы</a>
-											<a href="#">Солнце-защитные очки</a>
-											<a href="#">Носки</a>
-											<a href="#">Белье</a>
-											<a href="#">Показать все</a>
+											<a href="{% url 'main:catalog' 'ties' %}">Галстуки и бабочки</a>
+											<a href="{% url 'main:catalog' 'aromas' %}">Ароматы</a>
 										</div>
 									</div>
 								</li>

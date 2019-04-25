@@ -32,30 +32,25 @@
                         <li>
                             <h2>Одежда</h2>
                             <ul>
-                                <li><a href="#">Пальто и парки</a></li>
-                                <li><a href="#">Пиджаки</a></li>
-                                <li><a href="#">Брюки</a></li>
-                                <li><a href="#">Рубашки</a></li>
-                                <li><a href="#">Поло</a></li>
+                                <li><a href="{% url 'main:catalog' 'coat' %}">Пальто</a></li>
+                                <li><a href="{% url 'main:catalog' 'jackets' %}">Пиджаки</a></li>
+                                <li><a href="{% url 'main:catalog' 'trousers' %}">Брюки</a></li>
+                                <li><a href="{% url 'main:catalog' 'shirts' %}">Рубашки</a></li>
+                                <li><a href="{% url 'main:catalog' 'sweaters' %}">Свитеры и джемперы</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Обувь</h2>
                             <ul>
-                                <li><a href="#">Туфли</a></li>
-                                <li><a href="#">Ботинки</a></li>
-                                <li><a href="#">Кроссовки и кеды</a></li>
-                                <li><a href="#">Мокасины</a></li>
+                                <li><a href="{% url 'main:catalog' 'shoes' %}">Туфли</a></li>
+                                <li><a href="{% url 'main:catalog' 'boots' %}">Ботинки</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Аксессуары</h2>
                             <ul>
-                                <li><a href="#">Шарфы</a></li>
-                                <li><a href="#">Головные уборы</a></li>
-                                <li><a href="#">Галстуки и бабочки</a></li>
-                                <li><a href="#">Ремни</a></li>
-                                <li><a href="">Запонки</a></li>
+                                <li><a href="{% url 'main:catalog' 'ties' %}">Галстуки и бабочки</a></li>
+                                <li><a href="{% url 'main:catalog' 'aromas' %}">Ароматы</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -67,17 +62,20 @@
                                     url({{ product.image_products.first.image.url }});">
                             <a href="#" class="link_image"></a>
                             <div class="block_view">
-                                <div class="block_size">
-                                    <span>46</span>
-                                    <span>48</span>
-                                    <span>50</span>
-                                    <span>52</span>
-                                    <span>54</span>
-                                    <span>56</span>
-                                    <span>58</span>
-                                </div>
-                                <a href="2#" class="link_button">Добавить в корзину</a>
+                                <form action="1">
+                                    <div class="block_size">
+                                        {% for count in product.counts.all %}
+                                            {% ifnotequal count.count 0 %}
+                                                <span><input name="radioSize" type="radio" value={{ count.fk_size }} hidden>{{ count.fk_size }}</span>
+                                            {% else %}
+                                                <span class="block_disabled">{{ count.fk_size }}</span>
+                                            {% endifnotequal %}
+                                        {% endfor %}
+                                    </div>
+                                    <button class="link_button" type="submit">Добавить в корзину</button>
+                                </form>
                             </div>
+
 
                             <a href="#" class="link_text">
                                 <h3>{{ product.name }}</h3>
@@ -90,4 +88,37 @@
             </div>
         </div>
     </section>
+
+    <ul>
+    <li>
+        <input id="cfirst" type="checkbox" name="first" checked hidden/>
+        <label for="cfirst">Checked checkbox</label>
+    </li>
+    <li>
+        <input id="csecond" type="checkbox" name="second" hidden />
+        <label for="csecond">Unchecked checkbox</label>
+    </li>
+    <li>
+        <input id="cthird" type="checkbox" name="third" hidden disabled />
+        <label for="cthird">Disabled checkbox</label>
+    </li>
+    <li>
+        <input id="clast" type="checkbox" name="last" checked hidden disabled />
+        <label for="clast">Disabled checked checkbox</label>
+    </li>
+</ul>
+<ul>
+    <li>
+        <input id="rfirst" type="radio" name="radio" checked hidden />
+        <label for="rfirst">Checked radio</label>
+    </li>
+    <li>
+        <input id="rsecond" type="radio" name="radio" hidden />
+        <label for="rsecond">Unchecked radio</label>
+    </li>
+    <li>
+        <input id="rthird" type="radio" name="radio" hidden disabled />
+        <label for="rthird">Disabled radio</label>
+    </li>
+</ul>
 {% endblock %}
