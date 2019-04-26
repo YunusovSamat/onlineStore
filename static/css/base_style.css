@@ -64,6 +64,7 @@ body {
     right: 0;
 	background: #f0e8de;
     display: none;
+	border-bottom: 2px solid #a09b94;
 }
 
 .catalog li:hover ul {

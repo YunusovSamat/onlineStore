@@ -19,7 +19,7 @@
 {#{% endblock %}#}
 
 {% block style %}
-    {% static 'main/styles/main_style.css' %}
+    {% static 'main/css/main_style.css' %}
 {% endblock %}
 
 {% block context %}
@@ -73,16 +73,16 @@
 		<div class="container">
 			<div class="grid_tile">
 				<div class="box-1_grid">
-					<a href="#">Пиджаки</a>
+					<a href="{% url 'main:catalogApp:catalog' 'jackets' %}">Пиджаки</a>
 				</div>
 				<div class="box-2_grid">
 					<a href="#">Парки</a>
 				</div>
 				<div class="box-3_grid">
-					<a href="#">Пальто</a>
+					<a href="{% url 'main:catalogApp:catalog' 'coat' %}">Пальто</a>
 				</div>
 				<div class="box-4_grid">
-					<a href="#">Рубашки</a>
+					<a href="{% url 'main:catalogApp:catalog' 'shirts' %}">Рубашки</a>
 				</div>
 			</div>
 		</div>
@@ -92,11 +92,11 @@
 		<div class="container">
 			<h2>Популярные товары</h2>
 			<div class="block_popular">
-				<a href="#"><img src={% static 'main/imagesPage/pop1.png' %} alt="Сумки"></a>
-				<a href="#"><img src={% static 'main/imagesPage/pop4.png' %} alt="Пальто"></a>
-				<a href="#"><img src={% static 'main/imagesPage/pop5.png' %} alt="Туфли"></a>
-				<a href="#"><img src={% static 'main/imagesPage/pop2.png' %} alt="Пиджаки"></a>
-				<a href="#"><img src={% static 'main/imagesPage/pop3.png' %} alt="Рубашки"></a>
+				<a href="{% url 'main:catalogApp:catalog' 'bags' %}"><img src={% static 'main/images/pop1.png' %} alt="Сумки"></a>
+				<a href="{% url 'main:catalogApp:catalog' 'coat' %}"><img src={% static 'main/images/pop4.png' %} alt="Пальто"></a>
+				<a href="{% url 'main:catalogApp:catalog' 'shoes' %}"><img src={% static 'main/images/pop5.png' %} alt="Туфли"></a>
+				<a href="{% url 'main:catalogApp:catalog' 'jackets' %}"><img src={% static 'main/images/pop2.png' %} alt="Пиджаки"></a>
+				<a href="{% url 'main:catalogApp:catalog' 'shirts' %}"><img src={% static 'main/images/pop3.png' %} alt="Рубашки"></a>
 			</div>
 			<a href="#" class="btn_popular btn_brown">больше товаров</a>
 		</div>
@@ -111,7 +111,7 @@
 					<h2>The Secret of Nature</h2>
 					<h3>Spring collection</h3>
 				</div>
-				<a class="btn_brown" href="#">больше ароматов</a>
+				<a class="btn_brown" href="{% url 'main:catalogApp:catalog' 'aromas' %}">больше ароматов</a>
 			</div>
 		</div>
 	</section>

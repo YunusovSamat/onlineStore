@@ -6,8 +6,8 @@
 <head>
 	<meta charset='UTF-8'>
 	<title>Dandy Shop</title>
-	<link rel="stylesheet" href={% static 'main/styles/reset.css' %}>
-    <link rel="stylesheet" href="{% static 'main/styles/base_style.css' %}">
+	<link rel="stylesheet" href={% static 'css/reset.css' %}>
+    <link rel="stylesheet" href="{% static 'css/base_style.css' %}">
 	<link rel='stylesheet' href='{% block style %}{% endblock %}'>
 </head>
 
@@ -24,7 +24,7 @@
 									<div class="col_catalog-1">
 										<h3>Межсезонная распродажа</h3>
 										<div class="text_col-1">
-											<a href="">Пальто</a>
+											<a href="#">Пальто</a>
 											<a href="#">Пиджаки</a>
                                             <a href="#">Брюки</a>
                                             <a href="#">Рубашки</a>
@@ -99,6 +99,7 @@
 										<h3>Категории</h3>
 										<div class="text_col-2">
 											<a href="{% url 'main:catalogApp:catalog' 'ties' %}">Галстуки и бабочки</a>
+                                            <a href="{% url 'main:catalogApp:catalog' 'bags' %}">Сумки</a>
 											<a href="{% url 'main:catalogApp:catalog' 'aromas' %}">Ароматы</a>
 										</div>
 									</div>
@@ -107,7 +108,7 @@
 						</li>
 					</ul>
 				</nav>
-				<a href="{% url 'main:index' %}" class="logo"><img src={% static 'main/imagesPage/logo.png' %} alt="logo"></a>
+				<a href="{% url 'main:index' %}" class="logo"><img src={% static 'images/logo.png' %} alt="logo"></a>
 				<nav class="menu navigation">
 					<ul>
 						<li><a href="#">Корзина</a></li>

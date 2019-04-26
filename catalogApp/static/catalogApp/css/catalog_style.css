@@ -1,6 +1,7 @@
 /* Sorted catalog */
 .sorted {
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .sorted nav {
@@ -10,16 +11,20 @@
 }
 
 .sorted li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .sorted h4 {
     text-transform: uppercase;
 }
 
-.sorted span:hover {
-    color: #807c76;
+.sorted label:hover {
     cursor: pointer;
+    color: #807c76;
+}
+
+.sorted input {
+    display: none;
 }
 
 /* Vertical menu catalog */
@@ -192,4 +197,8 @@
     padding-top: 25px;
     color: #3a2900;
     /*border: 1px solid red;*/
+}
+
+.link_text h3 {
+    margin-bottom: 10px;
 }

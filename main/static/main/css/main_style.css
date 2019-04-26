@@ -3,7 +3,7 @@
 	top: 100px;
 	width: 100%;
 	height: 100vh;
-	background: url("../imagesPage/slide1.jpg")
+	background: url("../images/slide1.jpg")
 		no-repeat
 		center top / cover;
 	display: flex;
@@ -71,7 +71,7 @@
 .new_collection {
 	width: 100%;
 	height: 100vh;
-	background: url("../imagesPage/newCollection.jpg")
+	background: url("../images/newCollection.jpg")
 		no-repeat
 		center
 		top / cover;
@@ -149,25 +149,25 @@
 }
 
 .box-1_grid {
-	background: url("../imagesPage/mod1.jpg")
+	background: url("../images/mod1.jpg")
 		no-repeat
 		center;
 }
 
 .box-2_grid {
-	background: url("../imagesPage/mod2.jpg")
+	background: url("../images/mod2.jpg")
 		no-repeat
 		center;
 }
 
 .box-3_grid {
-	background: url("../imagesPage/mod3.jpg")
+	background: url("../images/mod3.jpg")
 		no-repeat
 		center;
 }
 
 .box-4_grid {
-	background: url("../imagesPage/mod4.jpg")
+	background: url("../images/mod4.jpg")
 		no-repeat
 		center;
 }
@@ -208,7 +208,7 @@
 .aroma {
 	width: 100%;
 	height: 100vh;
-	background: url("../imagesPage/aroma.jpg")
+	background: url("../images/aroma.jpg")
 		no-repeat
 		center
 		top / cover;

@@ -1,0 +1,112 @@
+{% extends 'base_template.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block style %}
+    {% static 'catalogApp/css/catalog_style.css' %}
+{% endblock %}
+
+{% block context %}
+    <section class="sorted">
+        <div class="container">
+            <nav>
+                <form action="" method="get">
+                    {{ form.non_field_errors }}
+                    <ul>
+                        <li><h4>Упорядочить</h4></li>
+                        {{ form.sort.errors }}
+                        {{ form.sort }}
+                    </ul>
+                </form>
+            </nav>
+        </div>
+    </section>
+
+    <section class="vertical_menu_catalog">
+        <div class="container">
+            <div class="view_catalog">
+                <nav class="view_menu_catalog">
+                     <ul>
+                        <li class="red_text">
+                            <h2>Межсезонная распродажа</h2>
+                        </li>
+                        <li>
+                            <h2>Новинки</h2>
+                        </li>
+                        <li>
+                            <h2>Одежда</h2>
+                            <ul>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'coat' %}">Пальто</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'jackets' %}">Пиджаки</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'trousers' %}">Брюки</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'shirts' %}">Рубашки</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'sweaters' %}">Свитеры и джемперы</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2>Обувь</h2>
+                            <ul>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'shoes' %}">Туфли</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'boots' %}">Ботинки</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h2>Аксессуары</h2>
+                            <ul>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'ties' %}">Галстуки и бабочки</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'bags' %}">Сумки</a></li>
+                                <li><a href="{% url 'main:catalogApp:catalog' 'aromas' %}">Ароматы</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="view_tile_catalog">
+                    {% if products %}
+                        {% for product in products %}
+                            <div class="{% cycle 'tile_box_1' 'tile_box_2' 'tile_box_3' %}"
+                                style="background-image:
+                                        url({{ product.image_products.first.image.url }});">
+                                <a href="#" class="link_image"></a>
+                                <div class="block_view">
+                                    <form action="1" method="post">
+                                    {% csrf_token %}
+                                        <div class="block_size">
+                                            {% for count in product.counts.all %}
+                                                {% ifnotequal count.count 0 %}
+                                                    <label>
+                                                        <input type="radio" name="size"
+                                                               value="{{ count.fk_size }}" required>
+                                                        <span>{{ count.fk_size }}</span>
+                                                    </label>
+                                                {% else %}
+                                                    <span class="block_disabled">{{ count.fk_size }}</span>
+                                                {% endifnotequal %}
+                                            {% endfor %}
+                                        </div>
+                                        <button class="link_button" type="submit">Добавить в корзину</button>
+                                    </form>
+                                </div>
+
+
+                                <a href="#" class="link_text">
+                                    <h3>{{ product.name }}</h3>
+                                    <h3>{{ product.price|intcomma }} руб.</h3>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <h2>{{ subcatalog_name }} временно отсутствуют.</h2>
+                    {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{#    <form action="1">#}
+{#        <label><input type="radio" name="D" value="1" hidden>asfaffa</label>#}
+{#        <label><input type="radio" name="D" value="10" hidden>asfaffafdsdf</label>#}
+{#        <input type="submit">#}
+{#    </form>#}
+
+{% endblock %}
