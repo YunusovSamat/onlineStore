@@ -88,7 +88,7 @@
                                 </div>
 
 
-                                <a href="#" class="link_text">
+                                <a href="{% url 'productApp:product' product.slug %}" class="link_text">
                                     <h3>{{ product.name }}</h3>
                                     <h3>{{ product.price|intcomma }} руб.</h3>
                                 </a>

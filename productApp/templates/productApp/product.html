@@ -26,9 +26,25 @@
 
 
 {% block context %}
+    <section class="back">
+        <div class="container-2">
+            <a href="javascript:history.go(-1)">Назад</a>
+        </div>
+    </section>
+
     <section class="product">
-        <div class="container">
-            <h1>dfjsdjs</h1>
+        <div class="container-2">
+            <div class="block_product">
+                <div class="tile_images">
+                    {% for image in product.images_product.all %}
+                        <img src="{{ image.image.url }}" alt="">
+                    {% endfor %}
+                </div>
+                <div class="block_text">
+                    <h2>{{ product.name }}gfgdfgdfgdfgdgfdfgdagfadgag</h2>
+                    <h2>{{ product.price|intcomma }} руб.</h2>
+                </div>
+            </div>
         </div>
     </section>
 
