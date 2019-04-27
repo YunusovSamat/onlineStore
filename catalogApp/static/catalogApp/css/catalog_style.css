@@ -27,7 +27,7 @@
     display: none;
 }
 
-/* Vertical menu catalog */
+/* Catalog list */
 .view_catalog {
     display: flex;
     align-items: flex-start;

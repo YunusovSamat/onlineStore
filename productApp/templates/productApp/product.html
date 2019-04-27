@@ -1,0 +1,35 @@
+{% extends 'base_template.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block style %}
+    {% static 'productApp/css/product_style.css' %}
+{% endblock %}
+
+
+{#    <h1>{{ product.fk_subcatalog }}</h1>#}
+{#    <h1>{{ product.slug }}</h1>#}
+{#    <h1>{{ product.name }}</h1>#}
+{#    <h1>{{ product.description }}</h1>#}
+{#    <h1>{{ product.price }}</h1>#}
+{#    {% for image in product.images_product.all %}#}
+{#        <img src="{{ image.image.url }}" alt="">#}
+{#    {% endfor %}#}
+{#    #}
+{#    <h1>#}
+{#        {% for c in product.counts.all %}#}
+{#            <h2>{{ c.count }}</h2>#}
+{#            <h2>{{ c.fk_size }}</h2> <br>#}
+{##}
+{#        {% endfor %}#}
+{#    </h1>#}
+
+
+{% block context %}
+    <section class="product">
+        <div class="container">
+            <h1>dfjsdjs</h1>
+        </div>
+    </section>
+
+{% endblock %}

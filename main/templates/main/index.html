@@ -1,23 +1,6 @@
 {% extends 'base_template.html' %}
 {% load staticfiles %}
 
-{#{% block context %}#}
-{#    {% for catalog in catalog_list %}#}
-{#        <h3>{{ catalog }}</h3>#}
-{#        {% for subcatalog in catalog.subcatalog_set.all %}#}
-{#            <h4>{{ subcatalog }}</h4>#}
-{#            {% for product in subcatalog.product_set.all %}#}
-{#                <h5>{{ product }}</h5>#}
-{#                {% for image_product in product.imageproduct_set.all %}#}
-{#                    <img src="../../{{ image_product.image_product_image }}" alt="">#}
-{#                {% endfor %}#}
-{##}
-{#            {% endfor %}#}
-{##}
-{#        {% endfor %}#}
-{#    {% endfor %}#}
-{#{% endblock %}#}
-
 {% block style %}
     {% static 'main/css/main_style.css' %}
 {% endblock %}
@@ -73,16 +56,16 @@
 		<div class="container">
 			<div class="grid_tile">
 				<div class="box-1_grid">
-					<a href="{% url 'main:catalogApp:catalog' 'jackets' %}">Пиджаки</a>
+					<a href="{% url 'catalogApp:catalog' 'jackets' %}">Пиджаки</a>
 				</div>
 				<div class="box-2_grid">
 					<a href="#">Парки</a>
 				</div>
 				<div class="box-3_grid">
-					<a href="{% url 'main:catalogApp:catalog' 'coat' %}">Пальто</a>
+					<a href="{% url 'catalogApp:catalog' 'coat' %}">Пальто</a>
 				</div>
 				<div class="box-4_grid">
-					<a href="{% url 'main:catalogApp:catalog' 'shirts' %}">Рубашки</a>
+					<a href="{% url 'catalogApp:catalog' 'shirts' %}">Рубашки</a>
 				</div>
 			</div>
 		</div>
@@ -92,11 +75,11 @@
 		<div class="container">
 			<h2>Популярные товары</h2>
 			<div class="block_popular">
-				<a href="{% url 'main:catalogApp:catalog' 'bags' %}"><img src={% static 'main/images/pop1.png' %} alt="Сумки"></a>
-				<a href="{% url 'main:catalogApp:catalog' 'coat' %}"><img src={% static 'main/images/pop4.png' %} alt="Пальто"></a>
-				<a href="{% url 'main:catalogApp:catalog' 'shoes' %}"><img src={% static 'main/images/pop5.png' %} alt="Туфли"></a>
-				<a href="{% url 'main:catalogApp:catalog' 'jackets' %}"><img src={% static 'main/images/pop2.png' %} alt="Пиджаки"></a>
-				<a href="{% url 'main:catalogApp:catalog' 'shirts' %}"><img src={% static 'main/images/pop3.png' %} alt="Рубашки"></a>
+				<a href="{% url 'catalogApp:catalog' 'bags' %}"><img src={% static 'main/images/pop1.png' %} alt="Сумки"></a>
+				<a href="{% url 'catalogApp:catalog' 'coat' %}"><img src={% static 'main/images/pop4.png' %} alt="Пальто"></a>
+				<a href="{% url 'catalogApp:catalog' 'shoes' %}"><img src={% static 'main/images/pop5.png' %} alt="Туфли"></a>
+				<a href="{% url 'catalogApp:catalog' 'jackets' %}"><img src={% static 'main/images/pop2.png' %} alt="Пиджаки"></a>
+				<a href="{% url 'catalogApp:catalog' 'shirts' %}"><img src={% static 'main/images/pop3.png' %} alt="Рубашки"></a>
 			</div>
 			<a href="#" class="btn_popular btn_brown">больше товаров</a>
 		</div>
@@ -111,7 +94,7 @@
 					<h2>The Secret of Nature</h2>
 					<h3>Spring collection</h3>
 				</div>
-				<a class="btn_brown" href="{% url 'main:catalogApp:catalog' 'aromas' %}">больше ароматов</a>
+				<a class="btn_brown" href="{% url 'catalogApp:catalog' 'aromas' %}">больше ароматов</a>
 			</div>
 		</div>
 	</section>

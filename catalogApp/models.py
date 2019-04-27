@@ -38,7 +38,7 @@ class CountProduct(models.Model):
 
 class ImageProduct(models.Model):
     fk_product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name='image_products')
+        Product, on_delete=models.CASCADE, related_name='images_product')
     image = models.ImageField(
         blank=True, upload_to='imagesProduct')
 

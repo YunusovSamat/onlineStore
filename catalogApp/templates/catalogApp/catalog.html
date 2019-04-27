@@ -1,5 +1,5 @@
 {% extends 'base_template.html' %}
-{% load static %}
+{% load staticfiles %}
 {% load humanize %}
 
 {% block style %}
@@ -22,7 +22,7 @@
         </div>
     </section>
 
-    <section class="vertical_menu_catalog">
+    <section class="catalog_list">
         <div class="container">
             <div class="view_catalog">
                 <nav class="view_menu_catalog">
@@ -36,26 +36,26 @@
                         <li>
                             <h2>Одежда</h2>
                             <ul>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'coat' %}">Пальто</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'jackets' %}">Пиджаки</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'trousers' %}">Брюки</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'shirts' %}">Рубашки</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'sweaters' %}">Свитеры и джемперы</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'coat' %}">Пальто</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'jackets' %}">Пиджаки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'trousers' %}">Брюки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'shirts' %}">Рубашки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'sweaters' %}">Свитеры и джемперы</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Обувь</h2>
                             <ul>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'shoes' %}">Туфли</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'boots' %}">Ботинки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'shoes' %}">Туфли</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'boots' %}">Ботинки</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Аксессуары</h2>
                             <ul>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'ties' %}">Галстуки и бабочки</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'bags' %}">Сумки</a></li>
-                                <li><a href="{% url 'main:catalogApp:catalog' 'aromas' %}">Ароматы</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'ties' %}">Галстуки и бабочки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'bags' %}">Сумки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' 'aromas' %}">Ароматы</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -65,8 +65,8 @@
                         {% for product in products %}
                             <div class="{% cycle 'tile_box_1' 'tile_box_2' 'tile_box_3' %}"
                                 style="background-image:
-                                        url({{ product.image_products.first.image.url }});">
-                                <a href="#" class="link_image"></a>
+                                        url({{ product.images_product.first.image.url }});">
+                                <a href="{% url 'productApp:product' product.slug %}" class="link_image"></a>
                                 <div class="block_view">
                                     <form action="1" method="post">
                                     {% csrf_token %}
@@ -103,10 +103,4 @@
             </div>
         </div>
     </section>
-{#    <form action="1">#}
-{#        <label><input type="radio" name="D" value="1" hidden>asfaffa</label>#}
-{#        <label><input type="radio" name="D" value="10" hidden>asfaffafdsdf</label>#}
-{#        <input type="submit">#}
-{#    </form>#}
-
 {% endblock %}
