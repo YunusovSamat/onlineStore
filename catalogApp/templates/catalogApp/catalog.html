@@ -71,17 +71,21 @@
                                     <form action="1" method="post">
                                     {% csrf_token %}
                                         <div class="block_size">
-                                            {% for count in product.counts.all %}
-                                                {% ifnotequal count.count 0 %}
-                                                    <label>
-                                                        <input type="radio" name="size"
-                                                               value="{{ count.fk_size }}" required>
-                                                        <span>{{ count.fk_size }}</span>
-                                                    </label>
+                                                {% if product.counts.all %}
+                                                    {% for count in product.counts.all %}
+                                                    {% ifnotequal count.count 0 %}
+                                                        <label>
+                                                            <input type="radio" name="size"
+                                                                   value="{{ count.fk_size }}" required>
+                                                            <span>{{ count.fk_size }}</span>
+                                                        </label>
+                                                    {% else %}
+                                                        <span class="block_disabled">{{ count.fk_size }}</span>
+                                                    {% endifnotequal %}
+                                                {% endfor %}
                                                 {% else %}
-                                                    <span class="block_disabled">{{ count.fk_size }}</span>
-                                                {% endifnotequal %}
-                                            {% endfor %}
+                                                    <span>Нет размеров</span>
+                                                {% endif %}
                                         </div>
                                         <button class="link_button" type="submit">Добавить в корзину</button>
                                     </form>

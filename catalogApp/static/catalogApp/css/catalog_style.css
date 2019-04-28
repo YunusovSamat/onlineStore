@@ -141,9 +141,6 @@
 .block_size {
     padding: 26px 0;
     background: rgba(232, 232, 232, 0.7);
-}
-
-.block_size {
     font-weight: normal;
     font-size: 11px;
     color: #000;
@@ -156,11 +153,6 @@
 .block_size input[type='radio'] + span {
     cursor: pointer;
 }
-
-/*.block_size input[type="radio"] + span::before {*/
-    /*display: inline-block;*/
-    /*content: "";*/
-/*}*/
 
 .block_size input[type='radio']:checked + span {
     border-bottom: 2px solid #000;
@@ -185,7 +177,6 @@
     background: #bb8e62;
     padding: 12px 0;
     cursor: pointer;
-
 }
 
 .link_image:hover + .block_view, .block_view:hover {

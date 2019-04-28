@@ -41,11 +41,53 @@
                     {% endfor %}
                 </div>
                 <div class="block_text">
-                    <h2>{{ product.name }}gfgdfgdfgdfgdgfdfgdagfadgag</h2>
-                    <h2>{{ product.price|intcomma }} руб.</h2>
+                    <form id="form1" action="" method="get"></form>
+                    <div class="block_name_price">
+                        <h2>{{ product.name }}</h2>
+                        <h2>{{ product.price|intcomma }} руб.</h2>
+                    </div>
+                    <div class="block_size">
+                    {% if product.counts.all %}
+                        {% for count in product.counts.all %}
+                            {% ifnotequal count.count 0 %}
+                                <label>
+                                    <input form="form1" type="radio" name="size"
+                                           value="{{ count.fk_size }}" required onclick="radioVal();">
+                                    <span>{{ count.fk_size }}</span>
+                                </label>
+                            {% else %}
+                                <span class="block_disabled">{{ count.fk_size }}</span>
+                            {% endifnotequal %}
+                        {% endfor %}
+                    {% else %}
+                        <span>Нет размеров.</span>
+                    {% endif %}
+
+                    </div>
+                    <div class="block_size_description">
+                        <h4>Руководство по размерам</h4>
+                        <h4 id="size_value">Размер не выбран</h4>
+                    </div>
+                    <button form="form1" class="link_button" type="submit">Добавить в корзину</button>
+                    <div class="block_description">
+                        <h3>Информация о товаре</h3>
+                        <span>{{ product.id }}</span>
+                        <p>{{ product.description }}</p>
+                    </div>
+                    <div class="block_link_more">
+                        <a href="#">Состав и уход</a>
+                        <a href="#">Доставка</a>
+                        <a href="#">Возврат</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <script>
+        function radioVal() {
+            var size_val = document.getElementById("form1").elements["size"].value;
+            document.getElementById("size_value").innerHTML = "Ваш размер " + size_val;
+        }
+    </script>
 {% endblock %}
