@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'catalogApp.apps.CatalogappConfig',
     'productApp.apps.ProductappConfig',
+    'registrationApp.apps.RegistrationappConfig',
 ]
 
 MIDDLEWARE = [

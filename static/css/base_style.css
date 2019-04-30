@@ -49,6 +49,10 @@ body {
 	text-transform: uppercase;
 }
 
+.catalog ul li > a {
+	cursor: default;
+}
+
 .menu ul li:hover > a {
 	text-decoration: underline;
 	text-decoration-color: #807c76;

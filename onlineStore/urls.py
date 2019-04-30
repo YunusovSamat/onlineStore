@@ -21,7 +21,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path('^', include('main.urls')),
-    re_path(r'^catalog/(?P<slug>\w+)/', include('catalogApp.urls')),
-    re_path(r'^product/(?P<slug>\w+)/', include('productApp.urls')),
+    re_path(r'^catalog/', include('catalogApp.urls')),
+    re_path(r'^product/', include('productApp.urls')),
+    re_path(r'^registration/', include('registrationApp.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
