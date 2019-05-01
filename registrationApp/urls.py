@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'registrationApp'
 urlpatterns = [
-    re_path("^$", views.registrationForm, name='registration'),
+    re_path("^$", views.registration_form, name='registration'),
 ]

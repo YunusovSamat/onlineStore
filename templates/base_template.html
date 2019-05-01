@@ -12,6 +12,19 @@
 </head>
 
 <body>
+
+    <section>
+        <div class="container">
+            <div id="window_login">
+                <div class="window_login_context">
+                    <span id="window_login_close">&times;</span>
+                    <h1>login</h1>
+                    <h1>password</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
 	<header class="header">
 		<div class="container">
 			<div class="main">
@@ -108,12 +121,12 @@
 						</li>
 					</ul>
 				</nav>
-				<a href="{% url 'main:index' %}" class="logo"><img src={% static 'images/logo.png' %} alt="logo"></a>
+				<a href="{% url 'main:index' %}" class="logo"><img src={% static 'images/logo.png' %} alt="DandyShop"></a>
 				<nav class="menu navigation">
 					<ul>
 						<li><a href="#">Корзина</a></li>
 						<li><a href="#">Доставка и оплата</a></li>
-						<li><a href="#">Вход</a></li>
+						<li><a id="window_login_open">Вход</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -162,6 +175,27 @@
 			<h3>Все права защищены</h3>
 		</div>
 	</section>
+
+    <script>
+        var window_login = document.getElementById('window_login');
+        var btn_open = document.getElementById("window_login_open");
+        var btn_close = document.getElementById("window_login_close");
+
+        btn_open.onclick = function () {
+            window_login.style.display = 'block';
+        };
+
+        btn_close.onclick = function () {
+            window_login.style.display = 'none';
+        }
+
+        window_login.onclick = function (e) {
+            if (e.target == window_login) {
+                window_login.style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 
 </html>

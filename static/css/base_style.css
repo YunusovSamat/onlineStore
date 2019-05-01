@@ -9,12 +9,41 @@ body {
 	margin: 0 auto;
 }
 
+/* Window login */
+#window_login {
+	display: none;
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.window_login_context {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    width: 500px;
+}
+
+#window_login_close {
+    display: flex;
+    justify-content: right;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: auto;
+    cursor: pointer;
+}
+
 /* Header */
 .header {
 	top: 0;
 	width: 100%;
 	position: fixed;
-	z-index: 100;
+	z-index: 10;
 	background: #f0e8de;
 	border-bottom: 2px solid #a09b94;
 
@@ -152,7 +181,10 @@ body {
 
 .navigation ul li:last-child {
 	margin-right: 28px;
+	cursor: pointer;
 }
+
+
 
 /* Void for header */
 .void_for_header {

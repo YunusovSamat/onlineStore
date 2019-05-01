@@ -6,26 +6,19 @@
     {% static 'productApp/css/product_style.css' %}
 {% endblock %}
 
-
-{#    <h1>{{ product.fk_subcatalog }}</h1>#}
-{#    <h1>{{ product.slug }}</h1>#}
-{#    <h1>{{ product.name }}</h1>#}
-{#    <h1>{{ product.description }}</h1>#}
-{#    <h1>{{ product.price }}</h1>#}
-{#    {% for image in product.images_product.all %}#}
-{#        <img src="{{ image.image.url }}" alt="">#}
-{#    {% endfor %}#}
-{#    #}
-{#    <h1>#}
-{#        {% for c in product.counts.all %}#}
-{#            <h2>{{ c.count }}</h2>#}
-{#            <h2>{{ c.fk_size }}</h2> <br>#}
-{##}
-{#        {% endfor %}#}
-{#    </h1>#}
-
-
 {% block context %}
+    <section>
+        <div class="container-2">
+            <div id="window_size">
+                <div class="window_size_context">
+                    <span id="window_size_close">&times;</span>
+                    <h1>table</h1>
+                    <img src="{{ product.images_product.first.image.url }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="back">
         <div class="container-2">
             <a href="javascript:history.go(-1)">Назад</a>
@@ -47,6 +40,7 @@
                         <h2>{{ product.price|intcomma }} руб.</h2>
                     </div>
                     <div class="block_size">
+                    <input form="form1" type="hidden" name="id" value="{{ product.id }}">
                     {% for count in product.counts.all %}
                         {% ifnotequal count.count 0 %}
                             <label>
@@ -60,13 +54,12 @@
                     {% endfor %}
                     </div>
                     <div class="block_size_description">
-                        <h4>Руководство по размерам</h4>
+                        <h4 id="window_size_open">Руководство по размерам</h4>
                         <h4 id="size_value">Размер не выбран</h4>
                     </div>
                     <button form="form1" class="link_button" type="submit">Добавить в корзину</button>
                     <div class="block_description">
                         <h3>Информация о товаре</h3>
-                        <span>{{ product.id }}</span>
                         <p>{{ product.description }}</p>
                     </div>
                     <div class="block_link_more">
@@ -78,6 +71,26 @@
             </div>
         </div>
     </section>
+
+    <script>
+        var window_size = document.getElementById('window_size');
+        var btn_open = document.getElementById("window_size_open");
+        var btn_close = document.getElementById("window_size_close");
+
+        btn_open.onclick = function () {
+            window_size.style.display = 'block';
+        };
+
+        btn_close.onclick = function () {
+            window_size.style.display = 'none';
+        }
+
+        window_size.onclick = function (e) {
+            if (e.target == window_size) {
+                window_size.style.display = 'none';
+            }
+        }
+    </script>
 
     <script>
         function radioVal() {

@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 # from
 
 
-def registrationForm(request):
+def registration_form(request):
     template = 'registrationApp/registration.html'
     # context = {
     #
