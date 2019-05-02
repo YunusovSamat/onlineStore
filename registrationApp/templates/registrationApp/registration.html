@@ -7,4 +7,13 @@
 
 {% block context %}
     <h1>This is registration</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+{#        {{ form.as_p }}#}
+        <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+        <input type="email" name="email" maxlength="254" required="" id="id_email">
+        <input type="password" name="password1" required="" id="id_password1">
+        <input type="password" name="password2" required="" id="id_password2">
+        <button type="submit">Зарегистрироваться</button>
+    </form>
 {% endblock %}

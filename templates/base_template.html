@@ -20,6 +20,13 @@
                     <span id="window_login_close">&times;</span>
                     <h1>login</h1>
                     <h1>password</h1>
+                    <form action="registration/login/" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="username" autofocus="" required="" id="id_username">
+                        <input type="password" name="password" required="" id="id_password">
+                        <button type="submit">Войти</button>
+                    </form>
+                    <a href="{% url 'registrationApp:registration' %}">Зарегистрироваться</a>
                 </div>
             </div>
         </div>
