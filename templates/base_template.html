@@ -12,26 +12,6 @@
 </head>
 
 <body>
-
-    <section>
-        <div class="container">
-            <div id="window_login">
-                <div class="window_login_context">
-                    <span id="window_login_close">&times;</span>
-                    <h1>login</h1>
-                    <h1>password</h1>
-                    <form action="registration/login/" method="post">
-                        {% csrf_token %}
-                        <input type="text" name="username" autofocus="" required="" id="id_username">
-                        <input type="password" name="password" required="" id="id_password">
-                        <button type="submit">Войти</button>
-                    </form>
-                    <a href="{% url 'registrationApp:registration' %}">Зарегистрироваться</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
 	<header class="header">
 		<div class="container">
 			<div class="main">
@@ -133,7 +113,12 @@
 					<ul>
 						<li><a href="#">Корзина</a></li>
 						<li><a href="#">Доставка и оплата</a></li>
-						<li><a id="window_login_open">Вход</a></li>
+                        {% if username %}
+                            <li><a href="{% url 'accountApp:logout' %}">Выход ({{ username }})</a></li>
+                        {% else %}
+                            <li><a href="{% url 'accountApp:login' %}">Вход</a></li>
+                        {% endif %}
+
 					</ul>
 				</nav>
 			</div>
@@ -182,27 +167,6 @@
 			<h3>Все права защищены</h3>
 		</div>
 	</section>
-
-    <script>
-        var window_login = document.getElementById('window_login');
-        var btn_open = document.getElementById("window_login_open");
-        var btn_close = document.getElementById("window_login_close");
-
-        btn_open.onclick = function () {
-            window_login.style.display = 'block';
-        };
-
-        btn_close.onclick = function () {
-            window_login.style.display = 'none';
-        }
-
-        window_login.onclick = function (e) {
-            if (e.target == window_login) {
-                window_login.style.display = 'none';
-            }
-        }
-    </script>
-
 </body>
 
 </html>

@@ -23,7 +23,7 @@ urlpatterns = [
     re_path('^', include('main.urls')),
     re_path(r'^catalog/', include('catalogApp.urls')),
     re_path(r'^product/', include('productApp.urls')),
-    re_path(r'^registration/', include('registrationApp.urls')),
     re_path(r'^order/', include('orderApp.urls')),
+    re_path(r'^account/', include('accountApp.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

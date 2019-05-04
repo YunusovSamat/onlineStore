@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+                        {% csrf_token %}
+                        <label for="username">login</label>
+                        <input type="text" name="username" required id="username">
+                        <label for="password">password</label>
+                        <input type="password" name="password" required id="password">
+                        {% if login_error %}
+                            <label>{{ login_error }}</label>
+                        {% endif %}
+                        <button type="submit">Войти</button>
+                    </form>
+                    <a href="{% url 'accountApp:signup' %}">Зарегистрироваться</a>
+</body>
+</html>
