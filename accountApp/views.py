@@ -35,7 +35,7 @@ def login(request):
             auth.login(request, user)
             return redirect('main:index')
         else:
-            context['login_error'] = "error"
+            context['login_error'] = "Неправильный логин или пароль"
             return render_to_response('accountApp/login.html', context)
     else:
         return render_to_response('accountApp/login.html', context)

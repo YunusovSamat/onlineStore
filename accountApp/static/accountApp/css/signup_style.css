@@ -4,10 +4,10 @@ body {
 	background-color: #f7f3ed;
 }
 
-/* Login form */
-.login_form {
-    padding: 10px 30px 30px;
-    width: 350px;
+/* Signup form */
+.signup_form {
+    padding: 20px 90px 30px;
+    width: 500px;
     margin: 100px auto 0;
     background-color: #eee6dc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -21,20 +21,22 @@ body {
     justify-content: right;
 }
 
-.login_form h2 {
-    font-size: 20px;
+.signup_form h2 {
+    font-size: 17px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 20px;
+    text-transform: uppercase;
+    margin: 10px 0 20px;
 }
 
-.login_form p {
-    font-size: 15px;
-    text-align: left;
-    margin-bottom: 15px;
+.name {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+
 }
 
-.login_form input {
+.signup_form input {
     display: block;
     width: 100%;
     font-family: "century gothic", sans-serif;
@@ -46,47 +48,30 @@ body {
     margin-top: 20px;
 }
 
-.login_form input:focus {
+.signup_form input:focus {
     border-bottom: 2px solid #877a74;
 }
 
-.login_form label {
-    display: block;
+.block_errors {
     font-size: 15px;
     color: #c94b44;
     margin-top: 20px;
 }
 
-.login_form button {
+.block_errors p {
+    margin-top: 10px;
+}
+
+.signup_form button {
     font-family: "century gothic", sans-serif;
     font-size: 15px;
     font-weight: bold;
     color: #fff;
     margin: 40px 0;
-    padding: 15px 0;
+    padding: 10px 0;
     width: 100%;
     text-transform: uppercase;
     background-color: #bb8e62;
     border: none;
     cursor: pointer;
-}
-
-.login_form h3 {
-    font-size: 15px;
-    text-align: center;
-}
-
-.link_signup {
-    display: block;
-    font-size: 15px;
-    font-weight: bold;
-    color: #fff;
-    margin: 40px 0 20px;
-    padding: 15px 0;
-    width: 100%;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    background-color: #3a2900;
-    border: none;
 }

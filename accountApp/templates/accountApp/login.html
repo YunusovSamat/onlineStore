@@ -1,21 +1,33 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dandy Shop</title>
+    <link rel="stylesheet" href={% static 'css/reset.css' %}>
+    <link rel="stylesheet" href={% static 'accountApp/css/login_style.css' %}>
 </head>
 <body>
-    <form action="" method="post">
-                        {% csrf_token %}
-                        <label for="username">login</label>
-                        <input type="text" name="username" required id="username">
-                        <label for="password">password</label>
-                        <input type="password" name="password" required id="password">
-                        {% if login_error %}
-                            <label>{{ login_error }}</label>
-                        {% endif %}
-                        <button type="submit">Войти</button>
-                    </form>
-                    <a href="{% url 'accountApp:signup' %}">Зарегистрироваться</a>
+    <section class="login_form">
+{#        <a class="exit" href="javascript:history.back()">&times;</a>#}
+        <a class="exit" href="{% url "main:index" %}">&times;</a>
+
+        <h2>Начать покупки</h2>
+        <p>Для входа введите логин и пароль</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" autofocus required placeholder="Логин">
+            <input type="password" name="password" required placeholder="Пароль">
+            {% if login_error %}
+                <label>{{ login_error }}</label>
+            {% endif %}
+            <button type="submit">Войти</button>
+        </form>
+
+        <h3>У вас нет аккаунта?</h3>
+        <a class="link_signup" href="{% url 'accountApp:signup' %}">Зарегистрироваться</a>
+    </section>
 </body>
 </html>

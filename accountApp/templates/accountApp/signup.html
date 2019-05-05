@@ -1,19 +1,48 @@
-{% extends 'base_template.html' %}
 {% load staticfiles %}
 
-{% block style %}
-
-{% endblock %}
-
-{% block context %}
-    <h1>This is registration</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-{#        {{ form.as_p }}#}
-        <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
-        <input type="email" name="email" maxlength="254" required="" id="id_email">
-        <input type="password" name="password1" required="" id="id_password1">
-        <input type="password" name="password2" required="" id="id_password2">
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Dandy Shop</title>
+    <link rel="stylesheet" href={% static 'css/reset.css' %}>
+    <link rel="stylesheet" href={% static 'accountApp/css/signup_style.css' %}>
+</head>
+<body>
+    <section class="signup_form">
+{#        <a class="exit" href="javascript:history.back()">&times;</a>#}
+        <a class="exit" href="{% url 'main:index' %}">&times;</a>
+        <h2>Создать аккаунт</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="name">
+                <input type="text" name="last_name" required
+                       id="id_last_name" placeholder="Фамилия" autofocus>
+                <input type="text" name="first_name" required
+                       id="id_first_name" placeholder="Имя">
+            </div>
+            <input type="text" name="username" maxlength="150" required
+                   id="id_username" placeholder="Логин">
+            <input type="email" name="email" maxlength="254" required
+                   id="id_email" placeholder="Адрес электронной почты">
+            <input type="password" name="password1" required
+                   id="id_password1" placeholder="Пароль">
+            <input type="password" name="password2" required
+                   id="id_password2" placeholder="Повторный пароль">
+            <div class="block_errors">
+                <p>
+                    {% if form.username.errors %}
+                    {{ form.username.errors }}
+                {% endif %}
+                </p>
+                <p>
+                    {% if form.password2.errors %}
+                        {{ form.password2.errors }}
+                    {% endif %}
+                </p>
+            </div>
+            <button type="submit">Создать аккаунт</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -114,7 +114,7 @@
 						<li><a href="#">Корзина</a></li>
 						<li><a href="#">Доставка и оплата</a></li>
                         {% if username %}
-                            <li><a href="{% url 'accountApp:logout' %}">Выход ({{ username }})</a></li>
+                            <li><a href="{% url 'accountApp:logout' %}">Выход</a></li>
                         {% else %}
                             <li><a href="{% url 'accountApp:login' %}">Вход</a></li>
                         {% endif %}
