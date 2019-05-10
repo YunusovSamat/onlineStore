@@ -7,5 +7,58 @@
 {% endblock %}
 
 {% block context %}
-    <h1>This is order</h1>
+    <section class="order">
+        <div class="container-order">
+            <h2>Корзина</h2>
+            <div class="product_order">
+                <img src="http://127.0.0.1:8000/media/imagesProduct/product2.png" alt="">
+                <div class="product_order_text">
+                    <a href="#" class="delete">&times;</a>
+                    <h3 class="name">Name</h3>
+                    <div class="size_price">
+                        <div>
+                            <h4>Размер</h4>
+                            <h5>46</h5>
+                        </div>
+                        <div>
+                            <h4>Цена</h4>
+                            <h5>20 999 руб.</h5>
+                        </div>
+                    </div>
+                    <div class="count">
+                        <h4>Количество</h4>
+                        <input type="number">
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="total">
+                <div>
+
+                </div>
+                <div>
+                    <div>
+                        <h4>Товары</h4>
+                        <h5>20 999 руб.</h5>
+                    </div>
+                    <div>
+                        <h4>Стандартная доставка</h4>
+                        <h5>490 руб.</h5>
+                    </div>
+                    <div>
+                        <h4>Бесплатная стандартная доставка</h4>
+                        <h5>-490 руб.</h5>
+                    </div>
+                    <div>
+                        <h4>Итог</h4>
+                        <h5>20 999 руб.</h5>
+                    </div>
+                    <a href="#">Обработать заказ</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
 {% endblock %}

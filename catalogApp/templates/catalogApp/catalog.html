@@ -68,7 +68,7 @@
                                         url({{ product.images_product.first.image.url }});">
                                 <a href="{% url 'productApp:product' product.slug %}" class="link_image"></a>
                                 <div class="block_view">
-                                    <form action="1" method="get">
+                                    <form action="{% url 'orderApp:add_to_order' %}" method="get">
 {#                                    {% csrf_token %}#}
                                         <input type="hidden" name="id" value="{{ product.id }}">
                                         <div class="block_size">

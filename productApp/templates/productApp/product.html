@@ -34,7 +34,7 @@
                     {% endfor %}
                 </div>
                 <div class="block_text">
-                    <form id="form1" action="" method="get"></form>
+                    <form id="form1" action="{% url 'orderApp:add_to_order' %}" method="get"></form>
                     <div class="block_name_price">
                         <h2>{{ product.name }}</h2>
                         <h2>{{ product.price|intcomma }} руб.</h2>

@@ -6,3 +6,7 @@ def order_view(request):
 
     return render(request, template)
 
+
+def add_to_order(request):
+    # if request.method == 'POST':
+    return request(request)
