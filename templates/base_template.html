@@ -111,7 +111,7 @@
 				<a href="{% url 'main:index' %}" class="logo"><img src={% static 'images/logo.png' %} alt="DandyShop"></a>
 				<nav class="menu navigation">
 					<ul>
-						<li><a href="{% url 'orderApp:order' %}">Корзина</a></li>
+						<li><a href="{% url 'orderApp:order_detail' %}">Корзина</a></li>
 						<li><a href="#">Доставка и оплата</a></li>
                         {% if username %}
                             <li><a href="{% url 'accountApp:logout' %}">Выход</a></li>
