@@ -1,33 +1,20 @@
 from django.contrib import admin
 
-from .models import Product, SizeProduct, CountProduct, ImageProduct
+from .models import Catalog, Subcatalog
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_subcatalog', 'slug', 'name', 'description', 'price']
-    search_fields = ['fk_subcatalog', 'slug', 'name', 'description', 'price']
-    ordering = ['fk_subcatalog', 'slug']
+class CatalogAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    search_fields = ['id', 'name']
+    ordering = ['id']
 
 
-class SizeProductAdmin(admin.ModelAdmin):
-    list_display = ['size']
-    search_fields = ['size']
-    ordering = ['size']
+class SubcatalogAdmin(admin.ModelAdmin):
+    list_display = ['fk_catalog', 'id', 'name']
+    search_fields = ['fk_catalog', 'id', 'name']
+    ordering = ['fk_catalog', 'id']
 
 
-class CountProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_product', 'fk_size', 'count']
-    search_fields = ['fk_product', 'fk_size', 'count']
-    ordering = ['fk_product', 'fk_size', 'count']
+admin.site.register(Catalog, CatalogAdmin)
+admin.site.register(Subcatalog, SubcatalogAdmin)
 
-
-class ImageProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_product', 'image']
-    search_fields = ['fk_product', 'image']
-    ordering = ['fk_product', 'image']
-
-
-admin.site.register(Product, ProductAdmin)
-admin.site.register(SizeProduct, SizeProductAdmin)
-admin.site.register(CountProduct, CountProductAdmin)
-admin.site.register(ImageProduct, ImageProductAdmin)

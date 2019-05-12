@@ -36,26 +36,26 @@
                         <li>
                             <h2>Одежда</h2>
                             <ul>
-                                <li><a href="{% url 'catalogApp:catalog' 'coat' %}">Пальто</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'jackets' %}">Пиджаки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'trousers' %}">Брюки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'shirts' %}">Рубашки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'sweaters' %}">Свитеры и джемперы</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '1' %}">Пальто</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '2' %}">Пиджаки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '3' %}">Брюки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '4' %}">Рубашки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '5' %}">Свитеры и джемперы</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Обувь</h2>
                             <ul>
-                                <li><a href="{% url 'catalogApp:catalog' 'shoes' %}">Туфли</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'boots' %}">Ботинки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '6' %}">Туфли</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '7' %}">Ботинки</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Аксессуары</h2>
                             <ul>
-                                <li><a href="{% url 'catalogApp:catalog' 'ties' %}">Галстуки и бабочки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'bags' %}">Сумки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' 'aromas' %}">Ароматы</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '8' %}">Галстуки и бабочки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '9' %}">Сумки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '10' %}">Ароматы</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -66,11 +66,10 @@
                             <div class="{% cycle 'tile_box_1' 'tile_box_2' 'tile_box_3' %}"
                                 style="background-image:
                                         url({{ product.images_product.first.image.url }});">
-                                <a href="{% url 'productApp:product' product.slug %}" class="link_image"></a>
+                                <a href="{% url 'productApp:product' product.id %}" class="link_image"></a>
                                 <div class="block_view">
                                     <form action="{% url 'orderApp:order_add' product.id %}" method="get">
 {#                                    {% csrf_token %}#}
-                                        <input type="hidden" name="id" value="{{ product.id }}">
                                         <div class="block_size">
                                                 {% for count in product.counts.all %}
                                                     {% ifnotequal count.count 0 %}
@@ -89,7 +88,7 @@
                                 </div>
 
 
-                                <a href="{% url 'productApp:product' product.slug %}" class="link_text">
+                                <a href="{% url 'productApp:product' product.id %}" class="link_text">
                                     <h3>{{ product.name }}</h3>
                                     <h3>{{ product.price|intcomma }} руб.</h3>
                                 </a>

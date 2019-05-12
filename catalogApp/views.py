@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 
-from main.models import Subcatalog
+from .models import Subcatalog
 from .forms import CatalogFilterForm
 
 
-def catalog_list(request, slug):
+def catalog_list(request, subcatalog_id):
     template = 'catalogApp/catalog.html'
-    subcatalog = get_object_or_404(Subcatalog, slug=slug)
+    subcatalog = get_object_or_404(Subcatalog, id=subcatalog_id)
     products = subcatalog.products.all()
     form = CatalogFilterForm(request.GET)
 

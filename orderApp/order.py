@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 from django.conf import settings
-from catalogApp.models import Product
+from productApp.models import Product
 
 
 class Order(object):
@@ -12,10 +12,13 @@ class Order(object):
             order = self.session[settings.CART_SESSION_ID] = {}
         self.order = order
 
-    def add(self, product, count=1, update_count=False):
+    def add(self, product, count=1, update_count=False, size=46):
         product_id = str(product.id)
+
         if product_id not in self.order:
-            self.order[product_id] = {'count': 0, 'price': str(product.price)}
+            self.order[product_id] = {'count': 0, 'price': str(product.price), 'size': size}
+
+        self.order[product_id] = {'count': 0, 'price': str(product.price), 'size': size}
         if update_count:
             self.order[product_id]['count'] = count
         else:
@@ -47,7 +50,7 @@ class Order(object):
         return sum(item['count'] for item in self.order.values())
 
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.order.values())
+        return sum(Decimal(item['price']) * item['count'] for item in self.order.values())
 
     def clear(self):
         del self.session[settings.CART_SESSION_ID]

@@ -7,6 +7,16 @@
 {% endblock %}
 
 {% block context %}
+    <h1>TOTAL {{ order.get_total_price }}</h1>
+    {% for item in order %}
+        <h2>name: {{ item.product }}</h2>
+        <h2>price: {{ item.price }}</h2>
+        <h2>count: {{ item.count }}</h2>
+        <h2>size: {{ item.size }}</h2>
+        <br><br>
+    {% endfor %}
+    <a href="{% url 'orderApp:order_clear' %}">clear</a>
+
     <section class="order">
         <div class="container-order">
             <h2>Корзина</h2>

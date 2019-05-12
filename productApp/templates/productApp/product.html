@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block context %}
+    <a href="{% url 'orderApp:order_clear' %}">clear</a>
     <section>
         <div class="container-2">
             <div id="window_size">
@@ -35,16 +36,17 @@
                 </div>
                 <div class="block_text">
                     <form id="form1" action="{% url 'orderApp:order_add' product.id %}" method="get"></form>
+                    <input form="form1" type="hidden" name="count" id="id_count" value="1">
+                    <input form="form1" type="hidden" name="update" id="id_update" value="False">
                     <div class="block_name_price">
                         <h2>{{ product.name }}</h2>
                         <h2>{{ product.price|intcomma }} руб.</h2>
                     </div>
                     <div class="block_size">
-                    <input form="form1" type="hidden" name="id" value="{{ product.id }}">
                     {% for count in product.counts.all %}
                         {% ifnotequal count.count 0 %}
                             <label>
-                                <input form="form1" type="radio" name="size"
+                                <input form="form1" type="radio" name="size" id="id_size"
                                        value="{{ count.fk_size }}" required onclick="radioVal();">
                                 <span>{{ count.fk_size }}</span>
                             </label>
