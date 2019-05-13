@@ -35,9 +35,9 @@
                     {% endfor %}
                 </div>
                 <div class="block_text">
-                    <form id="form1" action="{% url 'orderApp:order_add' product.id %}" method="get"></form>
+                    <form id="form1" action="{% url 'orderApp:order_add' %}" method="get"></form>
+                    <input form="form1" type="hidden" name="product_id" id="id_product" value={{ product.id }}>
                     <input form="form1" type="hidden" name="count" id="id_count" value="1">
-                    <input form="form1" type="hidden" name="update" id="id_update" value="False">
                     <div class="block_name_price">
                         <h2>{{ product.name }}</h2>
                         <h2>{{ product.price|intcomma }} руб.</h2>
@@ -96,6 +96,7 @@
 
     <script>
         function radioVal() {
+
             var size_val = document.getElementById("form1").elements["size"].value;
             document.getElementById("size_value").innerHTML = "Ваш размер " + size_val;
         }

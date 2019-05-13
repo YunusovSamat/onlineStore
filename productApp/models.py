@@ -1,6 +1,6 @@
 from django.db import models
 
-from catalogApp.models import Subcatalog
+from catalogApp .models import Subcatalog
 
 
 class Product(models.Model):

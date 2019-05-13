@@ -2,6 +2,7 @@ from django import forms
 
 
 class OrderAddProductForm(forms.Form):
+    product_id = forms.IntegerField()
     count = forms.IntegerField()
-    update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
     size = forms.IntegerField()
+

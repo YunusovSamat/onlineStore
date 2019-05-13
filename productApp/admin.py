@@ -3,10 +3,19 @@ from django.contrib import admin
 from .models import Product, SizeProduct, CountProduct, ImageProduct
 
 
+class CountProductInline(admin.TabularInline):
+    model = CountProduct
+
+
+class ImageProductInline(admin.StackedInline):
+    model = ImageProduct
+
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['fk_subcatalog', 'id', 'name', 'description', 'price']
     search_fields = ['fk_subcatalog', 'id', 'name', 'description', 'price']
     ordering = ['fk_subcatalog', 'id']
+    inlines = [CountProductInline, ImageProductInline]
 
 
 class SizeProductAdmin(admin.ModelAdmin):
