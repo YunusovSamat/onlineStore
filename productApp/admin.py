@@ -25,7 +25,7 @@ class SizeProductAdmin(admin.ModelAdmin):
 
 
 class CountProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_product', 'fk_size', 'count']
+    list_display = ['fk_product', 'fk_size', 'count', 'id']
     search_fields = ['fk_product', 'fk_size', 'count']
     ordering = ['fk_product', 'fk_size', 'count']
 

@@ -9,11 +9,17 @@
 {% block context %}
     <h1>TOTAL {{ order.get_total_price }}</h1>
     {% for item in order %}
-        <h2>name: {{ item.product_order.fk_product }}</h2>
+        {{ item }}
+        <h2>name: {{ item.product }}</h2>
+        <img src="{{ item.product.images_product.first.image.url }}" alt="">
         <h2>price: {{ item.price }}</h2>
         <h2>count: {{ item.count }}</h2>
         <h2>size: {{ item.size }}</h2>
+        {% if item.error_count %}
+            {{ item.error_count }}
+        {% endif %}
         <h2>{{ item.total_price }}</h2>
+        <a href="{% url 'orderApp:order_remove' item.id %}">delete</a>
         <br><br>
     {% endfor %}
     <a href="{% url 'orderApp:order_clear' %}">clear</a>

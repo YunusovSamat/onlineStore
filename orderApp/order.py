@@ -1,7 +1,8 @@
 from decimal import Decimal
 
+from django.shortcuts import get_object_or_404
 from django.conf import settings
-from orderApp.models import ProductOrder
+from productApp.models import Product
 
 
 class Order(object):
@@ -12,32 +13,40 @@ class Order(object):
             order = self.session[settings.CART_SESSION_ID] = {}
         self.order = order
 
-    def add(self, product_order):
-        product_order_id = str(product_order.id)
+    def add(self, count_product, count=1):
+        count_product_id = str(count_product.id)
 
-        if product_order_id not in self.order:
-            self.order[product_order_id] = {
-                'price': str(product_order.fk_product.price),
-                'size': product_order.size
+        if count_product_id not in self.order:
+            self.order[count_product_id] = {
+                'id': count_product.id,
+                'count': 0,
+                'price': str(count_product.fk_product.price),
+                'size': count_product.fk_size.size,
             }
-        self.order[product_order_id]['count'] = product_order.count
+
+        if self.order[count_product_id]['count'] + count <= count_product.count:
+            self.order[count_product_id]['count'] += count
+        else:
+            self.order[count_product_id]['count'] = count_product.count
+            self.order[count_product_id]['error_count'] = "превышин лимит количества"
         self.save()
 
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.order
         self.session.modified = True
 
-    # def remove(self, product):
-    #     product_id = str(product.id)
-    #     if product_id in self.order:
-    #         del self.order[product_id]
-    #         self.save()
+    def remove(self, count_product_id):
+        count_product_id = str(count_product_id)
+        if count_product_id in self.order:
+            del self.order[count_product_id]
+            self.save()
 
     def __iter__(self):
-        product_order_ids = self.order.keys()
-        products_order = ProductOrder.objects.filter(id__in=product_order_ids)
-        for product_order in products_order:
-            self.order[str(product_order.id)]['product_order'] = product_order
+        count_product_ids = self.order.keys()
+
+        for count_product_id in count_product_ids:
+            product = get_object_or_404(Product, counts__id=count_product_id)
+            self.order[str(count_product_id)]['product'] = product
 
         for item in self.order.values():
             yield item

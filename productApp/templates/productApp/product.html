@@ -36,7 +36,6 @@
                 </div>
                 <div class="block_text">
                     <form id="form1" action="{% url 'orderApp:order_add' %}" method="get"></form>
-                    <input form="form1" type="hidden" name="product_id" id="id_product" value={{ product.id }}>
                     <input form="form1" type="hidden" name="count" id="id_count" value="1">
                     <div class="block_name_price">
                         <h2>{{ product.name }}</h2>
@@ -46,8 +45,8 @@
                     {% for count in product.counts.all %}
                         {% ifnotequal count.count 0 %}
                             <label>
-                                <input form="form1" type="radio" name="size" id="id_size"
-                                       value="{{ count.fk_size }}" required onclick="radioVal();">
+                                <input form="form1" type="radio" name="count_id" id="id_count"
+                                       value="{{ count.id }}" required onclick="radioVal();">
                                 <span>{{ count.fk_size }}</span>
                             </label>
                         {% else %}
@@ -96,8 +95,7 @@
 
     <script>
         function radioVal() {
-
-            var size_val = document.getElementById("form1").elements["size"].value;
+            var size_val = document.getElementById("form1").elements["count_id"].value;
             document.getElementById("size_value").innerHTML = "Ваш размер " + size_val;
         }
     </script>

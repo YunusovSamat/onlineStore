@@ -1,6 +1,6 @@
-from django.contrib import admin
-#
-from .models import ProductOrder
+# from django.contrib import admin
+
+# from .models import ProductOrder
 
 
 # class OrderAdmin(admin.ModelAdmin):
@@ -9,11 +9,11 @@ from .models import ProductOrder
 #     ordering = ['fk_client', 'finish', 'date']
 #
 #
-class ProductOrderAdmin(admin.ModelAdmin):
-    list_display = ['fk_product', 'count', 'size', 'id']
-    search_fields = ['fk_product', 'count', 'size', 'id']
-    ordering = ['fk_product', 'count']
-
-
+# class ProductOrderAdmin(admin.ModelAdmin):
+#     list_display = ['fk_product', 'count', 'size', 'id']
+#     search_fields = ['fk_product', 'count', 'size', 'id']
+#     ordering = ['fk_product', 'count']
+#
+#
 # admin.site.register(Order, OrderAdmin)
-admin.site.register(ProductOrder, ProductOrderAdmin)
+# admin.site.register(ProductOrder, ProductOrderAdmin)

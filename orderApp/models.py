@@ -14,12 +14,12 @@ from productApp.models import Product
 #     sum = models.PositiveIntegerField(blank=True)
 #
 #
-class ProductOrder(models.Model):
-    # fk_order = models.ForeignKey(
-    #     Order, on_delete=models.CASCADE, related_name='product_order'
-    # )
-    fk_product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name='product_order'
-    )
-    count = models.PositiveIntegerField(default=1)
-    size = models.IntegerField()
+# class ProductOrder(models.Model):
+#     fk_order = models.ForeignKey(
+#         Order, on_delete=models.CASCADE, related_name='product_order'
+#     )
+#     fk_product = models.ForeignKey(
+#         Product, on_delete=models.CASCADE, related_name='product_order'
+#     )
+#     count = models.PositiveIntegerField(default=1)
+#     size = models.IntegerField()
