@@ -47,7 +47,7 @@
                             <label>
                                 <input form="form1" type="radio" name="count_id" id="id_count"
                                        value="{{ count.id }}" required onclick="radioVal();">
-                                <span>{{ count.fk_size }}</span>
+                                <span id={{ count.id }}>{{ count.fk_size }}</span>
                             </label>
                         {% else %}
                             <span class="block_disabled">{{ count.fk_size }}</span>
@@ -95,7 +95,8 @@
 
     <script>
         function radioVal() {
-            var size_val = document.getElementById("form1").elements["count_id"].value;
+            var count_id = document.getElementById("form1").elements["count_id"].value;
+            var size_val = document.getElementById(count_id).innerHTML;
             document.getElementById("size_value").innerHTML = "Ваш размер " + size_val;
         }
     </script>

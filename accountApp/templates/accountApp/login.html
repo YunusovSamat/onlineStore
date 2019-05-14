@@ -10,9 +10,9 @@
 </head>
 <body>
     <section class="login_form">
-{#        <a class="exit" href="javascript:history.back()">&times;</a>#}
-        <a class="exit" href="{% url "main:index" %}">&times;</a>
-
+        <div  class="exit">
+            <a href="{% url "main:index" %}">&times;</a>
+        </div>
         <h2>Начать покупки</h2>
         <p>Для входа введите логин и пароль</p>
 

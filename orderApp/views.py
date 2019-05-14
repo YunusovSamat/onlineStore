@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
 
 from productApp.models import CountProduct
 from .order import Order
@@ -34,3 +34,13 @@ def order_clear(request):
 def order_detail(request):
     order = Order(request)
     return render(request, 'orderApp/order.html', {'order': order})
+
+
+# @require_POST
+# def order_processing(request):
+#     order = Order(request)
+#
+#     if request.user.is_authenticated():
+#
+#     else:
+#

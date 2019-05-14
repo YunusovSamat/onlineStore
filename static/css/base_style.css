@@ -147,12 +147,34 @@ body {
 	justify-content: flex-end;
 }
 .navigation ul li {
-	margin-left: 54px;
+	margin-left: 20px;
+}
+
+.navigation ul li:first-child {
+	width: 100px;
+	/*border: 1px solid red;*/
+}
+
+.navigation ul li:first-child a {
+	padding-right: 3px;
+}
+
+.order_count {
+	background-color: #bb8e62;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+	border-radius: 50%;
+	padding: 2px 6px;
+}
+
+.navigation ul li:nth-child(2) {
+	margin-left: 10px;
 }
 
 .navigation ul li:last-child {
 	margin-right: 28px;
-	width: 60px;
+	width: 65px;
 }
 
 

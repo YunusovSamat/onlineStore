@@ -28,7 +28,7 @@ class Order(object):
             self.order[count_product_id]['count'] += count
         else:
             self.order[count_product_id]['count'] = count_product.count
-            self.order[count_product_id]['error_count'] = "превышин лимит количества"
+            self.order[count_product_id]['error_count'] = "превышен лимит количества"
         self.save()
 
     def save(self):
@@ -49,7 +49,11 @@ class Order(object):
             self.order[str(count_product_id)]['product'] = product
 
         for item in self.order.values():
+            item['total_price'] = Decimal(item['price']) * item['count']
             yield item
+
+    def __len__(self):
+        return sum(item['count'] for item in self.order.values())
 
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['count'] for item in self.order.values())

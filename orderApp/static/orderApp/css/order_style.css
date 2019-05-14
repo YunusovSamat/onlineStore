@@ -12,25 +12,23 @@
 }
 
 .product_order {
-    display: flex;
+    height: 170px;
     margin-bottom: 40px;
 }
 
 .product_order img {
-    flex: 1;
-    /*width: 50px;*/
-}
-
-.product_order_text {
-    flex: 5;
-    margin-left: 20px;
-    /*border: 1px solid red;*/
+    height: 100%;
+    float: left;
+    margin-right: 20px;
 }
 
 .product_order_text .delete {
-    display: flex;
-    justify-content: right;
+    display: block;
     font-size: 30px;
+    text-align: right;
+}
+
+.product_order_text .delete a {
     color: #3a2900;
     text-decoration: none;
 }
@@ -54,7 +52,7 @@
     margin-bottom: 10px;
 }
 
-.size_price h5 {
+.size_price h5, .count h5 {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
@@ -66,11 +64,19 @@
     margin-bottom: 10px;
 }
 
+.count .error_count {
+    font-weight: normal;
+    text-transform: none;
+    color: #c94b44;
+    margin-left: 5px;
+}
+
 .order hr {
     color: #cac6c1;
     size: 2px;
 }
 
+/* Total */
 .total {
     display: flex;
     padding-top: 20px;

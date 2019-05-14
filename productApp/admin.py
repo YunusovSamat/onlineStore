@@ -12,9 +12,9 @@ class ImageProductInline(admin.StackedInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_subcatalog', 'id', 'name', 'description', 'price']
-    search_fields = ['fk_subcatalog', 'id', 'name', 'description', 'price']
-    ordering = ['fk_subcatalog', 'id']
+    list_display = ['fk_subcatalog', 'name', 'price', 'description', 'id']
+    search_fields = ['fk_subcatalog', 'name', 'price', 'description', 'id']
+    ordering = ['fk_subcatalog', 'name', 'price', 'id']
     inlines = [CountProductInline, ImageProductInline]
 
 
@@ -26,7 +26,7 @@ class SizeProductAdmin(admin.ModelAdmin):
 
 class CountProductAdmin(admin.ModelAdmin):
     list_display = ['fk_product', 'fk_size', 'count', 'id']
-    search_fields = ['fk_product', 'fk_size', 'count']
+    search_fields = ['fk_product', 'fk_size', 'count', 'id']
     ordering = ['fk_product', 'fk_size', 'count']
 
 

@@ -11,7 +11,9 @@
 <body>
     <section class="signup_form">
 {#        <a class="exit" href="javascript:history.back()">&times;</a>#}
-        <a class="exit" href="{% url 'main:index' %}">&times;</a>
+        <div  class="exit">
+            <a href="{% url "main:index" %}">&times;</a>
+        </div>
         <h2>Создать аккаунт</h2>
         <form action="" method="post">
             {% csrf_token %}

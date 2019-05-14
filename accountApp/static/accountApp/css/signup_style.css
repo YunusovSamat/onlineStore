@@ -15,10 +15,13 @@ body {
 
 .exit {
     font-size: 40px;
+    display: block;
+    text-align: right;
+}
+
+.exit a {
     color: #3a2900;
     text-decoration: none;
-    display: flex;
-    justify-content: right;
 }
 
 .signup_form h2 {
