@@ -24,6 +24,8 @@
 {#    {% endfor %}#}
 {#    <a href="{% url 'orderApp:order_clear' %}">clear</a>#}
 
+    <a href="{% url 'orderApp:order_processing' %}">order processing</a>
+
     <section class="order">
         <div class="container-order">
             <h2>Корзина</h2>
@@ -90,8 +92,19 @@
             {% else %}
                 <h3>Ваша корзина пуста.</h3>
             {% endif %}
-
-
         </div>
     </section>
+
+    <form action="{% url 'orderApp:order_processing' %}" method="post">
+        {% csrf_token %}
+        {% if not is_auth %}
+            <input type="text" name="name">
+            <input type="text" name="surname">
+            <input type="email" name="email">
+        {% endif %}
+        <input type="text" name="address">
+        <input type="text" name="comment">
+        <input type="submit" value="submit">
+    </form>
+
 {% endblock %}

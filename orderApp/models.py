@@ -7,7 +7,8 @@ from productApp.models import Product
 class Order(models.Model):
     fk_user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='order',
-        blank=True
+        blank=True,
+        null=True
     )
     name = models.CharField(max_length=150, blank=True)
     surname = models.CharField(max_length=150, blank=True)
@@ -16,6 +17,9 @@ class Order(models.Model):
     address = models.TextField()
     comment = models.TextField(blank=True)
     total = models.PositiveIntegerField()
+
+    def __str__(self):
+        return str(self.id)
 
 
 class ProductOrder(models.Model):
@@ -27,3 +31,6 @@ class ProductOrder(models.Model):
     )
     count = models.PositiveIntegerField(default=1)
     size = models.IntegerField()
+
+    def __str__(self):
+        return str(self.fk_product)

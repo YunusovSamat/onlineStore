@@ -5,3 +5,16 @@ class OrderAddProductForm(forms.Form):
     count = forms.IntegerField()
     count_id = forms.IntegerField()
 
+
+class OrderForUserForm(forms.Form):
+    # user_id = forms.IntegerField()
+    address = forms.CharField()
+    comment = forms.CharField()
+
+
+class OrderForAnonymUserFrom(forms.Form):
+    name = forms.CharField()
+    surname = forms.CharField()
+    email = forms.EmailField()
+    address = forms.CharField()
+    comment = forms.CharField()

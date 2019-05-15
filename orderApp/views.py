@@ -3,7 +3,9 @@ from django.views.decorators.http import require_GET, require_POST
 
 from productApp.models import CountProduct
 from .order import Order
-from .forms import OrderAddProductForm
+from .forms import OrderAddProductForm, OrderForUserForm, OrderForAnonymUserFrom
+from . import models
+from productApp.models import CountProduct
 
 
 @require_GET
@@ -36,11 +38,73 @@ def order_detail(request):
     return render(request, 'orderApp/order.html', {'order': order})
 
 
-# @require_POST
-# def order_processing(request):
-#     order = Order(request)
-#
-#     if request.user.is_authenticated():
-#
-#     else:
-#
+@require_POST
+def order_processing(request):
+    order = Order(request)
+    id = ""
+
+    # if order is not None:
+    #     if request.user.is_authenticated:
+    #         form = OrderForUserForm(request.POST)
+    #         if form.is_valid():
+    #             cd = form.cleaned_data
+    #             order_model = models.Order.objects.create(
+    #                 fk_user_id=request.user.id,
+    #                 address=cd['address'],
+    #                 comment=cd['comment'],
+    #                 total=order.get_total_price(),
+    #             )
+    #             for product_order in order:
+    #                 models.ProductOrder.objects.create(
+    #                     fk_order_id=order_model.id,
+    #                     fk_product_id=product_order['product'].id,
+    #                     count=product_order['count'],
+    #                     size=product_order['size'],
+    #                 )
+    #                 count_product = get_object_or_404(CountProduct, id=product_order['id'])
+    #                 count_product.count -= product_order['count']
+    #                 count_product.save()
+    #
+    #             order.clear()
+    #             result = "Заказ успешно оформлен"
+    #             id = order_model.id
+    #         else:
+    #             result = "Заказ не оформлен"
+    #
+    #     else:
+    #         form = OrderForAnonymUserFrom(request.POST)
+    #         if form.is_valid():
+    #             cd = form.cleaned_data
+    #             order_model = models.Order.objects.create(
+    #                 name=cd['name'],
+    #                 surname=cd['surname'],
+    #                 email=cd['email'],
+    #                 address=cd['address'],
+    #                 comment=cd['comment'],
+    #                 total=order.get_total_price(),
+    #             )
+    #             for product_order in order:
+    #                 models.ProductOrder.objects.create(
+    #                     fk_order_id=order_model.id,
+    #                     fk_product_id=product_order['product'].id,
+    #                     count=product_order['count'],
+    #                     size=product_order['size'],
+    #                 )
+    #                 count_product = get_object_or_404(CountProduct, id=product_order['id'])
+    #                 count_product.count -= product_order['count']
+    #                 count_product.save()
+    #
+    #             order.clear()
+    #             result = "Заказ успешно оформлен"
+    #             id = order_model.id
+    #         else:
+    #             result = "Заказ не оформлен"
+    #
+    #     context = {
+    #         'result': result,
+    #         'id': id,
+    #     }
+
+    context = {'result': order}
+    return render(request, 'orderApp/result.html', context)
+
