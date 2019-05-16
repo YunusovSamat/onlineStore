@@ -42,7 +42,11 @@
                         <div class="size_price">
                             <div>
                                 <h4>Размер</h4>
-                                <h5>{{ product_order.size }}</h5>
+                                {% ifequal product_order.size 1 %}
+                                    <h6>Стандартный размер</h6>
+                                {% else %}
+                                    <h5>{{ product_order.size }}</h5>
+                                {% endifequal %}
                             </div>
                             <div>
                                 <h4>Цена</h4>
@@ -78,13 +82,15 @@
                             <h4>Стандартная доставка</h4>
                             <h5>490 руб.</h5>
                         </div>
-                        <div>
-                            <h4>Бесплатная стандартная доставка</h4>
-                            <h5>-490 руб.</h5>
-                        </div>
+                        {% if not order.get_delivery_price %}
+                            <div>
+                                <h4>Бесплатная стандартная доставка</h4>
+                                <h5>-490 руб.</h5>
+                            </div>
+                        {% endif %}
                         <div>
                             <h4>Итог</h4>
-                            <h5>{{ order.get_total_price|intcomma }} руб.</h5>
+                            <h5>{{ order.get_total_delivery_price|intcomma }} руб.</h5>
                         </div>
                         <a href="#">Обработать заказ</a>
                     </div>

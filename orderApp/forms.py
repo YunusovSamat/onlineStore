@@ -7,7 +7,6 @@ class OrderAddProductForm(forms.Form):
 
 
 class OrderForUserForm(forms.Form):
-    # user_id = forms.IntegerField()
     address = forms.CharField()
     comment = forms.CharField()
 

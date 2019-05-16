@@ -10,7 +10,7 @@ class ProductOrderInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         'fk_user', 'name', 'surname', 'email', 'date',
-        'address', 'comment', 'total'
+        'address', 'comment', 'delivery_price', 'total'
     ]
     search_fields = [
         'fk_user', 'name', 'surname', 'email', 'date',

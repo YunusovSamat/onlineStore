@@ -16,6 +16,7 @@ class Order(models.Model):
     date = models.DateField(auto_now_add=True)
     address = models.TextField()
     comment = models.TextField(blank=True)
+    delivery_price = models.PositiveIntegerField()
     total = models.PositiveIntegerField()
 
     def __str__(self):

@@ -138,6 +138,10 @@
     margin-top: -100px;
 }
 
+.block_void_size {
+    height: 63px;
+}
+
 .block_size {
     padding: 26px 0;
     background: rgba(232, 232, 232, 0.7);

@@ -58,6 +58,15 @@ class Order(object):
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['count'] for item in self.order.values())
 
+    def get_delivery_price(self):
+        if self.get_total_price() >= 5000:
+            return 0
+        else:
+            return 490
+
+    def get_total_delivery_price(self):
+        return self.get_total_price() + self.get_delivery_price()
+
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
         self.session.modified = True

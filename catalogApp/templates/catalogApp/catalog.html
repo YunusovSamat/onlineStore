@@ -69,8 +69,10 @@
                                 <a href="{% url 'productApp:product' product.id %}" class="link_image"></a>
                                 <div class="block_view">
                                     <form action="{% url 'orderApp:order_add' %}" method="get">
-{#                                    {% csrf_token %}#}
-                                        <div class="block_size">
+                                        {% ifequal product.counts.all|length 1 %}
+                                            <div class="block_void_size"></div>
+                                        {% else %}
+                                            <div class="block_size">
                                                 {% for count in product.counts.all %}
                                                     {% ifnotequal count.count 0 %}
                                                         <label>
@@ -83,6 +85,8 @@
                                                     {% endifnotequal %}
                                                 {% endfor %}
                                         </div>
+                                        {% endifequal %}
+
                                         <button class="link_button" type="submit">Добавить в корзину</button>
                                     </form>
                                 </div>
