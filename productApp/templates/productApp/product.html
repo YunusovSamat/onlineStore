@@ -36,7 +36,7 @@
                 </div>
                 <div class="block_text">
                     <form id="form1" action="{% url 'orderApp:order_add' %}" method="get"></form>
-                    <input form="form1" type="hidden" name="count" value="1">
+                    <input form="form1" type="hidden" name="count" value="1" id="id_count">
                     <div class="block_name_price">
                         <h2>{{ product.name }}</h2>
                         <h2>{{ product.price|intcomma }} руб.</h2>
@@ -50,7 +50,7 @@
                             {% for count in product.counts.all %}
                                 {% ifnotequal count.count 0 %}
                                     <label>
-                                        <input form="form1" type="radio" name="count_id"
+                                        <input form="form1" type="radio" name="count_id" id="id_count_id"
                                                value="{{ count.id }}" required onclick="radioVal();">
                                         <span id={{ count.id }}>{{ count.fk_size }}</span>
                                     </label>
@@ -68,7 +68,7 @@
                             <h4 id="size_value">Размер не выбран</h4>
                         {% endifequal %}
                     </div>
-                    <button form="form1" class="link_button" type="submit">Добавить в корзину</button>
+                    <button form="form1" class="link_button" type="submit" id="id_submit">Добавить в корзину</button>
                     <div class="block_description">
                         <h3>Информация о товаре</h3>
                         <p>{{ product.description }}</p>
@@ -82,6 +82,30 @@
             </div>
         </div>
     </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+        var form1 = $('#form1');
+        form1.submit(function () {
+            $.ajax({
+                type: form1.attr('method'),
+                url: form1.attr('action'),
+                data: form1.serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    document.getElementById('order_count').innerHTML = data.count;
+                    if (data.error_count != "") {
+                        alert(data.error_count)
+                    }
+                },
+                error: function(data) {
+                    alert("error");
+                }
+            });
+            return false;
+        });
+    </script>
 
     <script>
         var window_size = document.getElementById('window_size');

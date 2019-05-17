@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_GET, require_POST
+from django.http import JsonResponse
 
 from .order import Order
 from .forms import OrderAddProductForm, OrderForUserForm, OrderForAnonymUserFrom
@@ -11,13 +12,23 @@ from productApp.models import CountProduct
 def order_add(request):
     order = Order(request)
     form = OrderAddProductForm(request.GET)
+    data = {
+        'error': 'Ошибка',
+    }
     if form.is_valid():
         cd = form.cleaned_data
         count_product = get_object_or_404(CountProduct, id=cd['count_id'])
         count = cd['count']
         order.add(count_product=count_product, count=count)
+        data = {
+            'count': order.__len__(),
+        }
+        try:
+            data['error_count'] = order.order[str(cd['count_id'])]['error_count']
+        except KeyError:
+            data['error_count'] = ""
 
-    return redirect('orderApp:order_detail')
+    return JsonResponse(data, safe=False)
 
 
 def order_remove(request, count_product_id):

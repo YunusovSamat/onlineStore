@@ -115,11 +115,9 @@
                             <a href="{% url 'orderApp:order_detail' %}">
                                 Корзина
                             </a>
-                            {% if order|length %}
-                                    <span class="order_count">
-                                        {{ order|length }}
-                                    </span>
-                            {% endif %}
+                                <span id="order_count" class="order_count">
+                                    {{ order|length }}
+                                </span>
                         </li>
 						<li><a href="#">Доставка и оплата</a></li>
                         {% if is_auth %}
