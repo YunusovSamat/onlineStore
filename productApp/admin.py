@@ -12,7 +12,7 @@ class ImageProductInline(admin.StackedInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['fk_subcatalog', 'name', 'price', 'description', 'id']
+    list_display = ['fk_subcatalog', 'name', 'price', 'old_price', 'new', 'description', 'id']
     search_fields = ['fk_subcatalog', 'name', 'price', 'description', 'id']
     ordering = ['fk_subcatalog', 'name', 'price', 'id']
     inlines = [CountProductInline, ImageProductInline]

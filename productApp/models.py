@@ -9,6 +9,8 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
+    old_price = models.PositiveIntegerField(default=0, blank=True)
+    new = models.BooleanField(default=False, blank=True)
 
     def __str__(self):
         return self.name

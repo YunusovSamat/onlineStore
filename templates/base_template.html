@@ -24,19 +24,21 @@
 									<div class="col_catalog-1">
 										<h3>Межсезонная распродажа</h3>
 										<div class="text_col-1">
-											<a href="#">Пальто</a>
-											<a href="#">Пиджаки</a>
-                                            <a href="#">Брюки</a>
-                                            <a href="#">Рубашки</a>
-											<a href="#">Свитеры и джемперы</a>
+											<a href="{% url 'catalogApp:catalog' '1' %}?sale=True">Пальто</a>
+											<a href="{% url 'catalogApp:catalog' '2' %}?sale=True">Пиджаки</a>
+                                            <a href="{% url 'catalogApp:catalog' '3' %}?sale=True">Брюки</a>
+                                            <a href="{% url 'catalogApp:catalog' '4' %}?sale=True">Рубашки</a>
+											<a href="{% url 'catalogApp:catalog' '5' %}?sale=True">Свитеры и джемперы</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
 										<h3>Новинки</h3>
 										<div class="text_col-2">
-											<a href="#">Новые поступления</a>
-											<a href="#">Пиджаки</a>
-											<a href="#">Свитеры и джемперы</a>
+											<a href="{% url 'catalogApp:catalog' '1' %}?new=True">Пальто</a>
+											<a href="{% url 'catalogApp:catalog' '2' %}?new=True">Пиджаки</a>
+                                            <a href="{% url 'catalogApp:catalog' '3' %}?new=True">Брюки</a>
+                                            <a href="{% url 'catalogApp:catalog' '4' %}?new=True">Рубашки</a>
+											<a href="{% url 'catalogApp:catalog' '5' %}?new=True">Свитеры и джемперы</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
@@ -59,14 +61,15 @@
 									<div class="col_catalog-1">
 										<h3>Межсезонная распродажа</h3>
 										<div class="text_col-1">
-											<a href="#">Ботинки</a>
-											<a href="#">Туфли</a>
+											<a href="{% url 'catalogApp:catalog' '6' %}?sale=True">Ботинки</a>
+											<a href="{% url 'catalogApp:catalog' '7' %}?sale=True">Туфли</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
 										<h3>Новинки</h3>
 										<div class="text_col-2">
-											<a href="#">Новые поступления</a>
+											<a href="{% url 'catalogApp:catalog' '6' %}?new=True">Ботинки</a>
+											<a href="{% url 'catalogApp:catalog' '7' %}?new=True">Туфли</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
@@ -86,13 +89,17 @@
 									<div class="col_catalog-1">
 										<h3>Межсезонная распродажа</h3>
 										<div class="text_col-1">
-											<a href="#">Галстуки и бабочки</a>
+											<a href="{% url 'catalogApp:catalog' '8' %}?sale=True">Галстуки и бабочки</a>
+                                            <a href="{% url 'catalogApp:catalog' '9' %}?sale=True">Сумки</a>
+											<a href="{% url 'catalogApp:catalog' '10' %}?sale=True">Ароматы</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
 										<h3>Новинки</h3>
 										<div class="text_col-2">
-											<a href="#">Новые поступления</a>
+											<a href="{% url 'catalogApp:catalog' '8' %}?new=True">Галстуки и бабочки</a>
+                                            <a href="{% url 'catalogApp:catalog' '9' %}?new=True">Сумки</a>
+											<a href="{% url 'catalogApp:catalog' '10' %}?new=True">Ароматы</a>
 										</div>
 									</div>
 									<div class="col_catalog-2">
@@ -115,9 +122,9 @@
                             <a href="{% url 'orderApp:order_detail' %}">
                                 Корзина
                             </a>
-                                <span id="order_count" class="order_count">
-                                    {{ order|length }}
-                                </span>
+                            <span class="order_count">
+                                {{ order|length }}
+                            </span>
                         </li>
 						<li><a href="#">Доставка и оплата</a></li>
                         {% if is_auth %}

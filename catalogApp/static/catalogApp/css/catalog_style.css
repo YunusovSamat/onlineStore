@@ -189,11 +189,31 @@
 }
 
 .link_text {
-    padding-top: 25px;
+    padding-top: 20px;
     color: #3a2900;
     /*border: 1px solid red;*/
 }
 
-.link_text h3 {
+.link_text h3, .link_text h4 {
     margin-bottom: 10px;
+}
+
+.sale h3 {
+    text-decoration: #fc2c22 line-through;
+    margin-bottom: 5px;
+}
+
+.sale h4 {
+    color: #fc2c22;
+}
+
+.new {
+    padding: 5px 0;
+    background-color: #e5d0ae;
+    width: 60px;
+    text-align: center;
+    margin: 15px auto 0;
+    font-size: 11px;
+    color: #fff;
+    text-transform: uppercase;
 }

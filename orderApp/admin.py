@@ -16,7 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
         'fk_user', 'name', 'surname', 'email', 'date',
         'address', 'comment', 'total'
     ]
-    ordering = ['fk_user', 'surname']
+    ordering = ['date', 'fk_user', 'surname']
     inlines = [ProductOrderInline]
 
 

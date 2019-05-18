@@ -81,6 +81,15 @@
     margin-bottom: 5px;
 }
 
+.sale h3 {
+    text-decoration: #fc2c22 line-through;
+    margin-bottom: 5px;
+}
+
+.sale h2 {
+    color: #fc2c22;
+}
+
 .block_size {
     /*border: 1px solid red;*/
     font-size: 12px;

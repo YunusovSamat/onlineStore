@@ -7,17 +7,58 @@
 {% endblock %}
 
 {% block context %}
+
+    <div class="filter">
+        <label for="sale">
+            <input form="filter_and_sort" type="checkbox" name="sale"
+                   value="True" id="sale"
+                   {% if sale %}
+                       checked
+                    {% endif %}
+            >
+            sale
+        </label>
+        <label for="new">
+            <input form="filter_and_sort" type="checkbox" name="new"
+                   value="True" id="new"
+                   {% if new %}
+                       checked
+                    {% endif %}
+            >
+            new
+        </label>
+        <button form="filter_and_sort" type="submit">send</button>
+    </div>
+
     <section class="sorted">
         <div class="container">
             <nav>
-                <form action="" method="get">
-                    {{ form.non_field_errors }}
-                    <ul>
-                        <li><h4>Упорядочить</h4></li>
-                        {{ form.sort.errors }}
-                        {{ form.sort }}
-                    </ul>
-                </form>
+                <form id="filter_and_sort" action="{{ request.path }}" method="get"></form>
+                <ul>
+                    <li><h4>Упорядочить</h4></li>
+                    <li>
+                        <label for="id_sort_0">
+                            <input form="filter_and_sort" type="radio" name="sort"
+                                   value="min_price" onchange="this.form.submit()" id="id_sort_0"
+                                   {% ifequal sort_price 'min_price' %}
+                                        checked
+                                    {% endifequal %}
+                            >
+                            по цене min
+                        </label>
+                    </li>
+                    <li>
+                        <label for="id_sort_1">
+                            <input form="filter_and_sort" type="radio" name="sort"
+                                   value="max_price" onchange="this.form.submit()" id="id_sort_1"
+                                   {% ifequal sort_price 'max_price' %}
+                                        checked
+                                    {% endifequal %}
+                            >
+                            по цене max
+                        </label>
+                    </li>
+                </ul>
             </nav>
         </div>
     </section>
@@ -36,26 +77,26 @@
                         <li>
                             <h2>Одежда</h2>
                             <ul>
-                                <li><a href="{% url 'catalogApp:catalog' '1' %}">Пальто</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '2' %}">Пиджаки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '3' %}">Брюки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '4' %}">Рубашки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '5' %}">Свитеры и джемперы</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '1' %}?{{ request.GET.urlencode }}">Пальто</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '2' %}?{{ request.GET.urlencode }}">Пиджаки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '3' %}?{{ request.GET.urlencode }}">Брюки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '4' %}?{{ request.GET.urlencode }}">Рубашки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '5' %}?{{ request.GET.urlencode }}">Свитеры и джемперы</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Обувь</h2>
                             <ul>
-                                <li><a href="{% url 'catalogApp:catalog' '6' %}">Туфли</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '7' %}">Ботинки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '6' %}?{{ request.GET.urlencode }}">Туфли</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '7' %}?{{ request.GET.urlencode }}">Ботинки</a></li>
                             </ul>
                         </li>
                         <li>
                             <h2>Аксессуары</h2>
                             <ul>
-                                <li><a href="{% url 'catalogApp:catalog' '8' %}">Галстуки и бабочки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '9' %}">Сумки</a></li>
-                                <li><a href="{% url 'catalogApp:catalog' '10' %}">Ароматы</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '8' %}?{{ request.GET.urlencode }}">Галстуки и бабочки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '9' %}?{{ request.GET.urlencode }}">Сумки</a></li>
+                                <li><a href="{% url 'catalogApp:catalog' '10' %}?{{ request.GET.urlencode }}">Ароматы</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -91,10 +132,22 @@
                                     </form>
                                 </div>
 
-
                                 <a href="{% url 'productApp:product' product.id %}" class="link_text">
                                     <h3>{{ product.name }}</h3>
-                                    <h3>{{ product.price|intcomma }} руб.</h3>
+                                    {% if product.old_price %}
+                                        <div class="sale">
+                                            <h3>{{ product.old_price|intcomma }} руб.</h3>
+                                            <h4>{{ product.price|intcomma }} руб.</h4>
+                                        </div>
+                                    {% else %}
+                                        <h3>{{ product.price|intcomma }} руб.</h3>
+                                    {% endif %}
+                                    {% if product.new %}
+                                        <div class="new">
+                                            <h5>new</h5>
+                                        </div>
+                                    {% endif %}
+
                                 </a>
                             </div>
                         {% endfor %}
