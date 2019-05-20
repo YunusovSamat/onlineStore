@@ -8,27 +8,27 @@
 
 {% block context %}
 
-    <div class="filter">
-        <label for="sale">
-            <input form="filter_and_sort" type="checkbox" name="sale"
-                   value="True" id="sale"
-                   {% if sale %}
-                       checked
-                    {% endif %}
-            >
-            sale
-        </label>
-        <label for="new">
-            <input form="filter_and_sort" type="checkbox" name="new"
-                   value="True" id="new"
-                   {% if new %}
-                       checked
-                    {% endif %}
-            >
-            new
-        </label>
-        <button form="filter_and_sort" type="submit">send</button>
-    </div>
+{#    <div class="filter">#}
+{#        <label for="sale">#}
+{#            <input form="filter_and_sort" type="checkbox" name="sale"#}
+{#                   value="True" id="sale"#}
+{#                   {% if sale %}#}
+{#                       checked#}
+{#                    {% endif %}#}
+{#            >#}
+{#            sale#}
+{#        </label>#}
+{#        <label for="new">#}
+{#            <input form="filter_and_sort" type="checkbox" name="new"#}
+{#                   value="True" id="new"#}
+{#                   {% if new %}#}
+{#                       checked#}
+{#                    {% endif %}#}
+{#            >#}
+{#            new#}
+{#        </label>#}
+{#        <button form="filter_and_sort" type="submit">send</button>#}
+{#    </div>#}
 
     <section class="sorted">
         <div class="container">
@@ -100,36 +100,67 @@
                             </ul>
                         </li>
                     </ul>
+
+                    <div class="filter">
+                        <label for="sale">
+                            <input form="filter_and_sort" type="checkbox" name="sale"
+                                   value="True" id="sale"
+                                   {% if sale %}
+                                       checked
+                                    {% endif %}
+                            >
+                            Распродажа <br>
+                        </label>
+                        <label for="new">
+                            <input form="filter_and_sort" type="checkbox" name="new"
+                                   value="True" id="new"
+                                   {% if new %}
+                                       checked
+                                    {% endif %}
+                            >
+                            Новая коллекция <br>
+                        </label>
+                        <button form="filter_and_sort" type="submit">Отфильтровать</button>
+                    </div>
+
                 </nav>
                 <div class="view_tile_catalog">
                     {% if products %}
                         {% for product in products %}
-                            <div class="{% cycle 'tile_box_1' 'tile_box_2' 'tile_box_3' %}"
-                                style="background-image:
-                                        url({{ product.images_product.first.image.url }});">
-                                <a href="{% url 'productApp:product' product.id %}" class="link_image"></a>
+                            <div class="{% cycle 'tile_box_1' 'tile_box_2' 'tile_box_3' %}">
+                                <a href="{% url 'productApp:product' product.id %}" class="link_image">
+                                    <img src="{{ product.images_product.first.image.url }}" alt="">
+                                </a>
                                 <div class="block_view">
-                                    <form action="{% url 'orderApp:order_add' %}" method="get">
-                                        {% ifequal product.counts.all|length 1 %}
-                                            <div class="block_void_size"></div>
-                                        {% else %}
-                                            <div class="block_size">
-                                                {% for count in product.counts.all %}
-                                                    {% ifnotequal count.count 0 %}
-                                                        <label>
-                                                            <input type="radio" name="size"
-                                                                   value="{{ count.fk_size }}" required>
-                                                            <span>{{ count.fk_size }}</span>
-                                                        </label>
-                                                    {% else %}
-                                                        <span class="block_disabled">{{ count.fk_size }}</span>
-                                                    {% endifnotequal %}
+                                    {% ifequal product.counts.all|length 1 %}
+                                        <div class="block_void_size"></div>
+                                    {% else %}
+                                        <div class="color_size">
+                                            <div class="squares_color">
+                                                {% for colors in product.product_join_color.all %}
+                                                    <div class="square_color"
+                                                        style="background: {{ colors.fk_color_product.color }};"
+                                                    ></div>
                                                 {% endfor %}
+                                            </div>
+                                            <form action="{% url 'orderApp:order_add' %}" method="get">
+                                                <div class="block_size">
+                                                    {% for count in product.counts.all %}
+                                                        {% ifnotequal count.count 0 %}
+                                                            <label>
+                                                                <input type="radio" name="size"
+                                                                       value="{{ count.fk_size }}" required>
+                                                                <span>{{ count.fk_size }}</span>
+                                                            </label>
+                                                        {% else %}
+                                                            <span class="block_disabled">{{ count.fk_size }}</span>
+                                                        {% endifnotequal %}
+                                                    {% endfor %}
+                                                </div>
+                                                <button class="link_button" type="submit">Добавить в корзину</button>
+                                            </form>
                                         </div>
-                                        {% endifequal %}
-
-                                        <button class="link_button" type="submit">Добавить в корзину</button>
-                                    </form>
+                                    {% endifequal %}
                                 </div>
 
                                 <a href="{% url 'productApp:product' product.id %}" class="link_text">
@@ -147,7 +178,6 @@
                                             <h5>new</h5>
                                         </div>
                                     {% endif %}
-
                                 </a>
                             </div>
                         {% endfor %}

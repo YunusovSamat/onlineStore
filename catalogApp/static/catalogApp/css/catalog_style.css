@@ -37,7 +37,7 @@
 /* View menu catalog */
 .view_menu_catalog {
     flex: 1;
-    /*border: 1px solid blue;*/
+    /*border: 3px solid black;*/
     font-size: 12px;
     margin-top: 10px;
     margin-left: 30px;
@@ -61,10 +61,6 @@
 .view_menu_catalog h2:hover {
     color: #8f8e8d;
     cursor: pointer;
-}
-
-.view_menu_catalog h2:active {
-
 }
 
 .view_menu_catalog a:hover {
@@ -99,6 +95,11 @@
     text-align: center;
     background-repeat: no-repeat;
     background-size: contain;
+    /*border: 1px solid green;*/
+}
+
+.tile_box_1 img, .tile_box_2 img, .tile_box_3 img {
+    width: 100%;
 }
 
 .tile_box_1 {
@@ -114,37 +115,44 @@
 
 .tile_box_1 a, .tile_box_2 a, .tile_box_3 a {
     display: block;
-    width: 100%;
     font-size: 11px;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;
 }
 
-.tile_box_1 .link_image {
-    height: 1213px;
-    /*border: 1px solid red;*/
-}
-
-.tile_box_2 .link_image, .tile_box_3 .link_image{
-    height: 564px;
-    /*border: 1px solid red;*/
-}
-
 .block_view {
     opacity: 0;
     transition-duration: .3s;
     /*border: 3px solid green;*/
-    margin-top: -100px;
+    margin-top: -124px;
+    position: relative;
+    z-index: 1;
+}
+
+.color_size {
+    background: rgba(232, 232, 232, 0.7);
+    padding-top: 20px;
 }
 
 .block_void_size {
-    height: 63px;
+    height: 50px;
+}
+
+.squares_color {
+    display: flex;
+    justify-content: center;
+}
+
+.square_color {
+    height: 15px;
+    width: 15px;
+    background-color: #000;
+    margin: 0 10px;
 }
 
 .block_size {
-    padding: 26px 0;
-    background: rgba(232, 232, 232, 0.7);
+    padding: 13px 0 26px;
     font-weight: normal;
     font-size: 11px;
     color: #000;
@@ -212,7 +220,7 @@
     background-color: #e5d0ae;
     width: 60px;
     text-align: center;
-    margin: 15px auto 0;
+    margin: 15px auto 10px;
     font-size: 11px;
     color: #fff;
     text-transform: uppercase;

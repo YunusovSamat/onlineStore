@@ -1,7 +1,7 @@
 from django.db import models
 
 
-# class Client(models.Model):
+# class User(models.Model):
 #     name = models.CharField(max_length=150)
 #     surname = models.CharField(max_length=150, blank=True)
 #     email = models.EmailField(max_length=150, blank=True)

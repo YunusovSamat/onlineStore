@@ -5,7 +5,6 @@ from .forms import CatalogFilterForm
 
 
 def catalog_list(request, subcatalog_id):
-    # request.get_full_path().
     template = 'catalogApp/catalog.html'
     subcatalog = get_object_or_404(Subcatalog, id=subcatalog_id)
     products = subcatalog.products.all()

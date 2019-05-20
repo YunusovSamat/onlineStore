@@ -7,8 +7,7 @@ from productApp.models import Product
 class Order(models.Model):
     fk_user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='order',
-        blank=True,
-        null=True
+        blank=True, null=True
     )
     name = models.CharField(max_length=150, blank=True)
     surname = models.CharField(max_length=150, blank=True)

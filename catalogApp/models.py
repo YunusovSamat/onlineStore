@@ -10,7 +10,9 @@ class Catalog(models.Model):
 
 class Subcatalog(models.Model):
     fk_catalog = models.ForeignKey(
-        Catalog, on_delete=models.CASCADE, related_name='subcatalogs')
+        Catalog, on_delete=models.SET_NULL, related_name='subcatalogs',
+        null=True
+    )
     name = models.CharField(max_length=100)
 
     def __str__(self):
