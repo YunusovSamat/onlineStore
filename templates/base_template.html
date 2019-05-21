@@ -21,29 +21,25 @@
 							<a>Одежда</a>
 							<ul>
 								<li>
-									<div class="col_catalog-1">
-										<h3>Межсезонная распродажа</h3>
+									<div class="col_catalog">
+										<h3>Межсезонная<br>распродажа</h3>
 										<div class="text_col-1">
-											<a href="{% url 'catalogApp:catalog' '1' %}?sale=True">Пальто</a>
-											<a href="{% url 'catalogApp:catalog' '2' %}?sale=True">Пиджаки</a>
-                                            <a href="{% url 'catalogApp:catalog' '3' %}?sale=True">Брюки</a>
-                                            <a href="{% url 'catalogApp:catalog' '4' %}?sale=True">Рубашки</a>
-											<a href="{% url 'catalogApp:catalog' '5' %}?sale=True">Свитеры и джемперы</a>
+                                            {% for sc in clothes_sale %}
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?sale=True">{{ sc|last }}</a>
+                                            {% endfor %}
 										</div>
 									</div>
-									<div class="col_catalog-2">
+									<div class="col_catalog">
 										<h3>Новинки</h3>
 										<div class="text_col-2">
-											<a href="{% url 'catalogApp:catalog' '1' %}?new=True">Пальто</a>
-											<a href="{% url 'catalogApp:catalog' '2' %}?new=True">Пиджаки</a>
-                                            <a href="{% url 'catalogApp:catalog' '3' %}?new=True">Брюки</a>
-                                            <a href="{% url 'catalogApp:catalog' '4' %}?new=True">Рубашки</a>
-											<a href="{% url 'catalogApp:catalog' '5' %}?new=True">Свитеры и джемперы</a>
+                                            {% for sc in clothes_new %}
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?new=True">{{ sc|last }}</a>
+                                            {% endfor %}
 										</div>
 									</div>
-									<div class="col_catalog-2">
+									<div class="col_catalog">
 										<h3>Категории</h3>
-										<div class="text_col-2">
+										<div class="text_col-3">
 											<a href="{% url 'catalogApp:catalog' '1' %}">Пальто</a>
 											<a href="{% url 'catalogApp:catalog' '2' %}">Пиджаки</a>
 											<a href="{% url 'catalogApp:catalog' '3' %}">Брюки</a>
@@ -58,23 +54,25 @@
 							<a>Обувь</a>
 							<ul>
 								<li>
-									<div class="col_catalog-1">
-										<h3>Межсезонная распродажа</h3>
+									<div class="col_catalog">
+										<h3>Межсезонная<br>распродажа</h3>
 										<div class="text_col-1">
-											<a href="{% url 'catalogApp:catalog' '6' %}?sale=True">Ботинки</a>
-											<a href="{% url 'catalogApp:catalog' '7' %}?sale=True">Туфли</a>
+                                            {% for sc in shoes_sale %}
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?sale=True">{{ sc|last }}</a>
+                                            {% endfor %}
 										</div>
 									</div>
-									<div class="col_catalog-2">
+									<div class="col_catalog">
 										<h3>Новинки</h3>
 										<div class="text_col-2">
-											<a href="{% url 'catalogApp:catalog' '6' %}?new=True">Ботинки</a>
-											<a href="{% url 'catalogApp:catalog' '7' %}?new=True">Туфли</a>
+                                            {% for sc in shoes_new %}
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?new=True">{{ sc|last }}</a>
+                                            {% endfor %}
 										</div>
 									</div>
-									<div class="col_catalog-2">
+									<div class="col_catalog">
 										<h3>Категории</h3>
-										<div class="text_col-2">
+										<div class="text_col-3">
 											<a href="{% url 'catalogApp:catalog' '6' %}">Туфли</a>
 											<a href="{% url 'catalogApp:catalog' '7' %}">Ботинки</a>
 										</div>
@@ -86,25 +84,25 @@
 							<a>Аксессуары</a>
 							<ul>
 								<li>
-									<div class="col_catalog-1">
-										<h3>Межсезонная распродажа</h3>
+									<div class="col_catalog">
+										<h3>Межсезонная<br>распродажа</h3>
 										<div class="text_col-1">
-											<a href="{% url 'catalogApp:catalog' '8' %}?sale=True">Галстуки и бабочки</a>
-                                            <a href="{% url 'catalogApp:catalog' '9' %}?sale=True">Сумки</a>
-											<a href="{% url 'catalogApp:catalog' '10' %}?sale=True">Ароматы</a>
+                                            {% for sc in accessories_sale %}
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?sale=True">{{ sc|last }}</a>
+                                            {% endfor %}
 										</div>
 									</div>
-									<div class="col_catalog-2">
+									<div class="col_catalog">
 										<h3>Новинки</h3>
 										<div class="text_col-2">
-											<a href="{% url 'catalogApp:catalog' '8' %}?new=True">Галстуки и бабочки</a>
-                                            <a href="{% url 'catalogApp:catalog' '9' %}?new=True">Сумки</a>
-											<a href="{% url 'catalogApp:catalog' '10' %}?new=True">Ароматы</a>
+                                            {% for sc in accessories_new %}
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?sale=True">{{ sc|last }}</a>
+                                            {% endfor %}
 										</div>
 									</div>
-									<div class="col_catalog-2">
+									<div class="col_catalog">
 										<h3>Категории</h3>
-										<div class="text_col-2">
+										<div class="text_col-3">
 											<a href="{% url 'catalogApp:catalog' '8' %}">Галстуки и бабочки</a>
                                             <a href="{% url 'catalogApp:catalog' '9' %}">Сумки</a>
 											<a href="{% url 'catalogApp:catalog' '10' %}">Ароматы</a>
@@ -123,7 +121,8 @@
                                 Корзина
                             </a>
                             <span class="order_count">
-                                {{ order|length }}
+                                {{ order_len }}
+
                             </span>
                         </li>
 						<li><a href="#">Доставка и оплата</a></li>

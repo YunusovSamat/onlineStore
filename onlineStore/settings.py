@@ -73,6 +73,7 @@ TEMPLATES = [
 
                 'accountApp.context_processors.get_username',
                 'orderApp.context_processors.get_order',
+                'main.context_processors.get_subcatalog_state',
             ],
         },
     },

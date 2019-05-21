@@ -133,7 +133,7 @@
                                 </a>
                                 <div class="block_view">
                                     {% ifequal product.counts.all|length 1 %}
-                                        <div class="block_void_size"></div>
+                                        <div class="block_void_color_size"></div>
                                     {% else %}
                                         <div class="color_size">
                                             <div class="squares_color">
@@ -143,24 +143,23 @@
                                                     ></div>
                                                 {% endfor %}
                                             </div>
-                                            <form action="{% url 'orderApp:order_add' %}" method="get">
-                                                <div class="block_size">
-                                                    {% for count in product.counts.all %}
-                                                        {% ifnotequal count.count 0 %}
-                                                            <label>
-                                                                <input type="radio" name="size"
-                                                                       value="{{ count.fk_size }}" required>
-                                                                <span>{{ count.fk_size }}</span>
-                                                            </label>
-                                                        {% else %}
-                                                            <span class="block_disabled">{{ count.fk_size }}</span>
-                                                        {% endifnotequal %}
-                                                    {% endfor %}
-                                                </div>
-                                                <button class="link_button" type="submit">Добавить в корзину</button>
-                                            </form>
+                                            <form id="form1" action="{% url 'orderApp:order_add' %}" method="get"></form>
+                                            <div class="block_size">
+                                                {% for count in product.counts.all %}
+                                                    {% ifnotequal count.count 0 %}
+                                                        <label>
+                                                            <input form="form1" type="radio" name="size"
+                                                                   value="{{ count.fk_size }}" required>
+                                                            <span>{{ count.fk_size }}</span>
+                                                        </label>
+                                                    {% else %}
+                                                        <span class="block_disabled">{{ count.fk_size }}</span>
+                                                    {% endifnotequal %}
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                     {% endifequal %}
+                                    <button form="form1" class="link_button" type="submit">Добавить в корзину</button>
                                 </div>
 
                                 <a href="{% url 'productApp:product' product.id %}" class="link_text">
