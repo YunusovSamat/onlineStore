@@ -78,7 +78,7 @@
 }
 
 .block_name_price h2 {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .sale h3 {
@@ -88,6 +88,27 @@
 
 .sale h2 {
     color: #fc2c22;
+}
+
+.squares_color {
+    display: flex;
+    justify-content: center;
+}
+
+.block_color {
+    margin: 15px 15px;
+}
+
+.text_color {
+    font-size: 11px;
+    color: #3a2900;
+    margin-bottom: 8px;
+}
+
+.square_color {
+    height: 20px;
+    width: 20px;
+    margin: 0 auto;
 }
 
 .block_size {

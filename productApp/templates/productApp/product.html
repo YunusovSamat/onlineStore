@@ -5,10 +5,13 @@
 {% block style %}
     {% static 'productApp/css/product_style.css' %}
 {% endblock %}
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="{% static 'productApp/js/order_ajax.js' %}"></script>
+{% endblock %}
 
 {% block context %}
 {#    <a href="{% url 'orderApp:order_clear' %}">clear</a>#}
-
     <section>
         <div class="container-2">
             <div id="window_size">
@@ -49,6 +52,20 @@
                             <h2>{{ product.price|intcomma }} руб.</h2>
                         {% endif %}
                     </div>
+
+                    <div class="squares_color">
+                        {% for colors in product.product_join_color.all %}
+                            <div class="block_color">
+                                <h3 class="text_color">
+                                    {{ colors.fk_color_product.name }}
+                                </h3>
+                                <div class="square_color"
+                                    style="background: {{ colors.fk_color_product.color }};"
+                                ></div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
                     <div class="block_size">
                         {% ifequal product.counts.all|length 1 %}
                             <span>Стандартный размер </span>
@@ -90,30 +107,6 @@
             </div>
         </div>
     </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-    <script>
-        var form1 = $('#form1');
-        form1.submit(function () {
-            $.ajax({
-                type: form1.attr('method'),
-                url: form1.attr('action'),
-                data: form1.serialize(),
-                dataType: 'json',
-                success: function (data) {
-                    document.getElementsByClassName('order_count')[0].innerHTML = data.count;
-                    if (data.error_count != "") {
-                        alert(data.error_count)
-                    }
-                },
-                error: function(data) {
-                    alert("error");
-                }
-            });
-            return false;
-        });
-    </script>
 
     <script>
         var window_size = document.getElementById('window_size');
