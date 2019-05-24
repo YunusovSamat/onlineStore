@@ -35,7 +35,7 @@
 	display: inline-block;
 	vertical-align: top;
 	padding: 5px 16px 10px;
-	border: 5px solid #f0e8de;
+	border: 2px solid #f0e8de;
 	font-size: 22px;
 	color: #f0e8de;
 	text-decoration: none;
@@ -94,12 +94,13 @@
 	font-size: 22px;
 	color: #000;
 	text-decoration: none;
-	border: 5px solid #000;
+	border: 2px solid #000;
 	padding: 6px 37px;
 }
 
 .btn_brown {
 	transition-duration: .3s;
+
 }
 
 .btn_brown:hover {
@@ -194,7 +195,7 @@
 	font-size: 22px;
 	color: #3a2900;;
 	text-decoration: none;
-	border: 5px solid #3a2900;
+	border: 2px solid #3a2900;
 	padding: 5px 25px 10px;
 }
 
@@ -237,6 +238,6 @@
 	font-size: 22px;
 	color: #fff;
 	text-decoration: none;
-	border: 5px solid #fff;
+	border: 2px solid #fff;
 	padding: 5px 25px 10px;
 }

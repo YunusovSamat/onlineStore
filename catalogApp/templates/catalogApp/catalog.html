@@ -6,8 +6,8 @@
     {% static 'catalogApp/css/catalog_style.css' %}
 {% endblock %}
 {% block js %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="{% static 'productApp/js/order_ajax.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'orderApp/js/order_ajax.js' %}"></script>
 {% endblock %}
 
 {% block context %}
@@ -127,7 +127,6 @@
 
                                         </div>
                                         <form id="form1" action="{% url 'orderApp:order_add' %}" method="get"></form>
-                                        <input form="form1" type="hidden" name="count" value="1" id="id_count">
                                         <div class="block_size">
                                             {% ifequal product.counts.all|length 1 %}
 {#                                                <div class="block_void_size"></div>#}

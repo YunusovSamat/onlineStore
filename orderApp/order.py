@@ -13,7 +13,7 @@ class Order(object):
             order = self.session[settings.CART_SESSION_ID] = {}
         self.order = order
 
-    def add(self, count_product, count=1):
+    def add(self, count_product):
         count_product_id = str(count_product.id)
 
         if count_product_id not in self.order:
@@ -24,12 +24,18 @@ class Order(object):
                 'size': count_product.fk_size.size,
             }
 
-        if self.order[count_product_id]['count'] + count <= count_product.count:
-            self.order[count_product_id]['count'] += count
+        if self.order[count_product_id]['count'] + 1 <= count_product.count:
+            self.order[count_product_id]['count'] += 1
         else:
             self.order[count_product_id]['count'] = count_product.count
             self.order[count_product_id]['error_count'] = "превышен лимит количества"
         self.save()
+
+    def delete(self, count_product):
+        count_product_id = str(count_product.id)
+
+        # if count_product_id in self.order:
+
 
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.order

@@ -12,21 +12,32 @@ from productApp.models import CountProduct
 def order_add(request):
     order = Order(request)
     form = OrderAddProductForm(request.GET)
-    data = {
-        'error': 'Ошибка',
-    }
+    data = dict()
+
     if form.is_valid():
         cd = form.cleaned_data
         count_product = get_object_or_404(CountProduct, id=cd['count_id'])
-        count = cd['count']
-        order.add(count_product=count_product, count=count)
-        data = {
-            'count': order.__len__(),
-        }
+        order.add(count_product=count_product)
+        data = {'count': order.__len__()}
+
         try:
             data['error_count'] = order.order[str(cd['count_id'])]['error_count']
         except KeyError:
             data['error_count'] = ""
+
+    return JsonResponse(data, safe=False)
+
+
+def order_delete(request):
+    order = Order(request)
+    form = OrderAddProductForm(request.GET)
+    data = dict()
+
+    if form.is_valid():
+        cd = form.cleaned_data
+        count_product = get_object_or_404(CountProduct, id=cd['count_id'])
+        order.delete(count_product=count_product)
+        data = {'count': order.__len__()}
 
     return JsonResponse(data, safe=False)
 

@@ -15,7 +15,7 @@
 					<h2>-50%</h2>
 					<h3>на определенные модели</h3>
 				</div >
-				<a href="#">перейти в каталог</a>
+				<a href="{% url 'catalogApp:catalog' '2' %}?sale=True">перейти в каталог</a>
 			</div>
 		</div>
 	</section>
@@ -47,7 +47,7 @@
 		<div class="container">
 			<div class="block_new_collection">
 				<h2>Новые поступления</h2>
-				<a class="btn_brown" href="#">купить сейчас</a>
+				<a class="btn_brown" href="{% url 'catalogApp:catalog' '4' %}?new=True">купить сейчас</a>
 			</div>
 		</div>
 	</section>
@@ -81,7 +81,7 @@
 				<a href="{% url 'catalogApp:catalog' '2' %}"><img src={% static 'main/images/pop2.png' %} alt="Пиджаки"></a>
 				<a href="{% url 'catalogApp:catalog' '4' %}"><img src={% static 'main/images/pop3.png' %} alt="Рубашки"></a>
 			</div>
-			<a href="#" class="btn_popular btn_brown">больше товаров</a>
+{#			<a href="#" class="btn_popular btn_brown">больше товаров</a>#}
 		</div>
 	</section>
 
