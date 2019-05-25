@@ -121,8 +121,13 @@
                                 Корзина
                             </a>
                             <span class="order_count">
-                                {{ order_len }}
+                                {% if order_len %}
+                                    <span>
+                                        {{ order_len }}
+                                    </span>
+                                {% endif %}
                             </span>
+
                         </li>
 						<li><a href="#">Доставка и оплата</a></li>
                         {% if is_auth %}

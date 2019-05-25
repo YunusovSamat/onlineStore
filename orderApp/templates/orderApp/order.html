@@ -5,6 +5,10 @@
 {% block style %}
     {% static 'orderApp/css/order_style.css' %}
 {% endblock %}
+{% block js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'orderApp/js/order_ajax.js' %}"></script>
+{% endblock %}
 
 {% block context %}
 
@@ -32,10 +36,7 @@
             <h2>Корзина</h2>
 
             {% for product_order in order %}
-                <form action="qwerty" method="get" id="form1">
-                    <input type="hidden" name="count_id" value="{{ product_order.id }}">
-                    <input type="hidden" name="count" value="1" id="id_count">
-                </form>
+
                 <div class="product_order">
                     <img src={{ product_order.product.images_product.first.image.url }} alt="">
                     <div class="product_order_text">
@@ -55,20 +56,28 @@
                             </div>
                             <div>
                                 <h4>Цена</h4>
-                                <h5>{{ product_order.total_price|intcomma }} руб.</h5>
+                                <div id="price_id_{{ product_order.id }}">
+                                    <h5>{{ product_order.total_price|intcomma }} руб.</h5>
+                                </div>
                             </div>
                         </div>
                         <div class="count">
                             <h4>Количество</h4>
                             <h5>
-                                {{ product_order.count }}
-                                <span class="error_count">
-                                    {% if product_order.error_count %}
-                                        {{ product_order.error_count }}
-                                    {% endif %}
-                                </span>
-                                <button form="form1" type="submit" id="id_submit">+</button>
+                                <form action="{% url 'orderApp:order_delete' %}" method="get">
+                                    <input type="hidden" name="count_id" value="{{ product_order.id }}">
+                                    <button class="delete_product" type="submit">-</button>
+
+                                    <span id="count_id_{{ product_order.id }}">{{ product_order.count }}</span>
+                                    <span class="error_count">
+                                        {% if product_order.error_count %}
+                                            {{ product_order.error_count }}
+                                        {% endif %}
+                                    </span>
+                                    <button class="add_product" type="submit">+</button>
+                                </form>
                             </h5>
+
 
                         </div>
                     </div>

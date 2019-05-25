@@ -15,29 +15,42 @@ def order_add(request):
     data = dict()
 
     if form.is_valid():
-        cd = form.cleaned_data
-        count_product = get_object_or_404(CountProduct, id=cd['count_id'])
+        count_id = form.cleaned_data['count_id']
+        count_product = get_object_or_404(CountProduct, id=count_id)
         order.add(count_product=count_product)
-        data = {'count': order.__len__()}
+        data = {
+            'count': order.__len__(),
+            'id': count_id,
+            'count_product': order.order[str(count_id)]['count'],
+        }
 
         try:
-            data['error_count'] = order.order[str(cd['count_id'])]['error_count']
+            data['error_count'] = order.order[str(count_id)]['error_count']
         except KeyError:
             data['error_count'] = ""
 
     return JsonResponse(data, safe=False)
 
 
+@require_GET
 def order_delete(request):
     order = Order(request)
     form = OrderAddProductForm(request.GET)
     data = dict()
-
     if form.is_valid():
-        cd = form.cleaned_data
-        count_product = get_object_or_404(CountProduct, id=cd['count_id'])
+        count_id = form.cleaned_data['count_id']
+        count_product = get_object_or_404(CountProduct, id=count_id)
         order.delete(count_product=count_product)
-        data = {'count': order.__len__()}
+        data = {
+            'count': order.__len__(),
+            'id': count_id,
+            'count_product': order.order[str(count_id)]['count'],
+        }
+
+        try:
+            data['error_count'] = order.order[str(count_id)]['error_count']
+        except KeyError:
+            data['error_count'] = ""
 
     return JsonResponse(data, safe=False)
 

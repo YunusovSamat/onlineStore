@@ -34,8 +34,15 @@ class Order(object):
     def delete(self, count_product):
         count_product_id = str(count_product.id)
 
-        # if count_product_id in self.order:
-
+        if count_product_id in self.order:
+            if self.order[count_product_id]['count'] > 0:
+                if self.order[count_product_id]['count'] == 1:
+                    self.remove(count_product_id)
+                else:
+                    self.order[count_product_id]['count'] -= 1
+            else:
+                self.order[count_product_id]['error_count'] = "товар уже удален"
+            self.save()
 
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.order

@@ -113,41 +113,42 @@
                                     <img src="{{ product.images_product.first.image.url }}" alt="">
                                 </a>
                                 <div class="block_view">
-                                    <div class="color_size">
-                                        <div class="squares_color">
-                                            {% if product.product_join_color.all %}
-                                                {% for colors in product.product_join_color.all %}
-                                                    <div class="square_color"
-                                                        style="background: {{ colors.fk_color_product.color }};"
-                                                    ></div>
-                                                {% endfor %}
-                                            {% else %}
-                                                <div class="block_void_color"></div>
-                                            {% endif %}
+                                    <form action="{% url 'orderApp:order_add' %}" method="get">
+                                        <div class="color_size">
+                                            <div class="squares_color">
+                                                {% if product.product_join_color.all %}
+                                                    {% for colors in product.product_join_color.all %}
+                                                        <div class="square_color"
+                                                            style="background: {{ colors.fk_color_product.color }};">
+                                                        </div>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <div class="block_void_color"></div>
+                                                {% endif %}
 
+                                            </div>
+                                            <div class="block_size">
+                                                {% ifequal product.counts.all|length 1 %}
+                                                    <span>Стандартный размер</span>
+                                                    <input type="hidden" name="count_id"
+                                                        value="{{ product.counts.first.id }}">
+                                                {% else %}
+                                                    {% for count in product.counts.all %}
+                                                        {% ifnotequal count.count 0 %}
+                                                            <label>
+                                                                <input type="radio" name="count_id" id="id_count_id"
+                                                                       value="{{ count.id }}" required>
+                                                                <span>{{ count.fk_size }}</span>
+                                                            </label>
+                                                        {% else %}
+                                                            <span class="block_disabled">{{ count.fk_size }}</span>
+                                                        {% endifnotequal %}
+                                                    {% endfor %}
+                                                {% endifequal %}
+                                            </div>
                                         </div>
-                                        <form id="form1" action="{% url 'orderApp:order_add' %}" method="get"></form>
-                                        <div class="block_size">
-                                            {% ifequal product.counts.all|length 1 %}
-{#                                                <div class="block_void_size"></div>#}
-                                                <span>Стандартный размер</span>
-                                            {% else %}
-                                                {% for count in product.counts.all %}
-                                                    {% ifnotequal count.count 0 %}
-                                                        <label>
-                                                            <input form="form1" type="radio" name="count_id" id="id_count_id"
-                                                                   value="{{ count.id }}" required>
-                                                            <span>{{ count.fk_size }}</span>
-                                                        </label>
-                                                    {% else %}
-                                                        <span class="block_disabled">{{ count.fk_size }}</span>
-                                                    {% endifnotequal %}
-                                                {% endfor %}
-                                            {% endifequal %}
-                                        </div>
-                                    </div>
-
-                                    <button form="form1" class="link_button" type="submit" id="id_submit">Добавить в корзину</button>
+                                        <button class="link_button add_product" type="submit">Добавить в корзину</button>
+                                    </form>
                                 </div>
 
                                 <a href="{% url 'productApp:product' product.id %}" class="link_text">
