@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block style %}
-    {% static 'orderApp/css/order_style.css' %}
+    <link rel='stylesheet' href='{% static 'orderApp/css/order_style.css' %}'>
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -11,26 +11,6 @@
 {% endblock %}
 
 {% block context %}
-
-{#    <h1>TOTAL {{ order.get_total_price }}</h1>#}
-{#    {% for item in order %}#}
-{#        {{ item }}#}
-{#        <h2>name: {{ item.product }}</h2>#}
-{#        <img src="{{ item.product.images_product.first.image.url }}" alt="">#}
-{#        <h2>price: {{ item.price }}</h2>#}
-{#        <h2>count: {{ item.count }}</h2>#}
-{#        <h2>size: {{ item.size }}</h2>#}
-{#        {% if item.error_count %}#}
-{#            {{ item.error_count }}#}
-{#        {% endif %}#}
-{#        <h2>{{ item.total_price }}</h2>#}
-{#        <a href="{% url 'orderApp:order_remove' item.id %}">delete</a>#}
-{#        <br><br>#}
-{#    {% endfor %}#}
-{#    <a href="{% url 'orderApp:order_clear' %}">clear</a>#}
-
-{#    <a href="{% url 'orderApp:order_processing' %}">order processing</a>#}
-
     <section class="order">
         <div class="container-order">
             <h2>Корзина</h2>
@@ -38,13 +18,20 @@
             {% for product_order in order %}
 
                 <div class="product_order">
-                    <img src={{ product_order.product.images_product.first.image.url }} alt="">
+                    <a  href="{% url 'productApp:product' product_order.product.id %}">
+                        <img src={{ product_order.product.images_product.first.image.url }} alt="">
+                    </a>
                     <div class="product_order_text">
                         <div class="delete">
                             <a href="{% url 'orderApp:order_remove' product_order.id %}" >&times;</a>
                         </div>
 
-                        <h3 class="name">{{ product_order.product }}</h3>
+
+                        <h3 class="name">
+                            <a  href="{% url 'productApp:product' product_order.product.id %}">
+                                {{ product_order.product }}
+                            </a>
+                        </h3>
                         <div class="size_price">
                             <div>
                                 <h4>Размер</h4>
@@ -64,17 +51,12 @@
                         <div class="count">
                             <h4>Количество</h4>
                             <h5>
-                                <form action="{% url 'orderApp:order_delete' %}" method="get">
+                                <form method="get">
                                     <input type="hidden" name="count_id" value="{{ product_order.id }}">
-                                    <button class="delete_product" type="submit">-</button>
-
-                                    <span id="count_id_{{ product_order.id }}">{{ product_order.count }}</span>
-                                    <span class="error_count">
-                                        {% if product_order.error_count %}
-                                            {{ product_order.error_count }}
-                                        {% endif %}
-                                    </span>
-                                    <button class="add_product" type="submit">+</button>
+                                    <button class="change_count_product delete_product" type="submit">-</button>
+                                    <span class="count_product">{{ product_order.count }}</span>
+                                    <button class="change_count_product add_product" type="submit">+</button>
+                                    <span class="error_count"></span>
                                 </form>
                             </h5>
 

@@ -164,7 +164,7 @@ body {
 	padding-right: 3px;
 }
 
-.order_count {
+.order_count span {
 	background-color: #bb8e62;
 	font-size: 10px;
 	font-weight: bold;
@@ -199,18 +199,18 @@ body {
 .block_footer {
 	display: flex;
 	justify-content: space-between;
-	padding: 76px 208px;
+	padding: 76px 208px 56px;
 }
 
 .block_footer h3 {
-	font-size: 9px;
+	font-size: 11px;
 	font-weight: bold;
 	margin-bottom: 55px;
 }
 
 .box_link_footer a {
 	display: block;
-	font-size: 9px;
+	font-size: 10px;
 	color: #3a2900;
 	text-decoration: none;
 	margin-bottom: 20px;
@@ -228,5 +228,5 @@ body {
 .protection h3 {
 	float: right;
 	font-size: 9px;
-	margin: 14px 150px 28px 0;
+	margin: 14px 30px 28px 0;
 }

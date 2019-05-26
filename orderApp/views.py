@@ -22,12 +22,8 @@ def order_add(request):
             'count': order.__len__(),
             'id': count_id,
             'count_product': order.order[str(count_id)]['count'],
+            'error_count': order.order[str(count_id)]['error_count'],
         }
-
-        try:
-            data['error_count'] = order.order[str(count_id)]['error_count']
-        except KeyError:
-            data['error_count'] = ""
 
     return JsonResponse(data, safe=False)
 
@@ -45,12 +41,8 @@ def order_delete(request):
             'count': order.__len__(),
             'id': count_id,
             'count_product': order.order[str(count_id)]['count'],
+            'error_count': order.order[str(count_id)]['error_count'],
         }
-
-        try:
-            data['error_count'] = order.order[str(count_id)]['error_count']
-        except KeyError:
-            data['error_count'] = ""
 
     return JsonResponse(data, safe=False)
 

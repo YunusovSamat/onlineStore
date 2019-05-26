@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block style %}
-    {% static 'catalogApp/css/catalog_style.css' %}
+    <link rel='stylesheet' href='{% static 'catalogApp/css/catalog_style.css' %}'>
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -147,11 +147,11 @@
                                                 {% endifequal %}
                                             </div>
                                         </div>
-                                        <button class="link_button add_product" type="submit">Добавить в корзину</button>
+                                        <button class="link_button change_count_product add_product" type="submit">Добавить в корзину</button>
                                     </form>
                                 </div>
 
-                                <a href="{% url 'productApp:product' product.id %}" class="link_text">
+                                <a class="link_text">
                                     <h3>{{ product.name }}</h3>
                                     {% if product.old_price %}
                                         <div class="sale">

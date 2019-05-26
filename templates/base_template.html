@@ -8,7 +8,7 @@
 	<title>Dandy Shop</title>
 	<link rel="stylesheet" href={% static 'css/reset.css' %}>
     <link rel="stylesheet" href="{% static 'css/base_style.css' %}">
-	<link rel='stylesheet' href='{% block style %}{% endblock %}'>
+    {% block style %}{% endblock %}
 </head>
 
 <body>
@@ -129,7 +129,7 @@
                             </span>
 
                         </li>
-						<li><a href="#">Доставка и оплата</a></li>
+						<li><a href="{% url 'main:delivery_pay' %}">Доставка и оплата</a></li>
                         {% if is_auth %}
                             <li><a href="{% url 'accountApp:logout' %}">Выход</a></li>
                         {% else %}

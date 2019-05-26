@@ -1,0 +1,29 @@
+#window_all {
+    /*display: none;*/
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.window_done_content {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    width: 500px;
+}
+
+#window_done_close {
+    text-align: right;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+#window_done_close span {
+    cursor: pointer;
+}

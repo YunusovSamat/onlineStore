@@ -3,7 +3,7 @@
 {% load humanize %}
 
 {% block style %}
-    {% static 'productApp/css/product_style.css' %}
+    <link rel='stylesheet' href='{% static 'productApp/css/product_style.css' %}'>
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block context %}
+    {% include  'orderApp/window_done_added.html' %}
 {#    <a href="{% url 'orderApp:order_clear' %}">clear</a>#}
     <section>
         <div class="container-2">
@@ -92,7 +93,7 @@
                                 <h4 id="size_value">Размер не выбран</h4>
                             {% endifequal %}
                         </div>
-                        <button class="link_button add_product" type="submit">Добавить в корзину</button>
+                        <button class="link_button change_count_product add_product" type="submit">Добавить в корзину</button>
                         <div class="block_description">
                             <h3>Информация о товаре</h3>
                             <p>{{ product.description }}</p>

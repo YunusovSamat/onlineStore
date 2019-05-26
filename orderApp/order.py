@@ -22,12 +22,12 @@ class Order(object):
                 'count': 0,
                 'price': str(count_product.fk_product.price),
                 'size': count_product.fk_size.size,
+                'error_count': "",
             }
 
         if self.order[count_product_id]['count'] + 1 <= count_product.count:
             self.order[count_product_id]['count'] += 1
         else:
-            self.order[count_product_id]['count'] = count_product.count
             self.order[count_product_id]['error_count'] = "превышен лимит количества"
         self.save()
 
@@ -35,14 +35,10 @@ class Order(object):
         count_product_id = str(count_product.id)
 
         if count_product_id in self.order:
-            if self.order[count_product_id]['count'] > 0:
-                if self.order[count_product_id]['count'] == 1:
-                    self.remove(count_product_id)
-                else:
-                    self.order[count_product_id]['count'] -= 1
-            else:
-                self.order[count_product_id]['error_count'] = "товар уже удален"
-            self.save()
+            if self.order[count_product_id]['count'] > 1:
+                self.order[count_product_id]['count'] -= 1
+                self.order[count_product_id]['error_count'] = ""
+                self.save()
 
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.order

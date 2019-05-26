@@ -33,11 +33,17 @@
     text-decoration: none;
 }
 
-.product_order_text h3 {
+.name {
     font-size: 13px;
     text-transform: uppercase;
     margin: 5px 0 15px;
+
     /*border: 1px solid red;*/
+}
+
+.name a {
+    color: #3a2900;
+    text-decoration: none;
 }
 
 .size_price {
