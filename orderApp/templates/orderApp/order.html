@@ -36,7 +36,7 @@
                             <div>
                                 <h4>Размер</h4>
                                 {% ifequal product_order.size 1 %}
-                                    <h6>Стандартный размер</h6>
+                                    <h6>Единый</h6>
                                 {% else %}
                                     <h5>{{ product_order.size }}</h5>
                                 {% endifequal %}
@@ -53,7 +53,10 @@
                             <h5>
                                 <form method="get">
                                     <input type="hidden" name="count_id" value="{{ product_order.id }}">
-                                    <button class="change_count_product delete_product" type="submit">-</button>
+                                    <button class="change_count_product delete_product" type="submit"
+                                    {% if product_order.count == 1 %}
+                                        style="visibility: hidden"
+                                    {% endif %} >-</button>
                                     <span class="count_product">{{ product_order.count }}</span>
                                     <button class="change_count_product add_product" type="submit">+</button>
                                     <span class="error_count"></span>

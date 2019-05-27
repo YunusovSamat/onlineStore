@@ -90,6 +90,10 @@
     margin-right: 5px;
 }
 
+.add_product {
+    margin-left: 5px;
+}
+
 .count .error_count {
     font-weight: normal;
     text-transform: none;

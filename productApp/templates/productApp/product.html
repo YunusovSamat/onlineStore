@@ -12,7 +12,7 @@
 
 {% block context %}
     {% include  'orderApp/window_done_added.html' %}
-{#    <a href="{% url 'orderApp:order_clear' %}">clear</a>#}
+    <a href="{% url 'orderApp:order_clear' %}">clear</a>
     <section>
         <div class="container-2">
             <div id="window_size">
@@ -68,7 +68,7 @@
 
                         <div class="block_size">
                             {% ifequal product.counts.all|length 1 %}
-                                <span>Стандартный размер </span>
+                                <span>Единый </span>
                                 <input type="hidden" name="count_id"
                                        value="{{ product.counts.first.id }}">
                             {% else %}

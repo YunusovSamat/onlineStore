@@ -1,5 +1,5 @@
 #window_all {
-    /*display: none;*/
+    display: none;
     position: fixed;
     z-index: 11;
     left: 0;

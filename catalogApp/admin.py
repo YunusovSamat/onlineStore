@@ -10,8 +10,7 @@ class SubcatalogInline(admin.TabularInline):
 
 class CatalogAdmin(admin.ModelAdmin):
     list_display = ['name', 'id']
-    search_fields = ['name', 'id']
-    ordering = ['name', 'id']
+    ordering = ['id', 'name']
     inlines = [SubcatalogInline]
 
 
@@ -21,8 +20,7 @@ class ProductInline(admin.TabularInline):
 
 class SubcatalogAdmin(admin.ModelAdmin):
     list_display = ['fk_catalog', 'name', 'id']
-    search_fields = ['fk_catalog', 'name', 'id']
-    ordering = ['fk_catalog', 'name', 'id']
+    ordering = ['fk_catalog', 'id', 'name']
     inlines = [ProductInline]
 
 
