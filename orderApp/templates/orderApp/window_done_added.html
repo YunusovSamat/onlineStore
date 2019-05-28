@@ -1,17 +1,9 @@
-<link rel="stylesheet" href="../../static/orderApp/css/window_done_added_style.css">
-
 <section>
-    <div id="window_all">
+    <div id="window_done">
         <div class="window_done_content">
-            <div id="window_done_close">
-                <span>&times;</span>
-            </div>
             <h1>Торар добавлен в корзину</h1>
-            <h2>Продолжить покупки</h2>
+            <h2 id="window_done_close">Продолжить покупки</h2>
             <a href="{% url 'orderApp:order_delete' %}">Перейти в корзину</a>
         </div>
     </div>
-
-
-
 </section>

@@ -4,13 +4,16 @@
 
 {% block style %}
     <link rel='stylesheet' href='{% static 'catalogApp/css/catalog_style.css' %}'>
+    <link rel="stylesheet" href="{% static 'orderApp/css/window_done_added_style.css' %}">
 {% endblock %}
 {% block js %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'orderApp/js/order_ajax.js' %}"></script>
+    <script src="{% static 'orderApp/js/window_done_added.js' %}"></script>
 {% endblock %}
 
 {% block context %}
+    {% include  'orderApp/window_done_added.html' %}
     <section class="sorted">
         <div class="container">
             <nav>
@@ -49,12 +52,6 @@
             <div class="view_catalog">
                 <nav class="view_menu_catalog">
                      <ul>
-                        <li class="red_text">
-                            <h2>Межсезонная распродажа</h2>
-                        </li>
-                        <li>
-                            <h2>Новинки</h2>
-                        </li>
                         <li>
                             <h2>Одежда</h2>
                             <ul>

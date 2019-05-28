@@ -1,4 +1,4 @@
-#window_all {
+#window_done {
     display: none;
     position: fixed;
     z-index: 11;
@@ -10,18 +10,19 @@
 }
 
 .window_done_content {
-    margin: 50px auto;
+    margin: 150px auto;
     padding: 20px;
     background-color: #fff;
     width: 500px;
 }
 
 #window_done_close {
-    text-align: right;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    margin-left: auto;
+    cursor: pointer;
+    /*text-align: right;*/
+    /*color: #aaa;*/
+    /*font-size: 28px;*/
+    /*font-weight: bold;*/
+    /*margin-left: auto;*/
 }
 
 #window_done_close span {

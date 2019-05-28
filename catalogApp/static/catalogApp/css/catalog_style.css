@@ -133,7 +133,7 @@
 }
 
 .color_size {
-    background: rgba(232, 232, 232, 0.7);
+    background: rgba(232, 232, 232, 0.9);
 }
 
 .block_void_color {
@@ -153,8 +153,8 @@
 
 .block_size {
     /*padding: 13px 0 26px;*/
-    font-weight: normal;
     font-size: 13px;
+    font-weight: 500;
     color: #000;
 }
 
