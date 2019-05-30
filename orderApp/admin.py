@@ -9,10 +9,10 @@ class ProductOrderInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
-        'date', 'fk_user', 'surname', 'id', 'name', 'email',
-        'address', 'comment', 'delivery_price', 'total'
+        'id', 'fk_user', 'name', 'surname', 'email',
+        'address', 'comment', 'delivery_price', 'total', 'date'
     ]
-    ordering = ['date', 'fk_user', 'surname', 'id']
+    ordering = ['-date', 'fk_user', 'surname', 'id']
     list_filter = ['fk_user', 'surname', 'date']
     inlines = [ProductOrderInline]
 

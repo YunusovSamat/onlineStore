@@ -1,10 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-# class User(models.Model):
-#     name = models.CharField(max_length=150)
-#     surname = models.CharField(max_length=150, blank=True)
-#     email = models.EmailField(max_length=150, blank=True)
-#     phone = models.PositiveIntegerField(max_length=11, blank=True)
-#     password = models.CharField(max_length=200, blank=True)
-#     address = models.TextField(blank=True)
+class UserProfile(models.Model):
+    fk_user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                   related_name="user_profile")
+    address = models.TextField()
+    phone = models.IntegerField()
+
+    def __str__(self):
+        return "{0} ({1})".format(self.address, self.phone)

@@ -18,8 +18,8 @@
 
         <form action="" method="post">
             {% csrf_token %}
-            <input type="text" name="username" autofocus required placeholder="Логин" id="login">
-            <input type="password" name="password" required placeholder="Пароль" id="pass">
+            <input type="text" name="username" autofocus required placeholder="Логин">
+            <input type="password" name="password" required placeholder="Пароль">
             {% if login_error %}
                 <label>{{ login_error }}</label>
             {% endif %}

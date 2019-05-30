@@ -59,8 +59,7 @@
 }
 
 .view_menu_catalog h2:hover {
-    color: #8f8e8d;
-    cursor: pointer;
+    cursor: default;
 }
 
 .view_menu_catalog a:hover {
@@ -104,8 +103,8 @@
 
 .tile_box_1 {
     /*border: 1px solid green;*/
-    width: 900px;
-    /*width: 700px;*/
+    /*width: 900px;*/
+    width: 600px;
     grid-column: 1/3;
 }
 

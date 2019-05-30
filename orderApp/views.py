@@ -63,8 +63,12 @@ def order_clear(request):
 
 def order_detail(request):
     order = Order(request)
+    context = {'order': order}
 
-    return render(request, 'orderApp/order.html', {'order': order})
+    if request.user.is_authenticated:
+        context['address'] = request.user.user_profile.address
+
+    return render(request, 'orderApp/order.html', context)
 
 
 @require_POST
@@ -79,7 +83,7 @@ def order_processing(request):
                 cd = form.cleaned_data
                 order_model = models.Order.objects.create(
                     fk_user_id=request.user.id,
-                    address=cd['address'],
+                    address=request.user.user_profile.address,
                     comment=cd['comment'],
                     delivery_price=order.get_delivery_price(),
                     total=order.get_total_delivery_price(),

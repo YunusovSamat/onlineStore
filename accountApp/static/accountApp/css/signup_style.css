@@ -32,7 +32,7 @@ body {
     margin: 10px 0 20px;
 }
 
-.name {
+.two_col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 40px;
@@ -53,6 +53,15 @@ body {
 
 .signup_form input:focus {
     border-bottom: 2px solid #877a74;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .block_errors {

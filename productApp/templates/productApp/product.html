@@ -9,12 +9,11 @@
 {% block js %}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'orderApp/js/order_ajax.js' %}"></script>
-    <script src="{% static 'orderApp/js/window_done_added.js' %}"></script>
 {% endblock %}
 
 {% block context %}
     {% include  'orderApp/window_done_added.html' %}
-    <a href="{% url 'orderApp:order_clear' %}">clear</a>
+{#    <a href="{% url 'orderApp:order_clear' %}">clear</a>#}
     <section>
         <div class="container-2">
             <div id="window_size">

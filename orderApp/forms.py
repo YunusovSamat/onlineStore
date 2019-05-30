@@ -6,7 +6,6 @@ class OrderAddProductForm(forms.Form):
 
 
 class OrderForUserForm(forms.Form):
-    address = forms.CharField()
     comment = forms.CharField()
 
 
