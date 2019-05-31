@@ -6,7 +6,8 @@ class OrderAddProductForm(forms.Form):
 
 
 class OrderForUserForm(forms.Form):
-    comment = forms.CharField()
+    address = forms.CharField()
+    phone = forms.IntegerField()
 
 
 class OrderForAnonymUserFrom(forms.Form):
@@ -14,4 +15,4 @@ class OrderForAnonymUserFrom(forms.Form):
     surname = forms.CharField()
     email = forms.EmailField()
     address = forms.CharField()
-    comment = forms.CharField()
+    phone = forms.IntegerField()

@@ -5,14 +5,15 @@ from .models import Order, ProductOrder
 
 class ProductOrderInline(admin.TabularInline):
     model = ProductOrder
+    extra = 0
 
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
-        'id', 'fk_user', 'name', 'surname', 'email',
-        'address', 'comment', 'delivery_price', 'total', 'date'
+        'id', 'fk_user', 'surname',
+        'phone', 'total', 'date'
     ]
-    ordering = ['-date', 'fk_user', 'surname', 'id']
+    ordering = ['-id', 'fk_user', 'surname']
     list_filter = ['fk_user', 'surname', 'date']
     inlines = [ProductOrderInline]
 

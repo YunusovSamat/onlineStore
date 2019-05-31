@@ -13,8 +13,9 @@ class Order(models.Model):
     surname = models.CharField(max_length=150, blank=True)
     email = models.EmailField(max_length=150, blank=True)
     date = models.DateField(auto_now_add=True)
-    address = models.TextField()
-    comment = models.TextField(blank=True)
+    address = models.CharField(max_length=255)
+    phone = models.IntegerField()
+    comment = models.CharField(max_length=255, blank=True)
     delivery_price = models.PositiveIntegerField()
     total = models.PositiveIntegerField()
 

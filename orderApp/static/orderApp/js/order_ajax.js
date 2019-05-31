@@ -1,15 +1,15 @@
 $(".add_product").click(function (event) {
-    add_button = $(this);
+    const add_button = $(this);
     change_count_product(event, add_button, '/order/add/');
 
     const count_product_block = add_button.siblings('[class="count_product"]');
     if (count_product_block.html() + 1 > 1) {
-        add_button.siblings('[class="change_count_product delete_product"]').css("visibility", "visible");
+        add_button.siblings('[class="delete_product"]').css("visibility", "visible");
     }
 });
 
 $(".delete_product").click(function (e) {
-    del_button = $(this);
+    const del_button = $(this);
     change_count_product(event, del_button, '/order/delete/');
 
     const count_product_block = del_button.siblings('[class="count_product"]');
@@ -42,7 +42,10 @@ function change_count_product(e, button, form_url) {
                     error_count_block.html(data.error_count);
                 } else {
                     error_count_block.html("");
-                    show_window_done();
+
+                    if (button.attr("class").indexOf("link_button") >= 0){
+                        show_window_done();
+                    }
                 }
             },
             error: function (data) {
@@ -52,11 +55,17 @@ function change_count_product(e, button, form_url) {
     } else {
         alert("Размер не выбран");
     }
-};
+}
 
 function show_window_done() {
-    var window_done = document.getElementById('window_done');
+    const window_done = document.getElementById('window_done');
+    const window_done_close = document.getElementById('window_done_close');
+
     window_done.style.display = 'block';
+
+    window_done_close.onclick = function() {
+        window_done.style.display = 'none';
+    };
 
     window_done.onclick = function (e) {
         if (e.target === window_done) {

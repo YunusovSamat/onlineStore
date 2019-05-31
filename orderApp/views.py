@@ -67,6 +67,7 @@ def order_detail(request):
 
     if request.user.is_authenticated:
         context['address'] = request.user.user_profile.address
+        context['phone'] = request.user.user_profile.phone
 
     return render(request, 'orderApp/order.html', context)
 
@@ -75,6 +76,7 @@ def order_detail(request):
 def order_processing(request):
     order = Order(request)
     id_order = ""
+    comment = request.POST.get('comment', '')
 
     if order:
         if request.user.is_authenticated:
@@ -83,8 +85,9 @@ def order_processing(request):
                 cd = form.cleaned_data
                 order_model = models.Order.objects.create(
                     fk_user_id=request.user.id,
-                    address=request.user.user_profile.address,
-                    comment=cd['comment'],
+                    address=cd['address'],
+                    phone=cd['phone'],
+                    comment=comment,
                     delivery_price=order.get_delivery_price(),
                     total=order.get_total_delivery_price(),
                 )
@@ -114,7 +117,8 @@ def order_processing(request):
                     surname=cd['surname'],
                     email=cd['email'],
                     address=cd['address'],
-                    comment=cd['comment'],
+                    phone=cd['phone'],
+                    comment=comment,
                     delivery_price=order.get_delivery_price(),
                     total=order.get_total_delivery_price(),
                 )
