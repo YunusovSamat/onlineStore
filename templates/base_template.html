@@ -8,10 +8,16 @@
 	<title>Dandy Shop</title>
 	<link rel="stylesheet" href={% static 'css/reset.css' %}>
     <link rel="stylesheet" href="{% static 'css/base_style.css' %}">
+    <link rel="stylesheet" href={% static 'accountApp/css/login_style.css' %}>
+    <link rel="stylesheet" href="{% static 'accountApp/css/signup_style.css' %}">
     {% block style %}{% endblock %}
 </head>
 
 <body>
+
+    {% include 'accountApp/login.html' %}
+    {% include 'accountApp/signup.html' %}
+
 	<header class="header">
 		<div class="container">
 			<div class="main">
@@ -127,15 +133,15 @@
                                     </span>
                                 {% endif %}
                             </span>
-
                         </li>
 						<li><a href="{% url 'main:delivery_pay' %}">Доставка и оплата</a></li>
-                        {% if is_auth %}
-                            <li><a href="{% url 'accountApp:logout' %}">Выход</a></li>
-                        {% else %}
-                            <li><a href="{% url 'accountApp:login' %}">Вход</a></li>
-                        {% endif %}
-
+                            <span class="block_account">
+                                {% if is_auth %}
+                                    <li><a href="{% url 'accountApp:logout' %}">Выход</a></li>
+                                {% else %}
+                                     <li><a class="login_form_open">Вход</a></li>
+                                {% endif %}
+                            </span>
 					</ul>
 				</nav>
 			</div>
@@ -185,6 +191,9 @@
 		</div>
 	</section>
 
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'accountApp/js/windows_account.js' %}"></script>
+    <script src="{% static 'accountApp/js/account_ajax.js' %}"></script>
     {% block js %}{% endblock %}
 </body>
 

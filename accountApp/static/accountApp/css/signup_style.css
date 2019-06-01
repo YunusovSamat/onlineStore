@@ -1,57 +1,62 @@
-body {
-    font-family: "century gothic", sans-serif;
-	color: #3a2900;
-	background-color: #f7f3ed;
-}
-
 /* Signup form */
 .signup_form {
-    padding: 20px 90px 30px;
-    width: 500px;
-    margin: 100px auto 0;
-    background-color: #eee6dc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
-.exit {
-    font-size: 40px;
+.signup_form_content {
+    padding: 20px 50px 30px;
+    width: 450px;
+    margin: 100px auto 0;
+    background-color: #f0e8de;
+    cursor: default;
+}
+
+.signup_form_close {
+    font-size: 30px;
     display: block;
     text-align: right;
 }
 
-.exit a {
-    color: #3a2900;
-    text-decoration: none;
+.signup_form_close span {
+    cursor: pointer;
 }
 
-.signup_form h2 {
-    font-size: 17px;
+.signup_form_content h2 {
+    font-size: 15px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    margin: 10px 0 20px;
+    margin: 10px 0 10px;
 }
 
-.two_col {
+.signup_form_content .two_col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 40px;
 
 }
 
-.signup_form input {
+.signup_form_content input {
     display: block;
     width: 100%;
     font-family: "century gothic", sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     background-color: #eee6dc;
     border: none;
     border-bottom: 2px solid #443d3a;
     padding: 5px 0;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
-.signup_form input:focus {
+.signup_form_content input:focus {
     border-bottom: 2px solid #877a74;
 }
 
@@ -64,22 +69,22 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.block_errors {
-    font-size: 15px;
+.signup_form_content .signup_errors {
+    font-size: 13px;
     color: #c94b44;
     margin-top: 20px;
 }
 
-.block_errors p {
+.signup_form_content .block_errors p {
     margin-top: 10px;
 }
 
-.signup_form button {
+.signup_form_content button {
     font-family: "century gothic", sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
     color: #fff;
-    margin: 40px 0;
+    margin: 30px 0 10px;
     padding: 10px 0;
     width: 100%;
     text-transform: uppercase;

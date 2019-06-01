@@ -1,58 +1,33 @@
-{% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Dandy Shop</title>
-    <link rel="stylesheet" href={% static 'css/reset.css' %}>
-    <link rel="stylesheet" href={% static 'accountApp/css/signup_style.css' %}>
-</head>
-<body>
-    <section class="signup_form">
-{#        <a class="exit" href="javascript:history.back()">&times;</a>#}
-        <div  class="exit">
-            <a href="{% url "main:index" %}">&times;</a>
+<section class="signup_form">
+        <div class="signup_form_content">
+            <div  class="signup_form_close">
+                <span id="signup_close">&times;</span>
+            </div>
+            <h2>Создать аккаунт</h2>
+            <form action="{% url 'accountApp:signup' %}" method="post">
+                {% csrf_token %}
+                <div class="two_col">
+                    <input type="text" name="last_name"
+                           id="id_last_name" placeholder="Фамилия" autofocus>
+                    <input type="text" name="first_name"
+                           id="id_first_name" placeholder="Имя">
+                </div>
+                <div class="two_col">
+                    <input type="email" name="email" maxlength="254"
+                           placeholder="Адрес электронной почты">
+                    <input type="number" name="phone" maxlength="254"
+                           placeholder="Номер телефона">
+                </div>
+                <input type="text" name="username" maxlength="150"
+                       placeholder="Логин">
+                <input type="text" name="address" maxlength="254"
+                       placeholder="Адрес доставки">
+                <input type="password" name="password1"
+                       placeholder="Пароль">
+                <input type="password" name="password2"
+                       placeholder="Повторный пароль">
+                <div class="signup_errors"></div>
+                <button id="signup_button" type="submit">Создать аккаунт</button>
+            </form>
         </div>
-        <h2>Создать аккаунт</h2>
-        <form action="" method="post">
-            {% csrf_token %}
-            <div class="two_col">
-                <input type="text" name="last_name" required
-                       id="id_last_name" placeholder="Фамилия" autofocus>
-                <input type="text" name="first_name" required
-                       id="id_first_name" placeholder="Имя">
-            </div>
-
-            <div class="two_col">
-                <input type="email" name="email" maxlength="254" required
-                       placeholder="Адрес электронной почты">
-                <input type="number" name="phone" maxlength="254" required
-                       placeholder="Номер телефона">
-            </div>
-
-            <input type="text" name="username" maxlength="150" required
-                   placeholder="Логин">
-            <input type="text" name="address" maxlength="254" required
-                   placeholder="Адрес доставки">
-            <input type="password" name="password1" required
-                   placeholder="Пароль">
-            <input type="password" name="password2" required
-                   placeholder="Повторный пароль">
-            <div class="block_errors">
-                <p>
-                    {% if user_form.username.errors %}
-                    {{ user_form.username.errors }}
-                {% endif %}
-                </p>
-                <p>
-                    {% if user_form.password2.errors %}
-                        {{ user_form.password2.errors }}
-                    {% endif %}
-                </p>
-            </div>
-            <button type="submit">Создать аккаунт</button>
-        </form>
-    </section>
-</body>
-</html>
+</section>

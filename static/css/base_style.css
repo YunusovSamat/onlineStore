@@ -182,6 +182,10 @@ body {
 	width: 65px;
 }
 
+.login_form_open {
+	cursor: pointer;
+}
+
 
 
 /* Void for header */

@@ -43,7 +43,7 @@ function change_count_product(e, button, form_url) {
                 } else {
                     error_count_block.html("");
 
-                    if (button.attr("class").indexOf("link_button") >= 0){
+                    if (button.attr("class").indexOf("link_button") !== -1){
                         show_window_done();
                     }
                 }

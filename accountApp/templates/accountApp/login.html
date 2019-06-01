@@ -1,33 +1,22 @@
-{% load staticfiles %}
+<section class="login_form">
+    <div class="container">
+        <div class="login_form_content">
+            <div  class="login_form_close">
+                <span id="login_close">&times;</span>
+            </div>
+            <h2>Начать покупки</h2>
+            <p>Для входа введите логин и пароль</p>
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Dandy Shop</title>
-    <link rel="stylesheet" href={% static 'css/reset.css' %}>
-    <link rel="stylesheet" href={% static 'accountApp/css/login_style.css' %}>
-</head>
-<body>
-    <section class="login_form">
-        <div  class="exit">
-            <a href="{% url "main:index" %}">&times;</a>
+            <form action="{% url 'accountApp:login' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="username" autofocus placeholder="Логин">
+                <input type="password" name="password" placeholder="Пароль">
+                <p class="login_error"></p>
+                <button id="login_button" type="submit">Войти</button>
+            </form>
+
+            <h3>У вас нет аккаунта?</h3>
+            <div class="signup_form_open">Зарегистрироваться</div>
         </div>
-        <h2>Начать покупки</h2>
-        <p>Для входа введите логин и пароль</p>
-
-        <form action="" method="post">
-            {% csrf_token %}
-            <input type="text" name="username" autofocus required placeholder="Логин">
-            <input type="password" name="password" required placeholder="Пароль">
-            {% if login_error %}
-                <label>{{ login_error }}</label>
-            {% endif %}
-            <button type="submit">Войти</button>
-        </form>
-
-        <h3>У вас нет аккаунта?</h3>
-        <a class="link_signup" href="{% url 'accountApp:signup' %}">Зарегистрироваться</a>
-    </section>
-</body>
-</html>
+    </div>
+</section>
