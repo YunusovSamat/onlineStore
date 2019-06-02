@@ -3,12 +3,13 @@ $(".add_product").click(function (event) {
     change_count_product(event, add_button, '/order/add/');
 
     const count_product_block = add_button.siblings('[class="count_product"]');
+    console.log(count_product_block.html());
     if (count_product_block.html() + 1 > 1) {
         add_button.siblings('[class="delete_product"]').css("visibility", "visible");
     }
 });
 
-$(".delete_product").click(function (e) {
+$(".delete_product").click(function (event) {
     const del_button = $(this);
     change_count_product(event, del_button, '/order/delete/');
 
@@ -23,7 +24,7 @@ function change_count_product(e, button, form_url) {
 
     const form = button.parent();
     const form_data = form.serialize();
-    const count_product_block = button.siblings('[class="count_product"]')
+    const count_product_block = button.siblings('[class="count_product"]');
     const error_count_block = button.siblings('[class="error_count"]');
 
     if (form_data.length) {

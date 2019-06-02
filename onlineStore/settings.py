@@ -71,7 +71,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'accountApp.context_processors.get_username',
                 'orderApp.context_processors.get_order',
                 'main.context_processors.get_subcatalog_state',
             ],

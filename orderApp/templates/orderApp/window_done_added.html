@@ -1,11 +1,13 @@
 <section>
     <div id="window_done">
         <div class="window_done_content">
-            <h1>Торар добавлен в корзину</h1>
-            <br><br>
-            <h2 id="window_done_close">Продолжить покупки</h2>
-            <br>
-            <a href="{% url 'orderApp:order_detail' %}">Перейти в корзину</a>
+            <h2>Торар успешно добавлен в корзину!</h2>
+            <p>Вы можете продолжить покупки в нашем интернет-магазине или перейти в корзину для оформления заказа</p>
+            <div class="block_buttons">
+                <a id="window_done_close">Продолжить покупки</a>
+                <a href="{% url 'orderApp:order_detail' %}">Перейти в корзину</a>
+            </div>
+
         </div>
     </div>
 </section>

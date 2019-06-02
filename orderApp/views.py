@@ -65,17 +65,27 @@ def order_detail(request):
     order = Order(request)
     context = {'order': order}
 
+    return render(request, 'orderApp/order.html', context)
+
+
+def checkout_view(request):
+    order = Order(request)
+    context = {'order': order}
+
     if request.user.is_authenticated:
         context['address'] = request.user.user_profile.address
         context['phone'] = request.user.user_profile.phone
 
-    return render(request, 'orderApp/order.html', context)
+    return render(request, 'orderApp/checkout.html', context)
 
 
 @require_POST
 def order_processing(request):
     order = Order(request)
-    id_order = ""
+    context = {
+        'result': "",
+        'id_order': "",
+    }
     comment = request.POST.get('comment', '')
 
     if order:
@@ -103,10 +113,10 @@ def order_processing(request):
                     count_product.save()
 
                 order.clear()
-                result = "Заказ успешно оформлен"
-                id_order = order_model.id
+                context['result'] = "Заказ успешно оформлен"
+                context['id_order'] = order_model.id
             else:
-                result = "Заказ не оформлен"
+                context['result'] = "Заказ не оформлен"
 
         else:
             form = OrderForAnonymUserFrom(request.POST)
@@ -134,18 +144,15 @@ def order_processing(request):
                     count_product.save()
 
                 order.clear()
-                result = "Заказ успешно оформлен"
-                id_order = order_model.id
+                context['result'] = "Заказ успешно оформлен"
+                context['id_order'] = order_model.id
             else:
-                result = "Заказ не оформлен"
+                context['result'] = "Заказ не оформлен"
 
     else:
-        result = "error"
-
-    context = {
-        'result': result,
-        'id_order': id_order,
-    }
+        context['result'] = "error"
 
     return render(request, 'orderApp/result.html', context)
+
+
 

@@ -1,0 +1,234 @@
+/* Window checkout form */
+.window_checkout_form {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.window_checkout_form_content {
+    padding: 55px 50px 50px;
+    width: 420px;
+    margin: 100px auto 0;
+    background-color: #f0e8de;
+    cursor: default;
+}
+
+.window_checkout_form_content h2 {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.window_checkout_form_content .two_col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
+
+}
+
+.window_checkout_form_content input {
+    display: block;
+    width: 100%;
+    font-family: "century gothic", sans-serif;
+    font-size: 13px;
+    background-color: #f0e8de;
+    border: none;
+    border-bottom: 2px solid #443d3a;
+    padding: 7px 0;
+    margin-top: 15px;
+}
+
+.window_checkout_form_content input:focus {
+    border-bottom: 2px solid #877a74;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.window_checkout_form_content .block_errors {
+    font-size: 13px;
+    color: #c94b44;
+    margin-top: 20px;
+}
+
+.window_checkout_form_content .block_button {
+    text-align: center;
+}
+
+.window_checkout_form_content span {
+
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    padding: 10px 100px;
+    /*width: 100%;*/
+    text-transform: uppercase;
+    background-color: #bb8e62;
+    border: none;
+    cursor: pointer;
+}
+
+/* Container checkout */
+.container_checkout {
+    margin: 0 auto;
+    max-width: 400px;
+
+}
+
+/* Delivery detail */
+.delivery_detail_content {
+    font-size: 11px;
+    padding: 70px 30px 50px;
+    border-bottom: 2px solid #d7d4ce;
+}
+
+.delivery_detail_content h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.delivery_detail_content h3 {
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.delivery_detail_content p {
+    margin-bottom: 25px;
+    line-height: 20px;
+}
+
+/* Create an application */
+.create_an_application {
+    display: none;
+}
+
+.create_an_application_content {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #d7d4ce;
+}
+
+.create_an_application_content h2 {
+    margin: 35px 0;
+}
+
+.create_an_application_content span {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #bb8e62;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 15px 0;
+}
+
+/* Change_application_total */
+.change_application_total {
+    display: none;
+}
+
+.change_application_content {
+    text-transform: uppercase;
+    border-bottom: 2px solid #d7d4ce;
+}
+
+.change_application_content h2 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 35px;
+}
+
+.block_data {
+    padding: 30px;
+    background-color: #f0e8de;
+    border: 1px solid #b6a48b;
+    font-size: 11px;
+    margin: 40px 0;
+}
+
+.block_data h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.block_data h4 {
+    text-transform: uppercase;
+}
+
+.block_data span {
+    display: inline-block;
+    text-transform: uppercase;
+    border-bottom: 1px solid #3a2900;
+    padding-bottom: 1px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.block_data div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.block_data h5 {
+    width: 150px;
+}
+
+.block_data h6 {
+    font-weight: bold;
+}
+
+.block_data div:last-child {
+    margin: 30px 0 0;
+}
+
+.block_button_issue {
+    text-align: right;
+}
+
+.button_issue {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #bb8e62;
+    padding: 12px 70px;
+    cursor: pointer;
+    border: none;
+
+}
+
+/* Delivery date info */
+.delivery_date_info_content {
+    font-size: 10px;
+    margin: 40px 0;
+}
+
+.delivery_date_info_content p {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.delivery_date_info_content span {
+    font-weight: normal;
+}

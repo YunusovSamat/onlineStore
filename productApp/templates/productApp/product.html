@@ -17,9 +17,7 @@
         <div class="container-2">
             <div id="window_size">
                 <div class="window_size_context">
-                    <span id="window_size_close">&times;</span>
-                    <h1>table</h1>
-                    <img src="{{ product.images_product.first.image.url }}" alt="">
+                    <img src="{% static 'productApp/images/table_size.jpg' %}" alt="">
                 </div>
             </div>
         </div>
@@ -112,14 +110,9 @@
     <script>
         var window_size = document.getElementById('window_size');
         var btn_open = document.getElementById("window_size_open");
-        var btn_close = document.getElementById("window_size_close");
 
         btn_open.onclick = function () {
             window_size.style.display = 'block';
-        };
-
-        btn_close.onclick = function () {
-            window_size.style.display = 'none';
         };
 
         window_size.onclick = function (e) {

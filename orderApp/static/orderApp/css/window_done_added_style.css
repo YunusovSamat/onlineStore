@@ -12,26 +12,39 @@
 
 .window_done_content {
     margin: 150px auto;
-    padding: 20px;
-    background-color: #fff;
-    width: 700px;
+    padding: 40px 40px 50px;
+    background-color: #f7f3ed;
+    width: 520px;
     cursor: default;
+    text-align: center;
 }
 
-#window_done_close {
+.window_done_content h2 {
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.window_done_content p {
+    font-size: 13px;
+    margin-bottom: 50px;
+}
+
+.window_done_content .block_buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.window_done_content .block_buttons a {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #bb8e62;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 0;
+    width: 230px;
     cursor: pointer;
-    /*text-align: right;*/
-    /*color: #aaa;*/
-    /*font-size: 28px;*/
-    /*font-weight: bold;*/
-    /*margin-left: auto;*/
-}
-
-#window_done_close span {
-    cursor: pointer;
-}
-
-.window_done_content a {
-    /*display: inline-block;*/
-
 }

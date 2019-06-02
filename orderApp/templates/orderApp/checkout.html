@@ -1,0 +1,131 @@
+{% extends 'base_template.html' %}
+{% load staticfiles %}
+{% load humanize %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'orderApp/css/checkout_style.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'orderApp/js/checkout.js' %}"></script>
+{% endblock %}
+
+{% block context %}
+    <section class="window_checkout_form">
+        <div class="window_checkout_form_content">
+            <h2>Создать заявку</h2>
+            <form id="app_form" action="{% url 'orderApp:order_processing' %}" method="post">
+                {% csrf_token %}
+                {% if not user.is_authenticated %}
+                    <div class="two_col">
+                        <input type="text" name="surname" placeholder="Фамилия*" autofocus>
+                        <input type="text" name="name" placeholder="Имя*">
+                    </div>
+                    <input type="email" name="email" maxlength="254" placeholder="Электронный адрес*">
+                {% endif %}
+                <input type="text" name="address" maxlength="254"
+                       placeholder="Адрес*" value="{{ address }}">
+                <div class="two_col">
+                    <input type="number" name="phone" maxlength="254"
+                           placeholder="Номер телефона*" value="{{ phone }}">
+                </div>
+                <input type="text" name="comment" maxlength="254" placeholder="Комментарий к заказу">
+                <div class="block_errors"></div>
+                <div class="block_button">
+                    <span class="button_save">Сохранить</span>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <section class="delivery_detail">
+        <div class="container_checkout">
+            <div class="delivery_detail_content">
+                <h2>Доставка на дом</h2>
+                <h3>Бесплатно</h3>
+                <p>Заказ будет доставлен по указаному Вами адресу <br> Сроки заказа зависят от зоны доставки</p>
+                <p>бесплатная доставка от 5000 РУБ.</p>
+            </div>
+        </div>
+    </section>
+
+    {% if order %}
+        <section class="create_an_application">
+            <div class="container_checkout">
+                <div class="create_an_application_content">
+                    <h2>Укажите данные в заявке</h2>
+                    <span class="button_create_app">Создать заявку</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="change_application_total">
+            <div class="container_checkout">
+                <div class="change_application_content">
+                    <h2>Укажите данные в заявке</h2>
+                    <div class="block_data">
+                        <h3 class="insert_name">{{ user.last_name }} {{ user.first_name }}</h3>
+                        <h4 class="insert_address">{{ user.user_profile.address }}</h4>
+                        <span class="button_change">Изменить</span>
+                    </div>
+                </div>
+
+                <div class="total_content">
+                    <div class="block_data">
+                        <div>
+                            <h5>Товары</h5>
+                            <h4>{{ order.get_total_price|intcomma }} руб.</h4>
+                        </div>
+                        <div>
+                            <h5>Стандартная доставка</h5>
+                            <h4>490 руб.</h4>
+                        </div>
+                        {% if not order.get_delivery_price %}
+                                <div>
+                                    <h5>Бесплатная стандартная доставка</h5>
+                                    <h4>-490 руб.</h4>
+                                </div>
+                            {% endif %}
+                        <div>
+                            <h6>Итого</h6>
+                            <h3>{{ order.get_total_delivery_price|intcomma }} руб.</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block_button_issue">
+                    <button form="app_form" type="submit" class="button_issue">Оформить</button>
+                </div>
+
+            </div>
+        </section>
+
+        {% if user.is_authenticated %}
+            <script>
+                document.getElementsByClassName('change_application_total')[0].style.display = 'block';
+            </script>
+        {% else %}
+            <script>
+                document.getElementsByClassName('create_an_application')[0].style.display = 'block';
+            </script>
+        {% endif %}
+    {% endif %}
+
+
+
+    <section class="delivery_date_info">
+        <div class="container_checkout">
+            <div class="delivery_date_info_content">
+                <p>Центральный федеральный округ <span> 2-5 рабочих дней</span></p>
+                <p>Северо-Западный федеральный округ <span> 4-10 рабочих дней</span></p>
+                <p>Приволжский федеральный округ <span> 3-7 рабочих дней</span></p>
+                <p>Южный федеральный округ <span> 4-7 рабочих дней</span></p>
+                <p>Северо-Кавказский федеральный округ <span> 4-10 рабочих дней</span></p>
+                <p>Уральский федеральный округ <span> 5-8 рабочих дней</span></p>
+                <p>Сибирский федеральный округ <span> 5-8 рабочих дней</span></p>
+                <p>Дальневосточный федеральный округ <span> 6-10 рабочих дней</span></p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

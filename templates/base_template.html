@@ -136,7 +136,7 @@
                         </li>
 						<li><a href="{% url 'main:delivery_pay' %}">Доставка и оплата</a></li>
                             <span class="block_account">
-                                {% if is_auth %}
+                                {% if user.is_authenticated %}
                                     <li><a href="{% url 'accountApp:logout' %}">Выход</a></li>
                                 {% else %}
                                      <li><a class="login_form_open">Вход</a></li>

@@ -17,23 +17,15 @@
 }
 
 .window_size_context {
-    margin: 50px auto;
+    margin: 150px auto;
     padding: 20px;
     background-color: #fff;
-    width: 500px;
+    width: 470px;
+    height: 245px;
     cursor: default;
 }
 
-#window_size_close {
-    display: flex;
-    justify-content: right;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    margin-left: auto;
-    cursor: pointer;
-}
-
+/* Product */
 .back {
     margin: 10px 0;
 }
