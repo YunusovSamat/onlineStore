@@ -78,6 +78,52 @@
     margin-left: 10px;
 }
 
+.filter {
+    font-size: 10px;
+    width: 120px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #c8c6c3;
+    text-transform: uppercase;
+}
+
+.filter label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.filter label:hover {
+    color: #807c76;
+    cursor: pointer;
+}
+
+.filter input {
+    cursor: pointer;
+    background: #000;
+}
+
+.filter input[type=checkbox]:checked > label:after {
+    outline:1px solid #939598;
+	border:2px solid #fff;
+	width:10px;
+	height:10px;
+	background-color:#63849F;
+}
+
+
+
+.filter button {
+    width: 100%;
+    padding: 7px 0;
+    background-color: #bb8e62;
+    border: none;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+
+}
+
 /* View tile catalog */
 .view_tile_catalog {
     /*border: 1px solid green;*/
@@ -103,7 +149,7 @@
 
 .tile_box_1 {
     /*border: 1px solid green;*/
-    /*width: 900px;*/
+    /*width: 903px;*/
     width: 600px;
     grid-column: 1/3;
 }

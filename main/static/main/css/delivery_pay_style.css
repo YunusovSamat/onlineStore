@@ -1,3 +1,25 @@
-h1 {
-    color: red;
+/* Delivery pay */
+.delivery_pay_content {
+    max-width: 330px;
+    margin: 50px auto;
+    padding: 30px 35px 0;
+    border: 1px solid #b6a48b;
+    background-color: #f0e8de;
+    font-size: 11px;
+    color: #000;
+}
+
+.delivery_pay_content h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.delivery_pay_content p {
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.delivery_pay_content p:last-child {
+    margin-bottom: 30px;
 }
