@@ -102,7 +102,7 @@
 										<h3>Новинки</h3>
 										<div class="text_col-2">
                                             {% for sc in accessories_new %}
-                                                <a href="{% url 'catalogApp:catalog' sc|first %}?sale=True">{{ sc|last }}</a>
+                                                <a href="{% url 'catalogApp:catalog' sc|first %}?new=True">{{ sc|last }}</a>
                                             {% endfor %}
 										</div>
 									</div>

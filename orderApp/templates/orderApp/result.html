@@ -1,15 +1,25 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dandy shop</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'orderApp/css/result_style.css' %}">
+
 </head>
 <body>
-    <h1>{{ result }}</h1>
+    <section class="result">
+        <div class="result_content">
+            <h2>{{ result }}</h2>
+            {% if id_order %}
+                <h3>номер заказа: {{ id_order }}</h3>
+                <p>В течение часа наш специалист свяжется с вами для подтверждения заказа</p>
+            {% endif %}
+            <a href="{% url 'main:index' %}">На главную</a>
+        </div>
+    </section>
 
-    {% if id_order %}
-        {{ id_order }}
-    {% endif %}
 
 </body>
 </html>

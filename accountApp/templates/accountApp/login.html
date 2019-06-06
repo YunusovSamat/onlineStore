@@ -9,7 +9,7 @@
 
             <form action="{% url 'accountApp:login' %}" method="post">
                 {% csrf_token %}
-                <input type="text" name="username" autofocus placeholder="Логин">
+                <input type="text" name="username" autofocus placeholder="Электронный адрес">
                 <input type="password" name="password" placeholder="Пароль">
                 <p class="login_error"></p>
                 <button id="login_button" type="submit">Войти</button>

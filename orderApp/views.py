@@ -113,7 +113,7 @@ def order_processing(request):
                     count_product.save()
 
                 order.clear()
-                context['result'] = "Заказ успешно оформлен"
+                context['result'] = "Заказ успешно сформирован"
                 context['id_order'] = order_model.id
             else:
                 context['result'] = "Заказ не оформлен"
@@ -144,7 +144,7 @@ def order_processing(request):
                     count_product.save()
 
                 order.clear()
-                context['result'] = "Заказ успешно оформлен"
+                context['result'] = "Заказ успешно сформирован"
                 context['id_order'] = order_model.id
             else:
                 context['result'] = "Заказ не оформлен"
